@@ -10,7 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 
 <style>
-
 :root{
   --bg:#f4f7f5;
   --bg-alt:#e7f1ec;
@@ -24,26 +23,20 @@
   --border:#d9e6de;
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box;}
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth;}
 
 body{
   margin:0;
   background:var(--bg);
   color:var(--ink);
-  font-family:'IBM Plex Sans', sans-serif;
+  font-family:'IBM Plex Sans',sans-serif;
   line-height:1.65;
   font-size:16px;
 }
 
-a{
-  color:var(--accent);
-}
+a{color:var(--accent);}
 
 .wrap{
   max-width:920px;
@@ -51,14 +44,13 @@ a{
   padding:0 24px;
 }
 
-
-/* ---------- NAV ---------- */
+/* NAV */
 
 header.topbar{
   position:sticky;
   top:0;
   z-index:20;
-  background:rgba(31,87,69,0.96);
+  background:rgba(31,87,69,.96);
   backdrop-filter:blur(6px);
 }
 
@@ -78,7 +70,6 @@ header.topbar{
   font-size:16px;
   text-decoration:none;
   color:var(--on-accent);
-  letter-spacing:-0.01em;
 }
 
 nav.links{
@@ -94,11 +85,10 @@ nav.links a{
 }
 
 nav.links a:hover{
-  color:#ffffff;
+  color:#fff;
 }
 
-
-/* ---------- HERO ---------- */
+/* HERO */
 
 .hero{
   padding:72px 0 68px;
@@ -119,7 +109,7 @@ nav.links a:hover{
   inset:0;
   background-image:
     radial-gradient(
-      rgba(255,255,255,0.10) 1.5px,
+      rgba(255,255,255,.10) 1.5px,
       transparent 1.5px
     );
   background-size:26px 26px;
@@ -133,7 +123,7 @@ nav.links a:hover{
 .hero .kicker{
   font-size:13.5px;
   font-weight:600;
-  letter-spacing:0.04em;
+  letter-spacing:.04em;
   color:#bfe3d2;
   margin-bottom:14px;
 }
@@ -143,7 +133,6 @@ h1{
   font-weight:700;
   line-height:1.2;
   margin:0 0 18px;
-  letter-spacing:-0.01em;
   color:var(--on-accent);
 }
 
@@ -154,8 +143,7 @@ h1{
   font-size:16.5px;
 }
 
-
-/* ---------- SECCIONES ---------- */
+/* SECCIONES */
 
 section{
   padding:56px 0;
@@ -185,7 +173,6 @@ section#ubicacion{
   font-size:22px;
   font-weight:700;
   margin:0 0 8px;
-  letter-spacing:-0.01em;
 }
 
 .section-head p{
@@ -195,8 +182,7 @@ section#ubicacion{
   max-width:60ch;
 }
 
-
-/* ---------- MATERIA ---------- */
+/* MATERIA */
 
 ul.topics{
   list-style:none;
@@ -240,8 +226,7 @@ ul.topics li::before{
   padding:6px 14px;
 }
 
-
-/* ---------- TRABAJOS ---------- */
+/* PRÁCTICAS */
 
 .status-pill{
   display:inline-block;
@@ -270,9 +255,6 @@ ul.topics li::before{
   font-weight:600;
 }
 
-
-/* ---------- PROCESO ---------- */
-
 .process-intro{
   margin:44px 0 28px;
 }
@@ -296,7 +278,7 @@ ul.topics li::before{
   border-radius:14px;
   padding:24px 26px;
   margin-bottom:20px;
-  box-shadow:0 1px 2px rgba(31,87,69,0.06);
+  box-shadow:0 1px 2px rgba(31,87,69,.06);
 }
 
 .stage-head{
@@ -335,47 +317,53 @@ ul.topics li::before{
   gap:18px;
 }
 
-.step-list li{
+.step-list li.photo{
   display:grid;
-  grid-template-columns:140px 1fr;
-  gap:18px;
-  align-items:center;
+  grid-template-columns:1fr;
+  gap:12px;
+  align-items:start;
+  padding-bottom:18px;
+  border-bottom:1px solid var(--border);
 }
 
-.step-list li.photo{
-  grid-template-columns:1fr;
-  align-items:start;
-  gap:12px;
+.step-list li.photo:last-child{
+  padding-bottom:0;
+  border-bottom:0;
 }
 
 .step-thumb{
-  aspect-ratio:4/3;
-  background:var(--bg-alt);
-  border:1px dashed var(--border);
-  border-radius:8px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
+  background:#f8faf9;
   display:flex;
   align-items:center;
   justify-content:center;
-  color:var(--ink-dim);
-  font-size:11px;
-  text-align:center;
-  padding:8px;
-  line-height:1.3;
-  overflow:hidden;
 }
 
-.step-thumb.has-img{
-  aspect-ratio:auto;
-  border-style:solid;
-  border-color:var(--border);
-  background:#fff;
-  padding:0;
-}
-
-.step-thumb.has-img img{
+.step-thumb img{
   width:100%;
   height:auto;
+  max-height:680px;
+  object-fit:contain;
   display:block;
+  background:#f8faf9;
+}
+
+.step-thumb.portrait-shot img{
+  width:auto;
+  max-width:100%;
+  max-height:720px;
+}
+
+.step-thumb.compact-shot{
+  padding:18px;
+}
+
+.step-thumb.compact-shot img{
+  width:auto;
+  max-width:100%;
+  max-height:340px;
 }
 
 .step-text strong{
@@ -390,8 +378,55 @@ ul.topics li::before{
   color:var(--ink-dim);
 }
 
+.step-text b{
+  color:var(--ink);
+  font-weight:600;
+}
 
-/* ---------- ACORDEÓN ---------- */
+.stage-intro{
+  margin:0 0 20px;
+  color:var(--ink-dim);
+  font-size:14.5px;
+}
+
+.practice-lead{
+  color:var(--ink-dim);
+  font-size:15px;
+  margin:0 0 18px;
+  line-height:1.7;
+}
+
+.practice-specs{
+  margin-bottom:10px;
+}
+
+.note-box{
+  margin-top:2px;
+  border-left:4px solid #b88729;
+  background:#fff8e8;
+  color:#5d4a24;
+  border-radius:8px;
+  padding:13px 15px;
+  font-size:13.5px;
+  line-height:1.55;
+}
+
+.note-box strong{
+  color:#4c3a17;
+}
+
+.success-note{
+  margin-top:22px;
+  border-left-color:var(--accent);
+  background:var(--accent-dim);
+  color:var(--accent-deep);
+}
+
+.success-note strong{
+  color:var(--accent-deep);
+}
+
+/* ACORDEÓN */
 
 .accordion{
   background:var(--surface);
@@ -399,7 +434,7 @@ ul.topics li::before{
   border-top:3px solid var(--accent);
   border-radius:14px;
   margin-bottom:18px;
-  box-shadow:0 1px 2px rgba(31,87,69,0.06);
+  box-shadow:0 1px 2px rgba(31,87,69,.06);
   overflow:hidden;
 }
 
@@ -446,100 +481,7 @@ ul.topics li::before{
   padding:0 24px 26px;
 }
 
-
-/* ---------- DETALLES PRÁCTICA ---------- */
-
-.practice-lead{
-  color:var(--ink-dim);
-  font-size:15px;
-  margin:0 0 18px;
-  line-height:1.7;
-}
-
-.practice-specs{
-  margin-bottom:10px;
-}
-
-.stage-intro{
-  margin:0 0 20px;
-  color:var(--ink-dim);
-  font-size:14.5px;
-}
-
-.step-list li.photo{
-  padding-bottom:18px;
-  border-bottom:1px solid var(--border);
-}
-
-.step-list li.photo:last-child{
-  padding-bottom:0;
-  border-bottom:0;
-}
-
-.step-thumb.has-img{
-  background:#f8faf9;
-  border:1px solid var(--border);
-  border-radius:10px;
-  overflow:hidden;
-}
-
-.step-thumb.has-img img{
-  width:100%;
-  max-height:680px;
-  object-fit:contain;
-  margin:0 auto;
-  background:#f8faf9;
-}
-
-.step-thumb.has-img.portrait-shot img{
-  width:auto;
-  max-width:100%;
-  max-height:720px;
-}
-
-.step-thumb.has-img.compact-shot{
-  padding:18px;
-}
-
-.step-thumb.has-img.compact-shot img{
-  width:auto;
-  max-width:100%;
-  max-height:340px;
-}
-
-.step-text b{
-  color:var(--ink);
-  font-weight:600;
-}
-
-.note-box{
-  margin-top:2px;
-  border-left:4px solid #b88729;
-  background:#fff8e8;
-  color:#5d4a24;
-  border-radius:8px;
-  padding:13px 15px;
-  font-size:13.5px;
-  line-height:1.55;
-}
-
-.note-box strong{
-  color:#4c3a17;
-}
-
-.success-note{
-  margin-top:22px;
-  border-left-color:var(--accent);
-  background:var(--accent-dim);
-  color:var(--accent-deep);
-}
-
-.success-note strong{
-  color:var(--accent-deep);
-}
-
-
-/* ---------- EQUIPO ---------- */
+/* EQUIPO */
 
 .team-grid{
   display:grid;
@@ -553,7 +495,7 @@ ul.topics li::before{
   border-radius:14px;
   padding:22px;
   text-align:center;
-  box-shadow:0 1px 2px rgba(31,87,69,0.06);
+  box-shadow:0 1px 2px rgba(31,87,69,.06);
 }
 
 .avatar{
@@ -564,7 +506,7 @@ ul.topics li::before{
   background:var(--accent-dim);
   border:3px solid var(--accent-dim);
   margin:0 auto 14px;
-  box-shadow:0 2px 8px rgba(31,87,69,0.12);
+  box-shadow:0 2px 8px rgba(31,87,69,.12);
 }
 
 .avatar img{
@@ -587,19 +529,13 @@ ul.topics li::before{
   font-weight:500;
 }
 
-.person a:hover{
-  text-decoration:underline;
-}
-
-
-/* ---------- UBICACIÓN ---------- */
+/* UBICACIÓN */
 
 .map-frame{
   border:1px solid var(--border);
   border-top:3px solid var(--accent);
   border-radius:14px;
   overflow:hidden;
-  box-shadow:0 1px 2px rgba(31,87,69,0.06);
 }
 
 .map-frame iframe{
@@ -615,9 +551,6 @@ ul.topics li::before{
   color:var(--ink-dim);
 }
 
-
-/* ---------- FOOTER ---------- */
-
 footer{
   padding:28px 0 36px;
   text-align:center;
@@ -626,10 +559,7 @@ footer{
   background:var(--accent-deep);
 }
 
-
-/* ---------- RESPONSIVE ---------- */
-
-@media (max-width:680px){
+@media(max-width:680px){
 
   ul.topics{
     grid-template-columns:1fr;
@@ -639,12 +569,12 @@ footer{
     grid-template-columns:1fr;
   }
 
-  nav.links{
-    gap:16px;
-  }
-
   .spec-list{
     grid-template-columns:1fr;
+  }
+
+  nav.links{
+    gap:16px;
   }
 
   .accordion-body{
@@ -655,34 +585,21 @@ footer{
     padding:20px 16px;
   }
 
-  .step-thumb.has-img img{
+  .step-thumb img{
     max-height:520px;
   }
 
-  .step-thumb.has-img.portrait-shot img{
+  .step-thumb.portrait-shot img{
     max-height:580px;
-  }
-}
-
-@media (prefers-reduced-motion:reduce){
-  html{
-    scroll-behavior:auto;
   }
 }
 
 </style>
 </head>
 
-
 <body>
 
-
-<!-- ===================================================== -->
-<!-- NAV -->
-<!-- ===================================================== -->
-
 <header class="topbar">
-
   <div class="nav-inner">
 
     <a class="brand" href="#inicio">
@@ -690,25 +607,17 @@ footer{
     </a>
 
     <nav class="links">
-
       <a href="#materia">Materia</a>
       <a href="#trabajos">Trabajos</a>
       <a href="#equipo">Equipo</a>
       <a href="#ubicacion">Ubicación</a>
-
     </nav>
 
   </div>
-
 </header>
 
 
-<!-- ===================================================== -->
-<!-- HERO -->
-<!-- ===================================================== -->
-
 <section class="hero" id="inicio">
-
   <div class="wrap">
 
     <div class="kicker">
@@ -726,20 +635,13 @@ footer{
     </p>
 
   </div>
-
 </section>
 
 
-<!-- ===================================================== -->
-<!-- MATERIA -->
-<!-- ===================================================== -->
-
 <section id="materia">
-
   <div class="wrap">
 
     <div class="section-head">
-
       <h2>La materia</h2>
 
       <p>
@@ -748,39 +650,27 @@ footer{
         a la placa terminada, pasando por el diseño de pistas,
         la fabricación digital y el ensamble final.
       </p>
-
     </div>
 
-
     <ul class="topics">
-
       <li>Diseño de esquemáticos y validación de circuitos</li>
       <li>Ruteo de pistas y planeación de placas en KiCad</li>
       <li>Modelado y verificación de diseños en Altium</li>
       <li>Fabricación digital de PCBs (fresado y grabado láser)</li>
       <li>Soldadura y ensamble de componentes</li>
-
     </ul>
 
-
     <div class="tools-row">
-
       <span class="tool-chip">KiCad</span>
       <span class="tool-chip">Altium</span>
       <span class="tool-chip">Fresadora CNC</span>
       <span class="tool-chip">Grabado láser</span>
       <span class="tool-chip">Cautín &amp; estaño</span>
-
     </div>
 
   </div>
-
 </section>
 
-
-<!-- ===================================================== -->
-<!-- TRABAJOS -->
-<!-- ===================================================== -->
 
 <section id="trabajos">
 
@@ -798,10 +688,6 @@ Toca el título para desplegar el detalle.
 </div>
 
 
-<!-- ===================================================== -->
-<!-- PRÁCTICA 1 -->
-<!-- ===================================================== -->
-
 <details class="accordion" open>
 
 <summary>
@@ -818,15 +704,12 @@ Práctica 1 — Diseño de PCB en KiCad
 
 </div>
 
-<span class="accordion-chevron">
-›
-</span>
+<span class="accordion-chevron">›</span>
 
 </summary>
 
 
 <div class="accordion-body">
-
 
 <p class="practice-lead">
 
@@ -871,19 +754,15 @@ Proceso paso a paso
 </h3>
 
 <p>
-
 Estas son las etapas que seguimos desde que abrimos KiCad
 hasta dejar listos los archivos de salida para continuar
 con la fabricación.
-
 </p>
 
 </div>
 
 
-<!-- ===================================================== -->
 <!-- ETAPA 1 -->
-<!-- ===================================================== -->
 
 <div class="stage">
 
@@ -905,12 +784,11 @@ Configuración inicial y creación del proyecto
 
 <li class="photo">
 
-<div class="step-thumb has-img">
+<div class="step-thumb">
 
 <img
-src="Captura de pantalla 2026-09-19 a la(s) 1.18.42 p.m..png"
-alt="Pantalla principal de KiCad al abrir el programa"
-loading="lazy">
+src="kicad-01.png"
+alt="Pantalla principal de KiCad">
 
 </div>
 
@@ -923,8 +801,10 @@ Primera pantalla de KiCad
 <span>
 
 Esto es lo primero que vemos al abrir KiCad.
-Desde esta pantalla principal podemos acceder a los editores,
-administrar el proyecto y comenzar a preparar el entorno de trabajo.
+
+Desde esta pantalla principal podemos acceder
+a los editores, administrar el proyecto
+y comenzar a preparar el entorno de trabajo.
 
 </span>
 
@@ -935,12 +815,11 @@ administrar el proyecto y comenzar a preparar el entorno de trabajo.
 
 <li class="photo">
 
-<div class="step-thumb has-img">
+<div class="step-thumb">
 
 <img
-src="Captura de pantalla 2026-09-19 a la(s) 1.19.18 p.m..png"
-alt="Menú de Preferencias para gestionar bibliotecas de símbolos"
-loading="lazy">
+src="kicad-02.png"
+alt="Preferencias de KiCad">
 
 </div>
 
@@ -952,9 +831,12 @@ Acceso a las librerías
 
 <span>
 
-Desde <b>Preferencias</b> entramos a la gestión de bibliotecas.
-Aquí agregamos o descargamos las librerías que necesitamos
-para poder construir nuestro circuito con los componentes correctos.
+Desde <b>Preferencias</b>
+entramos a la gestión de bibliotecas.
+
+Aquí agregamos o descargamos
+las librerías que necesitamos
+para construir nuestro circuito.
 
 </span>
 
@@ -965,12 +847,11 @@ para poder construir nuestro circuito con los componentes correctos.
 
 <li class="photo">
 
-<div class="step-thumb has-img">
+<div class="step-thumb">
 
 <img
-src="Captura de pantalla 2026-09-19 a la(s) 1.19.51 p.m..png"
-alt="Bibliotecas de símbolos de KiCad con PCM_fab habilitada"
-loading="lazy">
+src="kicad-03.png"
+alt="Librerías de símbolos">
 
 </div>
 
@@ -982,10 +863,12 @@ Librerías de símbolos que vamos a utilizar
 
 <span>
 
-Verificamos que estén habilitadas las bibliotecas necesarias.
-En nuestro caso trabajamos con las librerías de KiCad
-y con <b>PCM_fab</b>, que contiene los símbolos requeridos
-para la práctica.
+Verificamos que estén habilitadas
+las bibliotecas necesarias.
+
+En nuestro caso trabajamos
+con las librerías de KiCad
+y con <b>PCM_fab</b>.
 
 </span>
 
@@ -996,12 +879,11 @@ para la práctica.
 
 <li class="photo">
 
-<div class="step-thumb has-img">
+<div class="step-thumb">
 
 <img
-src="Captura de pantalla 2026-09-19 a la(s) 1.20.03 p.m..png"
-alt="Bibliotecas de huellas de KiCad con PCM_fab habilitada"
-loading="lazy">
+src="kicad-04.png"
+alt="Bibliotecas de huellas">
 
 </div>
 
@@ -1013,10 +895,11 @@ Bibliotecas de huellas
 
 <span>
 
-Repetimos el mismo proceso para las
-<b>huellas de los componentes</b>.
+Repetimos el mismo proceso
+para las <b>huellas de los componentes</b>.
 
-Estas huellas son las representaciones físicas
+Estas huellas representan
+la forma física de los componentes
 que posteriormente aparecerán en la PCB.
 
 </span>
@@ -1028,12 +911,11 @@ que posteriormente aparecerán en la PCB.
 
 <li class="photo">
 
-<div class="step-thumb has-img">
+<div class="step-thumb">
 
 <img
-src="Captura de pantalla 2026-09-19 a la(s) 1.20.19 p.m..png"
-alt="Bibliotecas de bloques de diseño del proyecto"
-loading="lazy">
+src="kicad-05.png"
+alt="Bibliotecas de diseño">
 
 </div>
 
@@ -1045,10 +927,9 @@ Bibliotecas de diseño
 
 <span>
 
-También revisamos las bibliotecas de bloques de diseño
-que utilizaremos dentro del proyecto,
-de manera que los recursos queden disponibles
-durante el desarrollo.
+También revisamos
+las bibliotecas de bloques de diseño
+que utilizaremos dentro del proyecto.
 
 </span>
 
@@ -1059,12 +940,11 @@ durante el desarrollo.
 
 <li class="photo">
 
-<div class="step-thumb has-img">
+<div class="step-thumb">
 
 <img
-src="Captura de pantalla 2026-09-19 a la(s) 1.21.11 p.m..png"
-alt="Menú Archivo de KiCad con la opción Nuevo proyecto seleccionada"
-loading="lazy">
+src="kicad-06.png"
+alt="Nuevo proyecto en KiCad">
 
 </div>
 
@@ -1077,10 +957,14 @@ Crear un proyecto nuevo
 <span>
 
 Después vamos a
+
 <b>Archivo → Nuevo proyecto</b>
-para crear el archivo de trabajo en el que
-se guardarán el esquemático,
-la PCB y los demás archivos del proyecto.
+
+para crear el archivo de trabajo
+en el que se guardarán
+el esquemático,
+la PCB
+y los demás archivos.
 
 </span>
 
@@ -1091,12 +975,11 @@ la PCB y los demás archivos del proyecto.
 
 <li class="photo">
 
-<div class="step-thumb has-img compact-shot">
+<div class="step-thumb compact-shot">
 
 <img
-src="Captura de pantalla 2026-09-19 a la(s) 1.21.36 p.m..png"
-alt="Archivos del proyecto KiCad mostrando el archivo de esquemático kicad_sch"
-loading="lazy">
+src="kicad-07.png"
+alt="Archivo de esquemático">
 
 </div>
 
@@ -1108,11 +991,13 @@ Abrir el esquemático
 
 <span>
 
-Al crear el proyecto aparecen sus archivos principales.
+Al crear el proyecto
+aparecen sus archivos principales.
 
-Para empezar a construir el circuito debemos abrir
-el archivo del
-<b>esquemático (.kicad_sch)</b>.
+Para empezar a construir el circuito
+debemos abrir el archivo
+
+<b>.kicad_sch</b>.
 
 </span>
 
@@ -1126,9 +1011,7 @@ el archivo del
 </div>
 
 
-<!-- ===================================================== -->
 <!-- ETAPA 2 -->
-<!-- ===================================================== -->
 
 <div class="stage">
 
@@ -1150,15 +1033,13 @@ Trabajo en el esquemático
 
 <li class="photo">
 
-<div class="step-thumb has-img portrait-shot">
+<div class="step-thumb portrait-shot">
 
 <img
-src="Image (5)(1).jpeg"
-alt="Zona de herramientas con checklist e icono de acceso al esquemático"
-loading="lazy">
+src="kicad-checklist.jpeg"
+alt="Checklist de KiCad">
 
 </div>
-
 
 <div class="step-text">
 
@@ -1168,16 +1049,24 @@ Checklist y navegación del esquemático
 
 <span>
 
-Esta zona forma parte de nuestras herramientas de trabajo.
+Esta zona forma parte
+de nuestras herramientas de trabajo.
 
-La <b>checklist</b> nos permite revisar el diseño:
-marca los errores que debemos corregir
-y también muestra avisos.
+La <b>checklist</b>
+nos permite revisar el diseño.
 
-Los avisos pueden ignorarse cuando ya revisamos
-que no afectan el funcionamiento o la fabricación.
+Nos muestra los <b>errores</b>
+que debemos corregir
+y también los <b>avisos</b>.
 
-En esta misma barra tenemos el acceso
+Los avisos pueden ignorarse
+si después de revisarlos
+vemos que no afectan
+el funcionamiento
+o la fabricación.
+
+En esta misma barra
+tenemos el acceso
 para regresar al esquemático.
 
 </span>
@@ -1189,15 +1078,13 @@ para regresar al esquemático.
 
 <li class="photo">
 
-<div class="step-thumb has-img portrait-shot">
+<div class="step-thumb portrait-shot">
 
 <img
-src="Image (6)(1).jpeg"
-alt="Barra lateral de herramientas del editor de esquemáticos"
-loading="lazy">
+src="kicad-herramientas.jpeg"
+alt="Herramientas del esquemático">
 
 </div>
-
 
 <div class="step-text">
 
@@ -1207,14 +1094,15 @@ Herramientas del editor de esquemáticos
 
 <span>
 
-En esta barra encontramos las herramientas que usamos
-para construir el circuito:
+En esta barra encontramos
+las herramientas necesarias
+para construir el circuito.
 
-agregar componentes electrónicos,
+Podemos agregar componentes electrónicos,
 colocar tierra y voltajes,
-unir los componentes con cables,
-añadir texto o etiquetas
-y dibujar contornos para organizar el esquema.
+unir componentes con cables,
+añadir texto y etiquetas
+y hacer contornos.
 
 </span>
 
@@ -1225,15 +1113,13 @@ y dibujar contornos para organizar el esquema.
 
 <li class="photo">
 
-<div class="step-thumb has-img portrait-shot">
+<div class="step-thumb portrait-shot">
 
 <img
-src="Captura de pantalla 2026-09-19 a la(s) 1.22.29 p.m..png"
-alt="Vista de un componente y su huella asociada en KiCad"
-loading="lazy">
+src="kicad-huella.png"
+alt="Huella de componente">
 
 </div>
-
 
 <div class="step-text">
 
@@ -1243,12 +1129,13 @@ Revisar la huella del componente
 
 <span>
 
-La imagen inferior corresponde a la
-<b>huella (footprint)</b>
+La imagen inferior corresponde
+a la <b>huella o footprint</b>
 del componente.
 
-La huella representa la forma física
-que tendrá el componente sobre la placa.
+La huella representa
+la forma física que tendrá
+el componente sobre la placa.
 
 </span>
 
@@ -1261,13 +1148,15 @@ que tendrá el componente sobre la placa.
 Nota importante:
 </strong>
 
-cuando agregamos un componente al esquemático
-debemos comprobar que tenga una huella asignada.
+cuando agregamos un componente
+al esquemático debemos comprobar
+que tenga una huella asignada.
 
-Si el componente no tiene una huella compatible,
+Si el componente no tiene
+una huella compatible,
 no podremos utilizarlo correctamente
-al momento de llevar el diseño a la PCB
-y fabricarla.
+al llevar el diseño a la PCB
+para su fabricación.
 
 </div>
 
@@ -1276,15 +1165,13 @@ y fabricarla.
 
 <li class="photo">
 
-<div class="step-thumb has-img portrait-shot">
+<div class="step-thumb portrait-shot">
 
 <img
-src="Captura de pantalla 2026-09-19 a la(s) 1.02.14 p.m..png"
-alt="Esquemático final del circuito organizado con contornos y etiquetas"
-loading="lazy">
+src="kicad-esquematico-final.png"
+alt="Esquemático final">
 
 </div>
-
 
 <div class="step-text">
 
@@ -1296,12 +1183,15 @@ Esquemático final
 
 Este es nuestro esquemático terminado.
 
-Después de colocar y conectar los componentes,
+Después de colocar
+y conectar los componentes,
 lo ordenamos utilizando
-<b>contornos y etiquetas</b>
-para separar visualmente las diferentes
-secciones del circuito
-y facilitar su lectura.
+<b>contornos y etiquetas</b>.
+
+De esta manera
+separamos visualmente
+las diferentes partes del circuito
+y facilitamos su lectura.
 
 </span>
 
@@ -1315,9 +1205,7 @@ y facilitar su lectura.
 </div>
 
 
-<!-- ===================================================== -->
 <!-- ETAPA 3 -->
-<!-- ===================================================== -->
 
 <div class="stage">
 
@@ -1339,15 +1227,13 @@ Diseño de la PCB
 
 <li class="photo">
 
-<div class="step-thumb has-img">
+<div class="step-thumb">
 
 <img
-src="Captura de pantalla 2026-09-19 a la(s) 1.23.15 p.m..png"
-alt="Área de trabajo del editor de PCB de KiCad"
-loading="lazy">
+src="pcb-area.png"
+alt="Área de trabajo PCB">
 
 </div>
-
 
 <div class="step-text">
 
@@ -1357,17 +1243,22 @@ Pasamos al editor de PCB
 
 <span>
 
-Una vez terminado el esquemático
+Una vez terminado
+el esquemático
 nos vamos al editor de PCB.
 
-Aquí observamos el área principal de trabajo.
+Aquí observamos
+el área principal de trabajo.
 
-En la parte superior tenemos nuevamente
-las herramientas de revisión o checklist,
-y en la zona lateral encontramos
-las opciones para trabajar con
-<b>etiquetas, pistas/cables y capas</b>
-del diseño.
+En la parte superior
+tenemos nuevamente
+las herramientas de revisión
+o checklist.
+
+En la barra lateral
+encontramos las opciones
+para trabajar con
+<b>etiquetas, pistas/cables y capas</b>.
 
 </span>
 
@@ -1378,15 +1269,13 @@ del diseño.
 
 <li class="photo">
 
-<div class="step-thumb has-img compact-shot">
+<div class="step-thumb compact-shot">
 
 <img
-src="Captura de pantalla 2026-09-19 a la(s) 1.23.45 p.m..png"
-alt="Icono para actualizar la PCB desde el esquemático"
-loading="lazy">
+src="pcb-componentes.png"
+alt="Pasar componentes a PCB">
 
 </div>
-
 
 <div class="step-text">
 
@@ -1396,13 +1285,15 @@ Pasar los componentes del esquemático a la PCB
 
 <span>
 
-Utilizamos este ícono para cargar en la placa
-los componentes provenientes del esquemático.
+Utilizamos este ícono
+para cargar en la placa
+los componentes provenientes
+del esquemático.
 
 Una vez importados,
 los separamos y acomodamos
-para poder comenzar el ruteo
-y organizar correctamente la placa.
+para comenzar a organizar
+la PCB.
 
 </span>
 
@@ -1413,15 +1304,13 @@ y organizar correctamente la placa.
 
 <li class="photo">
 
-<div class="step-thumb has-img">
+<div class="step-thumb">
 
 <img
-src="Captura de pantalla 2026-09-19 a la(s) 1.25.24 p.m..png"
-alt="Configuración de reglas y requerimientos de diseño de la PCB"
-loading="lazy">
+src="pcb-reglas.png"
+alt="Reglas de diseño PCB">
 
 </div>
-
 
 <div class="step-text">
 
@@ -1431,16 +1320,23 @@ Definir las reglas de diseño
 
 <span>
 
-Antes de rutear configuramos los requerimientos
-que debe cumplir la PCB para poder fabricarse.
+Antes de rutear
+configuramos los requerimientos
+que debe cumplir la PCB
+para poder fabricarse.
 
-Aquí definimos parámetros como
-el <b>margen mínimo</b>
-y el <b>ancho mínimo de pista</b>,
-además de las separaciones
+Aquí definimos parámetros
+como el
+
+<b>margen mínimo</b>
+
+y el
+
+<b>ancho mínimo de pista</b>,
+
+además de otras separaciones
 y dimensiones necesarias
-para respetar las limitaciones
-del proceso de fabricación.
+para la fabricación.
 
 </span>
 
@@ -1451,15 +1347,13 @@ del proceso de fabricación.
 
 <li class="photo">
 
-<div class="step-thumb has-img compact-shot">
+<div class="step-thumb compact-shot">
 
 <img
-src="Captura de pantalla 2026-09-19 a la(s) 1.27.51 p.m..png"
-alt="Opción de exportación SVG en KiCad"
-loading="lazy">
+src="pcb-svg.png"
+alt="Exportar SVG">
 
 </div>
-
 
 <div class="step-text">
 
@@ -1471,12 +1365,14 @@ Exportar el diseño en SVG
 
 Con el diseño preparado
 exportamos el archivo
-en formato <b>SVG</b>.
+en formato
 
-Esta salida nos permite separar
-la información necesaria de la placa
-y continuar con la preparación
-de los archivos para fabricación.
+<b>SVG</b>.
+
+Esta salida nos permite
+continuar con la preparación
+de los archivos
+para fabricación.
 
 </span>
 
@@ -1490,9 +1386,7 @@ de los archivos para fabricación.
 </div>
 
 
-<!-- ===================================================== -->
 <!-- ETAPA 4 -->
-<!-- ===================================================== -->
 
 <div class="stage">
 
@@ -1511,16 +1405,17 @@ Exportación de archivos para fabricación
 
 <p class="stage-intro">
 
-En esta etapa únicamente preparamos
-y exportamos los archivos de fabricación.
+En esta etapa únicamente
+preparamos y exportamos
+los archivos de fabricación.
 
-Los archivos generados se guardan
-en la carpeta de destino de nuestro proyecto
+Los archivos generados
+se guardan en la carpeta
+de nuestro proyecto
 en la computadora.
 
-Después utilizaremos estas salidas
-en <b>Mods</b>
-para continuar con el proceso de fabricación.
+Después utilizaremos
+estos archivos en <b>Mods</b>.
 
 </p>
 
@@ -1530,15 +1425,13 @@ para continuar con el proceso de fabricación.
 
 <li class="photo">
 
-<div class="step-thumb has-img">
+<div class="step-thumb">
 
 <img
-src="Captura de pantalla 2026-09-19 a la(s) 1.29.09 p.m..png"
-alt="Ventana de exportación de archivos y selección de capas"
-loading="lazy">
+src="gerber-01.png"
+alt="Exportación de capas">
 
 </div>
-
 
 <div class="step-text">
 
@@ -1548,13 +1441,16 @@ Seleccionar las capas y la carpeta de salida
 
 <span>
 
-Elegimos las capas que necesitamos
+Elegimos las capas
+que necesitamos
 y verificamos la carpeta
-en la que se guardarán
+donde se guardarán
 los archivos generados.
 
-Normalmente usamos la misma carpeta
-donde tenemos guardado nuestro trabajo.
+Normalmente utilizamos
+la misma carpeta
+en donde tenemos
+guardado nuestro proyecto.
 
 </span>
 
@@ -1565,15 +1461,13 @@ donde tenemos guardado nuestro trabajo.
 
 <li class="photo">
 
-<div class="step-thumb has-img">
+<div class="step-thumb">
 
 <img
-src="Captura de pantalla 2026-09-19 a la(s) 1.29.58 p.m..png"
-alt="Menú de salidas de fabricación con opción Gerbers en KiCad"
-loading="lazy">
+src="gerber-02.png"
+alt="Salidas de fabricación Gerber">
 
 </div>
-
 
 <div class="step-text">
 
@@ -1583,13 +1477,19 @@ Entrar a Salidas de fabricación → Gerbers
 
 <span>
 
-Desde el menú de archivo
+Desde el menú
 entramos a
+
 <b>Salidas de fabricación</b>
-y seleccionamos la opción de
-<b>Gerbers</b>
-para generar los archivos
-correspondientes a las capas de la PCB.
+
+y seleccionamos
+
+<b>Gerbers</b>.
+
+Desde aquí
+generamos los archivos
+correspondientes
+a las capas de la PCB.
 
 </span>
 
@@ -1600,15 +1500,13 @@ correspondientes a las capas de la PCB.
 
 <li class="photo">
 
-<div class="step-thumb has-img">
+<div class="step-thumb">
 
 <img
-src="Captura de pantalla 2026-09-19 a la(s) 1.30.13 p.m..png"
-alt="Ventana de configuración para generar archivos Gerber"
-loading="lazy">
+src="gerber-03.png"
+alt="Generación Gerber">
 
 </div>
-
 
 <div class="step-text">
 
@@ -1623,8 +1521,8 @@ que queremos exportar
 y trazamos los archivos.
 
 KiCad los guarda
-en la carpeta de destino seleccionada
-dentro de nuestro proyecto.
+en la carpeta de destino
+de nuestro proyecto.
 
 </span>
 
@@ -1635,15 +1533,13 @@ dentro de nuestro proyecto.
 
 <li class="photo">
 
-<div class="step-thumb has-img">
+<div class="step-thumb">
 
 <img
-src="Captura de pantalla 2026-09-19 a la(s) 1.30.30 p.m..png"
-alt="Ventana de trazado y selección de formato de salida en KiCad"
-loading="lazy">
+src="gerber-04.png"
+alt="Archivos de salida">
 
 </div>
-
 
 <div class="step-text">
 
@@ -1654,13 +1550,17 @@ Archivos listos para Mods
 <span>
 
 Al terminar la exportación
-ya tenemos los archivos de salida
+ya tenemos los archivos
 guardados en nuestra computadora.
 
 Estos son los archivos
-que utilizaremos en <b>Mods</b>
+que utilizaremos en
+
+<b>Mods</b>
+
 para preparar las rutas
-y continuar con la fabricación de la PCB.
+y continuar
+con la fabricación de la PCB.
 
 </span>
 
@@ -1682,20 +1582,16 @@ al finalizar esta etapa
 tenemos el esquemático,
 el diseño de la PCB
 y los archivos de fabricación
-listos para pasar al siguiente software
-del proceso.
+listos para continuar.
+
+</div>
 
 </div>
 
 
-</div>
+<!-- ETAPA 5 MODS -->
 
-
-<!-- ===================================================== -->
-<!-- ETAPA 5 - MODS CE -->
-<!-- ===================================================== -->
-
-<div class="stage" style="margin-top:20px; margin-bottom:0;">
+<div class="stage">
 
 <div class="stage-head">
 
@@ -1712,9 +1608,12 @@ Uso de Mods CE
 
 <p class="stage-intro">
 
-Con los archivos de fabricación ya exportados desde KiCad,
-pasamos a Mods CE para preparar las rutas de maquinado
-que utilizará la MonoFab SRM-20.
+Con los archivos
+ya exportados desde KiCad,
+pasamos a Mods CE
+para preparar las rutas
+de maquinado que utilizará
+la MonoFab SRM-20.
 
 </p>
 
@@ -1724,15 +1623,13 @@ que utilizará la MonoFab SRM-20.
 
 <li class="photo">
 
-<div class="step-thumb has-img">
+<div class="step-thumb">
 
 <img
 src="mods-programs.png"
-alt="Panel de programas de Mods CE buscando SRM-20 mill 2D PCB"
-loading="lazy">
+alt="Programas Mods CE">
 
 </div>
-
 
 <div class="step-text">
 
@@ -1742,15 +1639,23 @@ Abrir el programa en Mods CE
 
 <span>
 
-Entramos a <b>modsproject.org</b>,
-abrimos el panel de <b>Programs</b>
+Entramos a
+
+<b>modsproject.org</b>,
+
+abrimos el panel de
+
+<b>Programs</b>
+
 y buscamos
 
 <b>SRM-20 mill → mill 2D PCB</b>.
 
-Este es el flujo que utilizamos
+Este es el flujo
+que utilizaremos
 para preparar los archivos
-que se enviarán a la MonoFab.
+que posteriormente
+se enviarán a la MonoFab.
 
 </span>
 
@@ -1761,15 +1666,13 @@ que se enviarán a la MonoFab.
 
 <li class="photo">
 
-<div class="step-thumb has-img">
+<div class="step-thumb">
 
 <img
 src="mods-pistas.png"
-alt="Pipeline de Mods CE procesando el archivo SVG de pistas"
-loading="lazy">
+alt="Pistas en Mods CE">
 
 </div>
-
 
 <div class="step-text">
 
@@ -1779,23 +1682,40 @@ Cargar el archivo de pistas
 
 <span>
 
-En el módulo <b>read SVG</b>
-cargamos <b>Pistas.svg</b>
-y lo invertimos en
+En el módulo
+
+<b>read SVG</b>
+
+cargamos
+
+<b>Pistas.svg</b>.
+
+Posteriormente
+lo invertimos
+en
+
 <b>Convert SVG</b>.
 
-Después, en
-<b>set PCB defaults</b>,
-seleccionamos la herramienta
+En
+
+<b>set PCB defaults</b>
+
+seleccionamos
+la herramienta
 
 <b>0.40 mm flat</b>
 
-y configuramos una profundidad de corte
-de <b>0.1 mm</b>.
+y configuramos
+una profundidad de corte
+de
 
-Esta profundidad es suficiente
+<b>0.1 mm</b>.
+
+Esta profundidad
+es suficiente
 para aislar el cobre
-sin atravesar completamente la placa.
+sin atravesar completamente
+la placa.
 
 </span>
 
@@ -1806,15 +1726,13 @@ sin atravesar completamente la placa.
 
 <li class="photo">
 
-<div class="step-thumb has-img">
+<div class="step-thumb">
 
 <img
 src="mods-contorno.png"
-alt="Pipeline de Mods CE procesando el archivo SVG del contorno"
-loading="lazy">
+alt="Contorno en Mods CE">
 
 </div>
-
 
 <div class="step-text">
 
@@ -1824,20 +1742,35 @@ Configurar el contorno, la velocidad y el guardado
 
 <span>
 
-Repetimos el proceso con
-<b>Contornos.svg</b>
-para realizar el corte exterior de la placa.
+Repetimos el proceso
+con
 
-En este caso utilizamos
-una fresa de <b>1.9 mm</b>,
-capaz de atravesar todo el espesor.
+<b>Contornos.svg</b>
+
+para realizar
+el corte exterior
+de la placa.
+
+En este caso
+utilizamos una fresa
+de
+
+<b>1.9 mm</b>,
+
+capaz de atravesar
+todo el espesor.
 
 En
+
 <b>Roland SRM-20 milling machine</b>
-dejamos la velocidad en
+
+dejamos la velocidad
+en
+
 <b>4 mm/s</b>
 
-y activamos el guardado automático
+y activamos
+el guardado automático
 antes de calcular la ruta.
 
 </span>
@@ -1856,9 +1789,12 @@ antes de calcular la ruta.
 Resultado:
 </strong>
 
-Mods CE genera el archivo de trayectoria
-que utilizaremos posteriormente en VPanel
-para realizar el fresado de la PCB
+Mods CE genera
+el archivo de trayectoria
+que utilizaremos posteriormente
+en VPanel
+para realizar
+el fresado de la PCB
 con la MonoFab.
 
 </div>
@@ -1872,10 +1808,6 @@ con la MonoFab.
 </details>
 
 
-<!-- ===================================================== -->
-<!-- PRÓXIMA PRÁCTICA -->
-<!-- ===================================================== -->
-
 <details class="accordion">
 
 <summary>
@@ -1884,7 +1816,7 @@ con la MonoFab.
 
 <span
 class="status-pill"
-style="color:var(--ink-dim); background:#f0efe9;">
+style="color:var(--ink-dim);background:#f0efe9;">
 
 Pendiente
 
@@ -1901,7 +1833,6 @@ Próxima práctica
 </span>
 
 </summary>
-
 
 <div class="accordion-body">
 
@@ -1922,10 +1853,6 @@ hasta llegar al proyecto final.
 
 </section>
 
-
-<!-- ===================================================== -->
-<!-- EQUIPO -->
-<!-- ===================================================== -->
 
 <section id="equipo">
 
@@ -1948,7 +1875,7 @@ Equipo
 <div class="avatar">
 
 <img
-src="IMG_4567.jpeg"
+src="eduardo.jpeg"
 alt="Foto de Eduardo Salamanca Esquivel">
 
 </div>
@@ -1969,7 +1896,7 @@ Eduardo Salamanca Esquivel
 <div class="avatar">
 
 <img
-src="IMG_6047.jpeg"
+src="mia.jpeg"
 alt="Foto de Mia Noriel Castillo Hermosillo">
 
 </div>
@@ -1991,10 +1918,6 @@ Mia Noriel Castillo Hermosillo
 
 </section>
 
-
-<!-- ===================================================== -->
-<!-- UBICACIÓN -->
-<!-- ===================================================== -->
 
 <section id="ubicacion">
 
@@ -2021,19 +1944,13 @@ referrerpolicy="no-referrer-when-downgrade">
 
 
 <p class="loc-caption">
-
 Universidad Iberoamericana Puebla
-
 </p>
 
 </div>
 
 </section>
 
-
-<!-- ===================================================== -->
-<!-- FOOTER -->
-<!-- ===================================================== -->
 
 <footer>
 
