@@ -1,794 +1,1889 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Producción Electrónica</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+
 <style>
-  :root{
-    --bg:#f4f7f5;
-    --bg-alt:#e7f1ec;
-    --surface:#ffffff;
-    --ink:#1c2620;
-    --ink-dim:#57685f;
-    --accent:#2f7d63;
-    --accent-deep:#1f5745;
-    --accent-dim:#dcece4;
-    --on-accent:#f2f8f5;
-    --border:#d9e6de;
-  }
 
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+:root{
+  --bg:#f4f7f5;
+  --bg-alt:#e7f1ec;
+  --surface:#ffffff;
+  --ink:#1c2620;
+  --ink-dim:#57685f;
+  --accent:#2f7d63;
+  --accent-deep:#1f5745;
+  --accent-dim:#dcece4;
+  --on-accent:#f2f8f5;
+  --border:#d9e6de;
+}
 
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--ink);
-    font-family:'IBM Plex Sans', sans-serif;
-    line-height:1.65;
-    font-size:16px;
-  }
+*{
+  box-sizing:border-box;
+}
 
-  a{color:var(--accent);}
+html{
+  scroll-behavior:smooth;
+}
 
-  .wrap{
-    max-width:920px;
-    margin:0 auto;
-    padding:0 24px;
-  }
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'IBM Plex Sans', sans-serif;
+  line-height:1.65;
+  font-size:16px;
+}
 
-  /* ---------- NAV ---------- */
-  header.topbar{
-    position:sticky;
-    top:0;
-    z-index:20;
-    background:rgba(31,87,69,0.96);
-    backdrop-filter:blur(6px);
-  }
-  .nav-inner{
-    max-width:920px;
-    margin:0 auto;
-    padding:18px 24px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-    flex-wrap:wrap;
-  }
-  .brand{
-    font-weight:600;
-    font-size:16px;
-    text-decoration:none;
-    color:var(--on-accent);
-    letter-spacing:-0.01em;
-  }
-  nav.links{
-    display:flex;
-    gap:26px;
-  }
-  nav.links a{
-    font-size:14px;
-    font-weight:500;
-    text-decoration:none;
-    color:#cfe4da;
-  }
-  nav.links a:hover{color:#ffffff;}
+a{
+  color:var(--accent);
+}
 
-  /* ---------- HERO ---------- */
-  .hero{
-    padding:72px 0 68px;
-    text-align:center;
-    background:linear-gradient(160deg, var(--accent-deep), var(--accent) 78%);
-    color:var(--on-accent);
-    position:relative;
-    overflow:hidden;
-  }
-  .hero::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background-image:radial-gradient(rgba(255,255,255,0.10) 1.5px, transparent 1.5px);
-    background-size:26px 26px;
-    pointer-events:none;
-  }
-  .hero .wrap{position:relative;}
-  .hero .kicker{
-    font-size:13.5px;
-    font-weight:600;
-    letter-spacing:0.04em;
-    color:#bfe3d2;
-    margin-bottom:14px;
-  }
-  h1{
-    font-size:clamp(30px,4.2vw,42px);
-    font-weight:700;
-    line-height:1.2;
-    margin:0 0 18px;
-    letter-spacing:-0.01em;
-    color:var(--on-accent);
-  }
-  .hero p.lead{
-    max-width:56ch;
-    margin:0 auto 8px;
-    color:#d9ece3;
-    font-size:16.5px;
-  }
+.wrap{
+  max-width:920px;
+  margin:0 auto;
+  padding:0 24px;
+}
 
-  /* ---------- SECTION SHELL ---------- */
-  section{padding:56px 0;}
-  section#materia{background:var(--bg);}
-  section#trabajos{background:var(--bg-alt);}
-  section#equipo{background:var(--bg);}
-  section#ubicacion{background:var(--bg-alt);}
 
-  .section-head{
-    margin-bottom:30px;
-  }
-  .section-head h2{
-    font-size:22px;
-    font-weight:700;
-    margin:0 0 8px;
-    letter-spacing:-0.01em;
-  }
-  .section-head p{
-    color:var(--ink-dim);
-    margin:0;
-    font-size:15px;
-    max-width:60ch;
-  }
+/* ---------- NAV ---------- */
 
-  /* ---------- MATERIA ---------- */
+header.topbar{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(31,87,69,0.96);
+  backdrop-filter:blur(6px);
+}
+
+.nav-inner{
+  max-width:920px;
+  margin:0 auto;
+  padding:18px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.brand{
+  font-weight:600;
+  font-size:16px;
+  text-decoration:none;
+  color:var(--on-accent);
+  letter-spacing:-0.01em;
+}
+
+nav.links{
+  display:flex;
+  gap:26px;
+}
+
+nav.links a{
+  font-size:14px;
+  font-weight:500;
+  text-decoration:none;
+  color:#cfe4da;
+}
+
+nav.links a:hover{
+  color:#ffffff;
+}
+
+
+/* ---------- HERO ---------- */
+
+.hero{
+  padding:72px 0 68px;
+  text-align:center;
+  background:linear-gradient(
+    160deg,
+    var(--accent-deep),
+    var(--accent) 78%
+  );
+  color:var(--on-accent);
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(
+      rgba(255,255,255,0.10) 1.5px,
+      transparent 1.5px
+    );
+  background-size:26px 26px;
+  pointer-events:none;
+}
+
+.hero .wrap{
+  position:relative;
+}
+
+.hero .kicker{
+  font-size:13.5px;
+  font-weight:600;
+  letter-spacing:0.04em;
+  color:#bfe3d2;
+  margin-bottom:14px;
+}
+
+h1{
+  font-size:clamp(30px,4.2vw,42px);
+  font-weight:700;
+  line-height:1.2;
+  margin:0 0 18px;
+  letter-spacing:-0.01em;
+  color:var(--on-accent);
+}
+
+.hero p.lead{
+  max-width:56ch;
+  margin:0 auto 8px;
+  color:#d9ece3;
+  font-size:16.5px;
+}
+
+
+/* ---------- SECCIONES ---------- */
+
+section{
+  padding:56px 0;
+}
+
+section#materia{
+  background:var(--bg);
+}
+
+section#trabajos{
+  background:var(--bg-alt);
+}
+
+section#equipo{
+  background:var(--bg);
+}
+
+section#ubicacion{
+  background:var(--bg-alt);
+}
+
+.section-head{
+  margin-bottom:30px;
+}
+
+.section-head h2{
+  font-size:22px;
+  font-weight:700;
+  margin:0 0 8px;
+  letter-spacing:-0.01em;
+}
+
+.section-head p{
+  color:var(--ink-dim);
+  margin:0;
+  font-size:15px;
+  max-width:60ch;
+}
+
+
+/* ---------- MATERIA ---------- */
+
+ul.topics{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px 24px;
+}
+
+ul.topics li{
+  display:flex;
+  gap:10px;
+  font-size:15px;
+  align-items:flex-start;
+}
+
+ul.topics li::before{
+  content:"";
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  margin-top:8px;
+  background:var(--accent);
+  flex:none;
+}
+
+.tools-row{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:22px;
+}
+
+.tool-chip{
+  font-size:13px;
+  font-weight:500;
+  color:var(--accent-deep);
+  background:var(--accent-dim);
+  border-radius:20px;
+  padding:6px 14px;
+}
+
+
+/* ---------- TRABAJOS ---------- */
+
+.status-pill{
+  display:inline-block;
+  font-size:12px;
+  font-weight:600;
+  color:var(--accent);
+  background:var(--accent-dim);
+  border-radius:20px;
+  padding:4px 12px;
+  margin-bottom:12px;
+}
+
+.spec-list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px 18px;
+  font-size:13.5px;
+  color:var(--ink-dim);
+  padding:0;
+  margin:0 0 12px;
+  list-style:none;
+}
+
+.spec-list li strong{
+  color:var(--ink);
+  font-weight:600;
+}
+
+
+/* ---------- PROCESO ---------- */
+
+.process-intro{
+  margin:44px 0 28px;
+}
+
+.process-intro h3{
+  font-size:19px;
+  font-weight:700;
+  margin:0 0 8px;
+}
+
+.process-intro p{
+  color:var(--ink-dim);
+  font-size:14.5px;
+  margin:0;
+  max-width:64ch;
+}
+
+.stage{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:24px 26px;
+  margin-bottom:20px;
+  box-shadow:0 1px 2px rgba(31,87,69,0.06);
+}
+
+.stage-head{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:18px;
+}
+
+.stage-num{
+  flex:none;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:var(--accent);
+  color:var(--on-accent);
+  font-weight:700;
+  font-size:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.stage-head h4{
+  font-size:16.5px;
+  font-weight:700;
+  margin:0;
+}
+
+.step-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.step-list li{
+  display:grid;
+  grid-template-columns:140px 1fr;
+  gap:18px;
+  align-items:center;
+}
+
+.step-list li.photo{
+  grid-template-columns:1fr;
+  align-items:start;
+  gap:12px;
+}
+
+.step-thumb{
+  aspect-ratio:4/3;
+  background:var(--bg-alt);
+  border:1px dashed var(--border);
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--ink-dim);
+  font-size:11px;
+  text-align:center;
+  padding:8px;
+  line-height:1.3;
+  overflow:hidden;
+}
+
+.step-thumb.has-img{
+  aspect-ratio:auto;
+  border-style:solid;
+  border-color:var(--border);
+  background:#fff;
+  padding:0;
+}
+
+.step-thumb.has-img img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+.step-text strong{
+  display:block;
+  font-size:14.5px;
+  font-weight:600;
+  margin-bottom:4px;
+}
+
+.step-text span{
+  font-size:13.5px;
+  color:var(--ink-dim);
+}
+
+
+/* ---------- ACORDEÓN ---------- */
+
+.accordion{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-top:3px solid var(--accent);
+  border-radius:14px;
+  margin-bottom:18px;
+  box-shadow:0 1px 2px rgba(31,87,69,0.06);
+  overflow:hidden;
+}
+
+.accordion summary{
+  list-style:none;
+  cursor:pointer;
+  padding:20px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.accordion summary::-webkit-details-marker{
+  display:none;
+}
+
+.accordion-title{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.accordion-title h3{
+  font-size:17px;
+  font-weight:600;
+  margin:0;
+}
+
+.accordion-chevron{
+  flex:none;
+  font-size:20px;
+  color:var(--accent);
+  transform:rotate(90deg);
+  transition:transform .18s ease;
+}
+
+.accordion[open] .accordion-chevron{
+  transform:rotate(-90deg);
+}
+
+.accordion-body{
+  padding:0 24px 26px;
+}
+
+
+/* ---------- DETALLES PRÁCTICA ---------- */
+
+.practice-lead{
+  color:var(--ink-dim);
+  font-size:15px;
+  margin:0 0 18px;
+  line-height:1.7;
+}
+
+.practice-specs{
+  margin-bottom:10px;
+}
+
+.stage-intro{
+  margin:0 0 20px;
+  color:var(--ink-dim);
+  font-size:14.5px;
+}
+
+.step-list li.photo{
+  padding-bottom:18px;
+  border-bottom:1px solid var(--border);
+}
+
+.step-list li.photo:last-child{
+  padding-bottom:0;
+  border-bottom:0;
+}
+
+.step-thumb.has-img{
+  background:#f8faf9;
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.step-thumb.has-img img{
+  width:100%;
+  max-height:680px;
+  object-fit:contain;
+  margin:0 auto;
+  background:#f8faf9;
+}
+
+.step-thumb.has-img.portrait-shot img{
+  width:auto;
+  max-width:100%;
+  max-height:720px;
+}
+
+.step-thumb.has-img.compact-shot{
+  padding:18px;
+}
+
+.step-thumb.has-img.compact-shot img{
+  width:auto;
+  max-width:100%;
+  max-height:340px;
+}
+
+.step-text b{
+  color:var(--ink);
+  font-weight:600;
+}
+
+.note-box{
+  margin-top:2px;
+  border-left:4px solid #b88729;
+  background:#fff8e8;
+  color:#5d4a24;
+  border-radius:8px;
+  padding:13px 15px;
+  font-size:13.5px;
+  line-height:1.55;
+}
+
+.note-box strong{
+  color:#4c3a17;
+}
+
+.success-note{
+  margin-top:22px;
+  border-left-color:var(--accent);
+  background:var(--accent-dim);
+  color:var(--accent-deep);
+}
+
+.success-note strong{
+  color:var(--accent-deep);
+}
+
+
+/* ---------- EQUIPO ---------- */
+
+.team-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.person{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:22px;
+  text-align:center;
+  box-shadow:0 1px 2px rgba(31,87,69,0.06);
+}
+
+.avatar{
+  width:92px;
+  height:92px;
+  border-radius:50%;
+  overflow:hidden;
+  background:var(--accent-dim);
+  border:3px solid var(--accent-dim);
+  margin:0 auto 14px;
+  box-shadow:0 2px 8px rgba(31,87,69,0.12);
+}
+
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.person h3{
+  font-size:16px;
+  font-weight:600;
+  margin:0 0 6px;
+}
+
+.person a{
+  font-size:13.5px;
+  text-decoration:none;
+  color:var(--accent-deep);
+  font-weight:500;
+}
+
+.person a:hover{
+  text-decoration:underline;
+}
+
+
+/* ---------- UBICACIÓN ---------- */
+
+.map-frame{
+  border:1px solid var(--border);
+  border-top:3px solid var(--accent);
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 1px 2px rgba(31,87,69,0.06);
+}
+
+.map-frame iframe{
+  width:100%;
+  height:320px;
+  border:0;
+  display:block;
+}
+
+.loc-caption{
+  margin-top:12px;
+  font-size:13.5px;
+  color:var(--ink-dim);
+}
+
+
+/* ---------- FOOTER ---------- */
+
+footer{
+  padding:28px 0 36px;
+  text-align:center;
+  font-size:13px;
+  color:var(--on-accent);
+  background:var(--accent-deep);
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width:680px){
+
   ul.topics{
-    list-style:none;
-    margin:0;padding:0;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px 24px;
-  }
-  ul.topics li{
-    display:flex;
-    gap:10px;
-    font-size:15px;
-    align-items:flex-start;
-  }
-  ul.topics li::before{
-    content:"";
-    width:6px;height:6px;
-    border-radius:50%;
-    margin-top:8px;
-    background:var(--accent);
-    flex:none;
-  }
-  .tools-row{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-    margin-top:22px;
-  }
-  .tool-chip{
-    font-size:13px;
-    font-weight:500;
-    color:var(--accent-deep);
-    background:var(--accent-dim);
-    border-radius:20px;
-    padding:6px 14px;
-  }
-
-  /* ---------- TRABAJOS ---------- */
-  .work-card{
-    display:grid;
-    grid-template-columns:220px 1fr;
-    gap:24px;
-    background:var(--surface);
-    border:1px solid var(--border);
-    border-top:3px solid var(--accent);
-    border-radius:14px;
-    padding:20px;
-    margin-bottom:20px;
-    align-items:center;
-    box-shadow:0 1px 2px rgba(31,87,69,0.06);
-  }
-  .work-thumb{
-    aspect-ratio:4/3;
-    background:var(--accent-dim);
-    border-radius:10px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--ink-dim);
-    font-size:12.5px;
-    text-align:center;
-    padding:14px;
-  }
-  .work-thumb.has-img{
-    aspect-ratio:auto;
-    background:#fff;
-    border:1px solid var(--border);
-    padding:0;
-  }
-  .work-thumb.has-img a{
-    display:block;
-    width:100%;
-    line-height:0;
-  }
-  .work-thumb.has-img img{
-    width:100%;
-    height:auto;
-    display:block;
-    border-radius:10px;
-  }
-  .work-body h3{
-    font-size:17px;
-    font-weight:600;
-    margin:0 0 8px;
-  }
-  .work-body p{
-    color:var(--ink-dim);
-    margin:0 0 14px;
-    font-size:14.5px;
-  }
-  .status-pill{
-    display:inline-block;
-    font-size:12px;
-    font-weight:600;
-    color:var(--accent);
-    background:var(--accent-dim);
-    border-radius:20px;
-    padding:4px 12px;
-    margin-bottom:12px;
-  }
-  .spec-list{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:6px 18px;
-    font-size:13.5px;
-    color:var(--ink-dim);
-    padding:0;
-    margin:0 0 12px;
-    list-style:none;
-  }
-  .spec-list li strong{color:var(--ink); font-weight:600;}
-  .next-note{
-    font-size:13px;
-    color:var(--ink-dim);
-    font-style:italic;
-  }
-
-  /* ---------- PROCESO PASO A PASO ---------- */
-  .process-intro{
-    margin:44px 0 28px;
-  }
-  .process-intro h3{
-    font-size:19px;
-    font-weight:700;
-    margin:0 0 8px;
-  }
-  .process-intro p{
-    color:var(--ink-dim);
-    font-size:14.5px;
-    margin:0;
-    max-width:64ch;
-  }
-  .spec-strip{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin:18px 0 8px;
-  }
-  .spec-strip span{
-    font-size:12.5px;
-    font-weight:500;
-    color:var(--accent-deep);
-    background:var(--accent-dim);
-    border-radius:20px;
-    padding:5px 12px;
-  }
-  .stage{
-    background:var(--surface);
-    border:1px solid var(--border);
-    border-radius:14px;
-    padding:24px 26px;
-    margin-bottom:20px;
-    box-shadow:0 1px 2px rgba(31,87,69,0.06);
-  }
-  .stage-head{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    margin-bottom:18px;
-  }
-  .stage-num{
-    flex:none;
-    width:34px;height:34px;
-    border-radius:50%;
-    background:var(--accent);
-    color:var(--on-accent);
-    font-weight:700;
-    font-size:14px;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .stage-head h4{
-    font-size:16.5px;
-    font-weight:700;
-    margin:0;
-  }
-  .step-list{
-    list-style:none;
-    margin:0;padding:0;
-    display:flex;
-    flex-direction:column;
-    gap:18px;
-  }
-  .step-list li{
-    display:grid;
-    grid-template-columns:140px 1fr;
-    gap:18px;
-    align-items:center;
-  }
-  .step-list li.photo{
     grid-template-columns:1fr;
-    align-items:start;
-    gap:12px;
-  }
-  .step-thumb{
-    aspect-ratio:4/3;
-    background:var(--bg-alt);
-    border:1px dashed var(--border);
-    border-radius:8px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--ink-dim);
-    font-size:11px;
-    text-align:center;
-    padding:8px;
-    line-height:1.3;
-    overflow:hidden;
-  }
-  .step-thumb.has-img{
-    aspect-ratio:auto;
-    border-style:solid;
-    border-color:var(--border);
-    background:#fff;
-    padding:0;
-  }
-  .step-thumb.has-img a{
-    display:block;
-    width:100%;
-    line-height:0;
-  }
-  .step-thumb.has-img img{
-    width:100%;
-    height:auto;
-    display:block;
-  }
-  .step-thumb.has-video video{
-    width:100%;
-    height:auto;
-    display:block;
-    border-radius:8px;
-  }
-  .step-text strong{
-    display:block;
-    font-size:14.5px;
-    font-weight:600;
-    margin-bottom:4px;
-  }
-  .step-text span{
-    font-size:13.5px;
-    color:var(--ink-dim);
-  }
-  @media (max-width: 560px){
-    .step-list li{grid-template-columns:90px 1fr;}
   }
 
-  /* ---------- ACORDEÓN DE PRÁCTICAS ---------- */
-  .accordion{
-    background:var(--surface);
-    border:1px solid var(--border);
-    border-top:3px solid var(--accent);
-    border-radius:14px;
-    margin-bottom:18px;
-    box-shadow:0 1px 2px rgba(31,87,69,0.06);
-    overflow:hidden;
+  .team-grid{
+    grid-template-columns:1fr;
   }
-  .accordion summary{
-    list-style:none;
-    cursor:pointer;
-    padding:20px 24px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+
+  nav.links{
     gap:16px;
   }
-  .accordion summary::-webkit-details-marker{display:none;}
-  .accordion-title{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    flex-wrap:wrap;
+
+  .spec-list{
+    grid-template-columns:1fr;
   }
-  .accordion-title h3{
-    font-size:17px;
-    font-weight:600;
-    margin:0;
-  }
-  .accordion-chevron{
-    flex:none;
-    font-size:20px;
-    color:var(--accent);
-    transform:rotate(90deg);
-    transition:transform .18s ease;
-  }
-  .accordion[open] .accordion-chevron{transform:rotate(-90deg);}
+
   .accordion-body{
-    padding:0 24px 26px;
-  }
-  .accordion-body .work-thumb{
-    margin-bottom:18px;
+    padding:0 16px 20px;
   }
 
-  /* ---------- EQUIPO ---------- */
-  .team-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-  }
-  .person{
-    background:var(--surface);
-    border:1px solid var(--border);
-    border-radius:14px;
-    padding:22px;
-    text-align:center;
-    box-shadow:0 1px 2px rgba(31,87,69,0.06);
-  }
-  .avatar{
-    width:64px;height:64px;
-    border-radius:50%;
-    background:var(--accent);
-    display:flex;align-items:center;justify-content:center;
-    font-size:18px;
-    font-weight:600;
-    color:var(--on-accent);
-    margin:0 auto 14px;
-  }
-  .person h3{
-    font-size:16px;
-    font-weight:600;
-    margin:0 0 6px;
-  }
-  .person a{
-    font-size:13.5px;
-    text-decoration:none;
-    color:var(--accent-deep);
-    font-weight:500;
-  }
-  .person a:hover{text-decoration:underline;}
-
-  /* ---------- UBICACIÓN ---------- */
-  .map-frame{
-    border:1px solid var(--border);
-    border-top:3px solid var(--accent);
-    border-radius:14px;
-    overflow:hidden;
-    box-shadow:0 1px 2px rgba(31,87,69,0.06);
-  }
-  .map-frame iframe{
-    width:100%;
-    height:320px;
-    border:0;
-    display:block;
-  }
-  .loc-caption{
-    margin-top:12px;
-    font-size:13.5px;
-    color:var(--ink-dim);
+  .stage{
+    padding:20px 16px;
   }
 
-  footer{
-    padding:28px 0 36px;
-    text-align:center;
-    font-size:13px;
-    color:var(--on-accent);
-    background:var(--accent-deep);
+  .step-thumb.has-img img{
+    max-height:520px;
   }
 
-  @media (max-width: 680px){
-    .work-card{grid-template-columns:1fr;}
-    ul.topics{grid-template-columns:1fr;}
-    .team-grid{grid-template-columns:1fr;}
-    nav.links{gap:16px;}
-    .spec-list{grid-template-columns:1fr;}
+  .step-thumb.has-img.portrait-shot img{
+    max-height:580px;
   }
+}
 
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
+@media (prefers-reduced-motion:reduce){
+  html{
+    scroll-behavior:auto;
   }
+}
+
 </style>
 </head>
+
+
 <body>
 
+
+<!-- ===================================================== -->
+<!-- NAV -->
+<!-- ===================================================== -->
+
 <header class="topbar">
+
   <div class="nav-inner">
-    <a href="#inicio" class="brand">Producción Electrónica</a>
+
+    <a class="brand" href="#inicio">
+      Producción Electrónica
+    </a>
+
     <nav class="links">
+
       <a href="#materia">Materia</a>
       <a href="#trabajos">Trabajos</a>
       <a href="#equipo">Equipo</a>
       <a href="#ubicacion">Ubicación</a>
+
     </nav>
+
   </div>
+
 </header>
 
+
+<!-- ===================================================== -->
+<!-- HERO -->
+<!-- ===================================================== -->
+
 <section class="hero" id="inicio">
+
   <div class="wrap">
-    <div class="kicker">Ingeniería Mecatrónica · Universidad Iberoamericana Puebla</div>
-    <h1>Bitácora de Producción Electrónica</h1>
-    <p class="lead">Aquí vamos documentando el proceso de diseño y fabricación de circuitos impresos que desarrollamos a lo largo del semestre, desde la primera práctica hasta el proyecto final.</p>
+
+    <div class="kicker">
+      Ingeniería Mecatrónica · Universidad Iberoamericana Puebla
+    </div>
+
+    <h1>
+      Bitácora de Producción Electrónica
+    </h1>
+
+    <p class="lead">
+      Aquí vamos documentando el proceso de diseño y fabricación
+      de circuitos impresos que desarrollamos a lo largo del
+      semestre, desde la primera práctica hasta el proyecto final.
+    </p>
+
   </div>
+
 </section>
 
+
+<!-- ===================================================== -->
+<!-- MATERIA -->
+<!-- ===================================================== -->
+
 <section id="materia">
+
   <div class="wrap">
+
     <div class="section-head">
-      <h2>La materia</h2>
-      <p>Producción Electrónica busca que aprendamos el proceso completo detrás de un circuito impreso: del esquemático a la placa terminada, pasando por el diseño de pistas, la fabricación digital y el ensamble final.</p>
+
+      <h2>
+        La materia
+      </h2>
+
+      <p>
+        Producción Electrónica busca que aprendamos el proceso
+        completo detrás de un circuito impreso: del esquemático
+        a la placa terminada, pasando por el diseño de pistas,
+        la fabricación digital y el ensamble final.
+      </p>
+
     </div>
+
+
     <ul class="topics">
-      <li>Diseño de esquemáticos y validación de circuitos</li>
-      <li>Ruteo de pistas y planeación de placas en KiCad</li>
-      <li>Modelado y verificación de diseños en Altium</li>
-      <li>Fabricación digital de PCBs (fresado y grabado láser)</li>
-      <li>Soldadura y ensamble de componentes</li>
+
+      <li>
+        Diseño de esquemáticos y validación de circuitos
+      </li>
+
+      <li>
+        Ruteo de pistas y planeación de placas en KiCad
+      </li>
+
+      <li>
+        Modelado y verificación de diseños en Altium
+      </li>
+
+      <li>
+        Fabricación digital de PCBs
+        (fresado y grabado láser)
+      </li>
+
+      <li>
+        Soldadura y ensamble de componentes
+      </li>
+
     </ul>
+
+
     <div class="tools-row">
+
       <span class="tool-chip">KiCad</span>
       <span class="tool-chip">Altium</span>
       <span class="tool-chip">Fresadora CNC</span>
       <span class="tool-chip">Grabado láser</span>
       <span class="tool-chip">Cautín &amp; estaño</span>
+
     </div>
+
   </div>
+
 </section>
+
+
+<!-- ===================================================== -->
+<!-- TRABAJOS -->
+<!-- ===================================================== -->
 
 <section id="trabajos">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Trabajos realizados</h2>
-      <p>Cada práctica es un paso más hacia el proyecto final del curso. Toca el título para desplegar el detalle.</p>
-    </div>
 
-    <details class="accordion" open>
-      <summary>
-        <div class="accordion-title">
-          <span class="status-pill">En desarrollo</span>
-          <h3>Práctica 1 — Diseño de PCB en KiCad</h3>
-        </div>
-        <span class="accordion-chevron">›</span>
-      </summary>
-      <div class="accordion-body">
-        <div class="work-thumb has-img">
-          <a href="placa-cortada.jpg" target="_blank"><img src="placa-cortada.jpg" alt="Placa de la Práctica 1 ya cortada en la MonoFab"></a>
-        </div>
-        <p>Primera placa del semestre. El objetivo de esta práctica es familiarizarnos con KiCad y llegar hasta el corte de la placa en la MonoFab; el ensamble y las pruebas quedan para más adelante. Cuatro canales independientes de botón + LED, con su alimentación y salidas en conectores separados, diseñada sobre la librería de fabricación del curso.</p>
-        <ul class="spec-list">
-          <li><strong>Software:</strong> KiCad, librería de fab</li>
-          <li><strong>Canales:</strong> 4 × botón + LED (S1–S4)</li>
-          <li><strong>Alimentación:</strong> J1 — VDD 3.3V / GND</li>
-          <li><strong>Salidas:</strong> J2 — conector de salidas</li>
-          <li><strong>Pistas:</strong> 0.4 mm y 0.8 mm</li>
-        </ul>
-        <span class="next-note">Próximamente en Altium, aún no cursamos esa parte de la clase.</span>
+<div class="wrap">
 
-        <div class="process-intro">
-          <h3>Proceso paso a paso</h3>
-          <p>El objetivo de esta práctica es familiarizarnos con KiCad y lograr el corte de la placa; por eso el proceso llega hasta el maquinado en la MonoFab. Las pruebas funcionales quedarán documentadas más adelante.</p>
-        </div>
+<div class="section-head">
 
-        <div class="stage">
-          <div class="stage-head">
-            <span class="stage-num">1</span>
-            <h4>Diseño del circuito en KiCad</h4>
-          </div>
-          <ul class="step-list">
-            <li class="photo">
-              <div class="step-thumb has-img"><a href="footprint-libraries.png" target="_blank"><img src="footprint-libraries.png" alt="Librería de huellas PCM_fab en KiCad"></a></div>
-              <div class="step-text">
-                <strong>Configuración inicial</strong>
-                <span>Descargamos las librerías de componentes y footprints que se usan de forma recurrente en la clase, y ubicamos el editor de esquemas y el editor de placas dentro de KiCad.</span>
-              </div>
-            </li>
-            <li class="photo">
-              <div class="step-thumb has-img"><a href="editor-esquemas-menu.png" target="_blank"><img src="editor-esquemas-menu.png" alt="Menú Añadir del editor de esquemas en KiCad"></a></div>
-              <div class="step-text">
-                <strong>Editor de esquemas</strong>
-                <span>Colocamos los componentes con el atajo (A) y los conectamos con cable (W) para tramos cortos, o con etiquetas (L) —como VDD y GND— para unir puntos distantes sin saturar el plano.</span>
-              </div>
-            </li>
-            <li class="photo">
-              <div class="step-thumb has-img"><a href="esquematico.png" target="_blank"><img src="esquematico.png" alt="Esquemático del circuito en KiCad"></a></div>
-              <div class="step-text">
-                <strong>Esquemático del circuito</strong>
-                <span>El circuito quedó con 4 entradas (S1–S4), cada una con su LED como indicador de salida, más el conector de alimentación J1 (VDD 3.3V/GND) y el conector de salidas J2.</span>
-              </div>
-            </li>
-            <li>
-              <div class="step-thumb">editor placas<br>[ imagen pendiente ]</div>
-              <div class="step-text">
-                <strong>Transición al editor de placas</strong>
-                <span>Con el ícono verde pasamos al editor de placas y actualizamos la placa desde el esquema, lo que trae las huellas de los componentes y marca cualquier error pendiente.</span>
-              </div>
-            </li>
-            <li class="photo">
-              <div class="step-thumb has-img"><a href="separacion-pistas.png" target="_blank"><img src="separacion-pistas.png" alt="Configuración de ancho de pistas 0.4mm en KiCad"></a></div>
-              <div class="step-text">
-                <strong>Consideraciones de diseño</strong>
-                <span>Por las limitaciones de la MonoFab SRM-20 definimos una separación mínima de 0.4 mm entre pistas (en el campo "Pista") y evitamos ángulos de 90° en el ruteo, para no generar acumulación de carga.</span>
-              </div>
-            </li>
-            <li class="photo">
-              <div class="step-thumb has-img"><a href="editor-placas.png" target="_blank"><img src="editor-placas.png" alt="PCB ya ruteada en el editor de placas de KiCad"></a></div>
-              <div class="step-text">
-                <strong>Ruteo de la placa</strong>
-                <span>Organizamos los componentes para simplificar el enrutado y reducir el área de la placa, y ruteamos las pistas con el comando (X).</span>
-              </div>
-            </li>
-            <li class="photo">
-              <div class="step-thumb has-img"><a href="drc.png" target="_blank"><img src="drc.png" alt="Resultado del DRC en KiCad: 0 errores, 1 aviso de margen de serigrafía"></a></div>
-              <div class="step-text">
-                <strong>Verificación con DRC</strong>
-                <span>Corrimos el DRC para revisar la placa ruteada: quedó en 0 errores, con un solo aviso de margen de serigrafía en la referencia de SW6, sin afectar el funcionamiento del circuito.</span>
-              </div>
-            </li>
-            <li class="photo">
-              <div class="step-thumb has-img"><a href="gerber-svg-export.png" target="_blank"><img src="gerber-svg-export.png" alt="Ventana de exportación de trazado SVG en KiCad"></a></div>
-              <div class="step-text">
-                <strong>Preparación para fabricación</strong>
-                <span>En Archivo → Salidas de fabricación → Gerber asignamos las pistas a F.Cu, el contorno a Edge.Cuts y los orificios a User.1, y exportamos en formato SVG con "Fit page to board" activado.</span>
-              </div>
-            </li>
-          </ul>
-        </div>
+<h2>
+Trabajos realizados
+</h2>
 
-        <div class="stage">
-          <div class="stage-head">
-            <span class="stage-num">2</span>
-            <h4>Uso de Mods CE</h4>
-          </div>
-          <ul class="step-list">
-            <li class="photo">
-              <div class="step-thumb has-img"><a href="mods-programs.png" target="_blank"><img src="mods-programs.png" alt="Panel de programas de Mods CE, buscando SRM-20 mill 2D PCB"></a></div>
-              <div class="step-text">
-                <strong>Abrir el programa</strong>
-                <span>En modsproject.org abrimos el panel de Programs y buscamos "SRM-20 mill" → mill 2D PCB, que es el flujo pensado para exportar directo a la MonoFab.</span>
-              </div>
-            </li>
-            <li class="photo">
-              <div class="step-thumb has-img"><a href="mods-pistas.png" target="_blank"><img src="mods-pistas.png" alt="Pipeline de Mods CE procesando el SVG de pistas"></a></div>
-              <div class="step-text">
-                <strong>Cargar el archivo de pistas</strong>
-                <span>En el módulo "read SVG" cargamos Pistas.svg, invertido en "Convert SVG". En "set PCB defaults" usamos la herramienta "0.40mm flat" con un corte de 0.1 mm de profundidad, suficiente para aislar el cobre sin atravesar la placa.</span>
-              </div>
-            </li>
-            <li class="photo">
-              <div class="step-thumb has-img"><a href="mods-contorno.png" target="_blank"><img src="mods-contorno.png" alt="Pipeline de Mods CE procesando el SVG de contorno"></a></div>
-              <div class="step-text">
-                <strong>Contorno, velocidades y guardado</strong>
-                <span>Repetimos el proceso con Contornos.svg para el corte exterior, esta vez con una fresa de 1.9 mm que sí atraviesa todo el espesor de la placa. En "Roland SRM-20 milling machine" dejamos la velocidad en 4 mm/s y activamos el guardado automático antes de calcular la ruta.</span>
-              </div>
-            </li>
-          </ul>
-        </div>
+<p>
+Cada práctica es un paso más hacia el proyecto final del curso.
+Toca el título para desplegar el detalle.
+</p>
 
-        <div class="stage" style="margin-bottom:0;">
-          <div class="stage-head">
-            <span class="stage-num">3</span>
-            <h4>Uso de la MonoFab</h4>
-          </div>
-          <div class="spec-strip">
-            <span>Fresadora de escritorio</span>
-            <span>Área de trabajo 203.2 × 152.4 × 60.5 mm</span>
-            <span>Husillo a 7,000 RPM</span>
-          </div>
-          <ul class="step-list">
-            <li class="photo">
-              <div class="step-thumb has-img"><a href="vpanel-conectado.jpg" target="_blank"><img src="vpanel-conectado.jpg" alt="VPanel para SRM-20 recién conectado, X/Y en 0.00mm"></a></div>
-              <div class="step-text">
-                <strong>Conectar VPanel y fijar el origen</strong>
-                <span>Con VPanel y los drivers ya instalados, conectamos la máquina por USB. El panel muestra X y Y en 0.00 mm: ese es el origen desde donde arranca todo el corte, movido con las flechas en pasos continuos, x100, x10 o x1.</span>
-              </div>
-            </li>
-            <li class="photo">
-              <div class="step-thumb has-img"><a href="instalacion-herramental.jpg" target="_blank"><img src="instalacion-herramental.jpg" alt="Instalando la fresa en el cabezal de la MonoFab"></a></div>
-              <div class="step-text">
-                <strong>Instalar el herramental</strong>
-                <span>Aflojamos los tornillos del cabezal, insertamos la fresa y la apretamos lo suficiente para que quede firme sin pasarnos de fuerza.</span>
-              </div>
-            </li>
-            <li class="photo">
-              <div class="step-thumb has-img"><a href="placa-en-maquina.jpg" target="_blank"><img src="placa-en-maquina.jpg" alt="Placa de cobre fija en la cama de la MonoFab, lista para cortar"></a></div>
-              <div class="step-text">
-                <strong>Fijar la placa en la cama</strong>
-                <span>Colocamos y aseguramos la placa de cobre en la cama de la máquina, justo debajo del cabezal, antes de mandar a correr el archivo de corte.</span>
-              </div>
-            </li>
-            <li class="photo">
-              <div class="step-thumb has-img"><a href="vpanel-cortando.jpg" target="_blank"><img src="vpanel-cortando.jpg" alt="VPanel durante el corte, husillo a 8105 rpm"></a></div>
-              <div class="step-text">
-                <strong>Cargar el corte</strong>
-                <span>Cargamos el archivo .rml generado en Mods en la sección "Cut" del VPanel y presionamos "Activate": el husillo llegó a unos 8,105 rpm y la máquina empezó a fresar la placa.</span>
-              </div>
-            </li>
-            <li class="photo">
-              <div class="step-thumb has-video"><video controls preload="metadata"><source src="corte-video.mp4" type="video/mp4"></video></div>
-              <div class="step-text">
-                <strong>Corte en proceso</strong>
-                <span>Video de la MonoFab fresando la placa en tiempo real, siguiendo la ruta generada en Mods CE.</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </details>
+</div>
 
-    <details class="accordion">
-      <summary>
-        <div class="accordion-title">
-          <span class="status-pill" style="color:var(--ink-dim); background:#f0efe9;">Pendiente</span>
-          <h3>Próxima práctica</h3>
-        </div>
-        <span class="accordion-chevron">›</span>
-      </summary>
-      <div class="accordion-body">
-        <p>Este espacio se irá llenando con cada práctica del curso hasta llegar al proyecto final.</p>
-      </div>
-    </details>
-  </div>
+
+<!-- ===================================================== -->
+<!-- PRÁCTICA 1 -->
+<!-- ===================================================== -->
+
+<details class="accordion" open>
+
+<summary>
+
+<div class="accordion-title">
+
+<span class="status-pill">
+En desarrollo
+</span>
+
+<h3>
+Práctica 1 — Diseño de PCB en KiCad
+</h3>
+
+</div>
+
+<span class="accordion-chevron">
+›
+</span>
+
+</summary>
+
+
+<div class="accordion-body">
+
+
+<p class="practice-lead">
+
+En esta práctica documentamos el flujo completo que seguimos
+en KiCad: configuramos las librerías, construimos el esquemático,
+verificamos las huellas, pasamos el circuito al editor de PCB,
+definimos las reglas necesarias para fabricación y finalmente
+exportamos los archivos que utilizaremos en Mods.
+
+</p>
+
+
+<ul class="spec-list practice-specs">
+
+<li>
+<strong>Software:</strong>
+KiCad 10.0
+</li>
+
+<li>
+<strong>Librería principal:</strong>
+PCM_fab
+</li>
+
+<li>
+<strong>Etapas:</strong>
+Esquemático + PCB
+</li>
+
+<li>
+<strong>Salida:</strong>
+SVG y archivos de fabricación
+</li>
+
+</ul>
+
+
+<div class="process-intro">
+
+<h3>
+Proceso paso a paso
+</h3>
+
+<p>
+
+Estas son las etapas que seguimos desde que abrimos KiCad
+hasta dejar listos los archivos de salida para continuar
+con la fabricación.
+
+</p>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- ETAPA 1 -->
+<!-- ===================================================== -->
+
+<div class="stage">
+
+<div class="stage-head">
+
+<span class="stage-num">
+1
+</span>
+
+<h4>
+Configuración inicial y creación del proyecto
+</h4>
+
+</div>
+
+
+<ul class="step-list">
+
+
+<li class="photo">
+
+<div class="step-thumb has-img">
+
+<img
+src="Captura de pantalla 2026-09-19 a la(s) 1.18.42 p.m..png"
+alt="Pantalla principal de KiCad al abrir el programa"
+loading="lazy">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Primera pantalla de KiCad
+</strong>
+
+<span>
+
+Esto es lo primero que vemos al abrir KiCad.
+Desde esta pantalla principal podemos acceder a los editores,
+administrar el proyecto y comenzar a preparar el entorno de trabajo.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb has-img">
+
+<img
+src="Captura de pantalla 2026-09-19 a la(s) 1.19.18 p.m..png"
+alt="Menú de Preferencias para gestionar bibliotecas de símbolos"
+loading="lazy">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Acceso a las librerías
+</strong>
+
+<span>
+
+Desde <b>Preferencias</b> entramos a la gestión de bibliotecas.
+Aquí agregamos o descargamos las librerías que necesitamos
+para poder construir nuestro circuito con los componentes correctos.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb has-img">
+
+<img
+src="Captura de pantalla 2026-09-19 a la(s) 1.19.51 p.m..png"
+alt="Bibliotecas de símbolos de KiCad con PCM_fab habilitada"
+loading="lazy">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Librerías de símbolos que vamos a utilizar
+</strong>
+
+<span>
+
+Verificamos que estén habilitadas las bibliotecas necesarias.
+En nuestro caso trabajamos con las librerías de KiCad
+y con <b>PCM_fab</b>, que contiene los símbolos requeridos
+para la práctica.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb has-img">
+
+<img
+src="Captura de pantalla 2026-09-19 a la(s) 1.20.03 p.m..png"
+alt="Bibliotecas de huellas de KiCad con PCM_fab habilitada"
+loading="lazy">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Bibliotecas de huellas
+</strong>
+
+<span>
+
+Repetimos el mismo proceso para las
+<b>huellas de los componentes</b>.
+
+Estas huellas son las representaciones físicas
+que posteriormente aparecerán en la PCB.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb has-img">
+
+<img
+src="Captura de pantalla 2026-09-19 a la(s) 1.20.19 p.m..png"
+alt="Bibliotecas de bloques de diseño del proyecto"
+loading="lazy">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Bibliotecas de diseño
+</strong>
+
+<span>
+
+También revisamos las bibliotecas de bloques de diseño
+que utilizaremos dentro del proyecto,
+de manera que los recursos queden disponibles
+durante el desarrollo.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb has-img">
+
+<img
+src="Captura de pantalla 2026-09-19 a la(s) 1.21.11 p.m..png"
+alt="Menú Archivo de KiCad con la opción Nuevo proyecto seleccionada"
+loading="lazy">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Crear un proyecto nuevo
+</strong>
+
+<span>
+
+Después vamos a
+<b>Archivo → Nuevo proyecto</b>
+para crear el archivo de trabajo en el que
+se guardarán el esquemático,
+la PCB y los demás archivos del proyecto.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb has-img compact-shot">
+
+<img
+src="Captura de pantalla 2026-09-19 a la(s) 1.21.36 p.m..png"
+alt="Archivos del proyecto KiCad mostrando el archivo de esquemático kicad_sch"
+loading="lazy">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Abrir el esquemático
+</strong>
+
+<span>
+
+Al crear el proyecto aparecen sus archivos principales.
+
+Para empezar a construir el circuito debemos abrir
+el archivo del
+<b>esquemático (.kicad_sch)</b>.
+
+</span>
+
+</div>
+
+</li>
+
+
+</ul>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- ETAPA 2 -->
+<!-- ===================================================== -->
+
+<div class="stage">
+
+<div class="stage-head">
+
+<span class="stage-num">
+2
+</span>
+
+<h4>
+Trabajo en el esquemático
+</h4>
+
+</div>
+
+
+<ul class="step-list">
+
+
+<li class="photo">
+
+<div class="step-thumb has-img portrait-shot">
+
+<img
+src="Image (5)(1).jpeg"
+alt="Zona de herramientas con checklist e icono de acceso al esquemático"
+loading="lazy">
+
+</div>
+
+
+<div class="step-text">
+
+<strong>
+Checklist y navegación del esquemático
+</strong>
+
+<span>
+
+Esta zona forma parte de nuestras herramientas de trabajo.
+
+La <b>checklist</b> nos permite revisar el diseño:
+marca los errores que debemos corregir
+y también muestra avisos.
+
+Los avisos pueden ignorarse cuando ya revisamos
+que no afectan el funcionamiento o la fabricación.
+
+En esta misma barra tenemos el acceso
+para regresar al esquemático.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb has-img portrait-shot">
+
+<img
+src="Image (6)(1).jpeg"
+alt="Barra lateral de herramientas del editor de esquemáticos"
+loading="lazy">
+
+</div>
+
+
+<div class="step-text">
+
+<strong>
+Herramientas del editor de esquemáticos
+</strong>
+
+<span>
+
+En esta barra encontramos las herramientas que usamos
+para construir el circuito:
+
+agregar componentes electrónicos,
+colocar tierra y voltajes,
+unir los componentes con cables,
+añadir texto o etiquetas
+y dibujar contornos para organizar el esquema.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb has-img portrait-shot">
+
+<img
+src="Captura de pantalla 2026-09-19 a la(s) 1.22.29 p.m..png"
+alt="Vista de un componente y su huella asociada en KiCad"
+loading="lazy">
+
+</div>
+
+
+<div class="step-text">
+
+<strong>
+Revisar la huella del componente
+</strong>
+
+<span>
+
+La imagen inferior corresponde a la
+<b>huella (footprint)</b>
+del componente.
+
+La huella representa la forma física
+que tendrá el componente sobre la placa.
+
+</span>
+
+</div>
+
+
+<div class="note-box">
+
+<strong>
+Nota importante:
+</strong>
+
+cuando agregamos un componente al esquemático
+debemos comprobar que tenga una huella asignada.
+
+Si el componente no tiene una huella compatible,
+no podremos utilizarlo correctamente
+al momento de llevar el diseño a la PCB
+y fabricarla.
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb has-img portrait-shot">
+
+<img
+src="Captura de pantalla 2026-09-19 a la(s) 1.02.14 p.m..png"
+alt="Esquemático final del circuito organizado con contornos y etiquetas"
+loading="lazy">
+
+</div>
+
+
+<div class="step-text">
+
+<strong>
+Esquemático final
+</strong>
+
+<span>
+
+Este es nuestro esquemático terminado.
+
+Después de colocar y conectar los componentes,
+lo ordenamos utilizando
+<b>contornos y etiquetas</b>
+para separar visualmente las diferentes
+secciones del circuito
+y facilitar su lectura.
+
+</span>
+
+</div>
+
+</li>
+
+
+</ul>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- ETAPA 3 -->
+<!-- ===================================================== -->
+
+<div class="stage">
+
+<div class="stage-head">
+
+<span class="stage-num">
+3
+</span>
+
+<h4>
+Diseño de la PCB
+</h4>
+
+</div>
+
+
+<ul class="step-list">
+
+
+<li class="photo">
+
+<div class="step-thumb has-img">
+
+<img
+src="Captura de pantalla 2026-09-19 a la(s) 1.23.15 p.m..png"
+alt="Área de trabajo del editor de PCB de KiCad"
+loading="lazy">
+
+</div>
+
+
+<div class="step-text">
+
+<strong>
+Pasamos al editor de PCB
+</strong>
+
+<span>
+
+Una vez terminado el esquemático
+nos vamos al editor de PCB.
+
+Aquí observamos el área principal de trabajo.
+
+En la parte superior tenemos nuevamente
+las herramientas de revisión o checklist,
+y en la zona lateral encontramos
+las opciones para trabajar con
+<b>etiquetas, pistas/cables y capas</b>
+del diseño.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb has-img compact-shot">
+
+<img
+src="Captura de pantalla 2026-09-19 a la(s) 1.23.45 p.m..png"
+alt="Icono para actualizar la PCB desde el esquemático"
+loading="lazy">
+
+</div>
+
+
+<div class="step-text">
+
+<strong>
+Pasar los componentes del esquemático a la PCB
+</strong>
+
+<span>
+
+Utilizamos este ícono para cargar en la placa
+los componentes provenientes del esquemático.
+
+Una vez importados,
+los separamos y acomodamos
+para poder comenzar el ruteo
+y organizar correctamente la placa.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb has-img">
+
+<img
+src="Captura de pantalla 2026-09-19 a la(s) 1.25.24 p.m..png"
+alt="Configuración de reglas y requerimientos de diseño de la PCB"
+loading="lazy">
+
+</div>
+
+
+<div class="step-text">
+
+<strong>
+Definir las reglas de diseño
+</strong>
+
+<span>
+
+Antes de rutear configuramos los requerimientos
+que debe cumplir la PCB para poder fabricarse.
+
+Aquí definimos parámetros como
+el <b>margen mínimo</b>
+y el <b>ancho mínimo de pista</b>,
+además de las separaciones
+y dimensiones necesarias
+para respetar las limitaciones
+del proceso de fabricación.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb has-img compact-shot">
+
+<img
+src="Captura de pantalla 2026-09-19 a la(s) 1.27.51 p.m..png"
+alt="Opción de exportación SVG en KiCad"
+loading="lazy">
+
+</div>
+
+
+<div class="step-text">
+
+<strong>
+Exportar el diseño en SVG
+</strong>
+
+<span>
+
+Con el diseño preparado
+exportamos el archivo
+en formato <b>SVG</b>.
+
+Esta salida nos permite separar
+la información necesaria de la placa
+y continuar con la preparación
+de los archivos para fabricación.
+
+</span>
+
+</div>
+
+</li>
+
+
+</ul>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- ETAPA 4 -->
+<!-- ===================================================== -->
+
+<div class="stage" style="margin-bottom:0;">
+
+<div class="stage-head">
+
+<span class="stage-num">
+4
+</span>
+
+<h4>
+Exportación de archivos para fabricación
+</h4>
+
+</div>
+
+
+<p class="stage-intro">
+
+En esta etapa únicamente preparamos
+y exportamos los archivos de fabricación.
+
+Los archivos generados se guardan
+en la carpeta de destino de nuestro proyecto
+en la computadora.
+
+Después utilizaremos estas salidas
+en <b>Mods</b>
+para continuar con el proceso de fabricación.
+
+</p>
+
+
+<ul class="step-list">
+
+
+<li class="photo">
+
+<div class="step-thumb has-img">
+
+<img
+src="Captura de pantalla 2026-09-19 a la(s) 1.29.09 p.m..png"
+alt="Ventana de exportación de archivos y selección de capas"
+loading="lazy">
+
+</div>
+
+
+<div class="step-text">
+
+<strong>
+Seleccionar las capas y la carpeta de salida
+</strong>
+
+<span>
+
+Elegimos las capas que necesitamos
+y verificamos la carpeta
+en la que se guardarán
+los archivos generados.
+
+Normalmente usamos la misma carpeta
+donde tenemos guardado nuestro trabajo.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb has-img">
+
+<img
+src="Captura de pantalla 2026-09-19 a la(s) 1.29.58 p.m..png"
+alt="Menú de salidas de fabricación con opción Gerbers en KiCad"
+loading="lazy">
+
+</div>
+
+
+<div class="step-text">
+
+<strong>
+Entrar a Salidas de fabricación → Gerbers
+</strong>
+
+<span>
+
+Desde el menú de archivo
+entramos a
+<b>Salidas de fabricación</b>
+y seleccionamos la opción de
+<b>Gerbers</b>
+para generar los archivos
+correspondientes a las capas de la PCB.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb has-img">
+
+<img
+src="Captura de pantalla 2026-09-19 a la(s) 1.30.13 p.m..png"
+alt="Ventana de configuración para generar archivos Gerber"
+loading="lazy">
+
+</div>
+
+
+<div class="step-text">
+
+<strong>
+Generar los archivos Gerber
+</strong>
+
+<span>
+
+Seleccionamos las capas
+que queremos exportar
+y trazamos los archivos.
+
+KiCad los guarda
+en la carpeta de destino seleccionada
+dentro de nuestro proyecto.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb has-img">
+
+<img
+src="Captura de pantalla 2026-09-19 a la(s) 1.30.30 p.m..png"
+alt="Ventana de trazado y selección de formato de salida en KiCad"
+loading="lazy">
+
+</div>
+
+
+<div class="step-text">
+
+<strong>
+Archivos listos para Mods
+</strong>
+
+<span>
+
+Al terminar la exportación
+ya tenemos los archivos de salida
+guardados en nuestra computadora.
+
+Estos son los archivos
+que utilizaremos en <b>Mods</b>
+para preparar las rutas
+y continuar con la fabricación de la PCB.
+
+</span>
+
+</div>
+
+</li>
+
+
+</ul>
+
+
+<div class="note-box success-note">
+
+<strong>
+Resultado:
+</strong>
+
+al finalizar esta etapa
+tenemos el esquemático,
+el diseño de la PCB
+y los archivos de fabricación
+listos para pasar al siguiente software
+del proceso.
+
+</div>
+
+
+</div>
+
+</div>
+
+</details>
+
+
+<!-- ===================================================== -->
+<!-- PRÓXIMA PRÁCTICA -->
+<!-- ===================================================== -->
+
+<details class="accordion">
+
+<summary>
+
+<div class="accordion-title">
+
+<span
+class="status-pill"
+style="color:var(--ink-dim); background:#f0efe9;">
+
+Pendiente
+
+</span>
+
+<h3>
+Próxima práctica
+</h3>
+
+</div>
+
+<span class="accordion-chevron">
+›
+</span>
+
+</summary>
+
+
+<div class="accordion-body">
+
+<p>
+
+Este espacio se irá llenando
+con cada práctica del curso
+hasta llegar al proyecto final.
+
+</p>
+
+</div>
+
+</details>
+
+
+</div>
+
 </section>
+
+
+<!-- ===================================================== -->
+<!-- EQUIPO -->
+<!-- ===================================================== -->
 
 <section id="equipo">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Equipo</h2>
-    </div>
-    <div class="team-grid">
-      <div class="person">
-        <div class="avatar">ES</div>
-        <h3>Eduardo Salamanca Esquivel</h3>
-        <a href="mailto:203279@iberopuebla.mx">203279@iberopuebla.mx</a>
-      </div>
-      <div class="person">
-        <div class="avatar">MC</div>
-        <h3>Mia Noriel Castillo Hermosillo</h3>
-        <a href="mailto:200670@iberopuebla.mx">200670@iberopuebla.mx</a>
-      </div>
-    </div>
-  </div>
+
+<div class="wrap">
+
+<div class="section-head">
+
+<h2>
+Equipo
+</h2>
+
+</div>
+
+
+<div class="team-grid">
+
+
+<div class="person">
+
+<div class="avatar">
+
+<img
+src="IMG_4567.jpeg"
+alt="Foto de Eduardo Salamanca Esquivel">
+
+</div>
+
+<h3>
+Eduardo Salamanca Esquivel
+</h3>
+
+<a href="mailto:203279@iberopuebla.mx">
+203279@iberopuebla.mx
+</a>
+
+</div>
+
+
+<div class="person">
+
+<div class="avatar">
+
+<img
+src="IMG_6047.jpeg"
+alt="Foto de Mia Noriel Castillo Hermosillo">
+
+</div>
+
+<h3>
+Mia Noriel Castillo Hermosillo
+</h3>
+
+<a href="mailto:200670@iberopuebla.mx">
+200670@iberopuebla.mx
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
 </section>
+
+
+<!-- ===================================================== -->
+<!-- UBICACIÓN -->
+<!-- ===================================================== -->
 
 <section id="ubicacion">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Ubicación</h2>
-    </div>
-    <div class="map-frame">
-      <iframe
-        src="https://www.google.com/maps?q=Universidad+Iberoamericana+Puebla&output=embed"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-    <p class="loc-caption">Universidad Iberoamericana Puebla</p>
-  </div>
+
+<div class="wrap">
+
+<div class="section-head">
+
+<h2>
+Ubicación
+</h2>
+
+</div>
+
+
+<div class="map-frame">
+
+<iframe
+src="https://www.google.com/maps?q=Universidad+Iberoamericana+Puebla&amp;output=embed"
+loading="lazy"
+referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
+</div>
+
+
+<p class="loc-caption">
+
+Universidad Iberoamericana Puebla
+
+</p>
+
+</div>
+
 </section>
 
+
+<!-- ===================================================== -->
+<!-- FOOTER -->
+<!-- ===================================================== -->
+
 <footer>
-  Producción Electrónica — semestre en curso, actualizado conforme avanza el curso.
+
+Producción Electrónica — semestre en curso,
+actualizado conforme avanza el curso.
+
 </footer>
+
 
 </body>
 </html>
