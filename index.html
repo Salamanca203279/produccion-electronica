@@ -740,9 +740,7 @@ footer{
 
     <div class="section-head">
 
-      <h2>
-        La materia
-      </h2>
+      <h2>La materia</h2>
 
       <p>
         Producción Electrónica busca que aprendamos el proceso
@@ -756,26 +754,11 @@ footer{
 
     <ul class="topics">
 
-      <li>
-        Diseño de esquemáticos y validación de circuitos
-      </li>
-
-      <li>
-        Ruteo de pistas y planeación de placas en KiCad
-      </li>
-
-      <li>
-        Modelado y verificación de diseños en Altium
-      </li>
-
-      <li>
-        Fabricación digital de PCBs
-        (fresado y grabado láser)
-      </li>
-
-      <li>
-        Soldadura y ensamble de componentes
-      </li>
+      <li>Diseño de esquemáticos y validación de circuitos</li>
+      <li>Ruteo de pistas y planeación de placas en KiCad</li>
+      <li>Modelado y verificación de diseños en Altium</li>
+      <li>Fabricación digital de PCBs (fresado y grabado láser)</li>
+      <li>Soldadura y ensamble de componentes</li>
 
     </ul>
 
@@ -805,9 +788,7 @@ footer{
 
 <div class="section-head">
 
-<h2>
-Trabajos realizados
-</h2>
+<h2>Trabajos realizados</h2>
 
 <p>
 Cada práctica es un paso más hacia el proyecto final del curso.
@@ -1513,7 +1494,7 @@ de los archivos para fabricación.
 <!-- ETAPA 4 -->
 <!-- ===================================================== -->
 
-<div class="stage" style="margin-bottom:0;">
+<div class="stage">
 
 <div class="stage-head">
 
@@ -1708,6 +1689,183 @@ del proceso.
 
 
 </div>
+
+
+<!-- ===================================================== -->
+<!-- ETAPA 5 - MODS CE -->
+<!-- ===================================================== -->
+
+<div class="stage" style="margin-top:20px; margin-bottom:0;">
+
+<div class="stage-head">
+
+<span class="stage-num">
+5
+</span>
+
+<h4>
+Uso de Mods CE
+</h4>
+
+</div>
+
+
+<p class="stage-intro">
+
+Con los archivos de fabricación ya exportados desde KiCad,
+pasamos a Mods CE para preparar las rutas de maquinado
+que utilizará la MonoFab SRM-20.
+
+</p>
+
+
+<ul class="step-list">
+
+
+<li class="photo">
+
+<div class="step-thumb has-img">
+
+<img
+src="mods-programs.png"
+alt="Panel de programas de Mods CE buscando SRM-20 mill 2D PCB"
+loading="lazy">
+
+</div>
+
+
+<div class="step-text">
+
+<strong>
+Abrir el programa en Mods CE
+</strong>
+
+<span>
+
+Entramos a <b>modsproject.org</b>,
+abrimos el panel de <b>Programs</b>
+y buscamos
+
+<b>SRM-20 mill → mill 2D PCB</b>.
+
+Este es el flujo que utilizamos
+para preparar los archivos
+que se enviarán a la MonoFab.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb has-img">
+
+<img
+src="mods-pistas.png"
+alt="Pipeline de Mods CE procesando el archivo SVG de pistas"
+loading="lazy">
+
+</div>
+
+
+<div class="step-text">
+
+<strong>
+Cargar el archivo de pistas
+</strong>
+
+<span>
+
+En el módulo <b>read SVG</b>
+cargamos <b>Pistas.svg</b>
+y lo invertimos en
+<b>Convert SVG</b>.
+
+Después, en
+<b>set PCB defaults</b>,
+seleccionamos la herramienta
+
+<b>0.40 mm flat</b>
+
+y configuramos una profundidad de corte
+de <b>0.1 mm</b>.
+
+Esta profundidad es suficiente
+para aislar el cobre
+sin atravesar completamente la placa.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb has-img">
+
+<img
+src="mods-contorno.png"
+alt="Pipeline de Mods CE procesando el archivo SVG del contorno"
+loading="lazy">
+
+</div>
+
+
+<div class="step-text">
+
+<strong>
+Configurar el contorno, la velocidad y el guardado
+</strong>
+
+<span>
+
+Repetimos el proceso con
+<b>Contornos.svg</b>
+para realizar el corte exterior de la placa.
+
+En este caso utilizamos
+una fresa de <b>1.9 mm</b>,
+capaz de atravesar todo el espesor.
+
+En
+<b>Roland SRM-20 milling machine</b>
+dejamos la velocidad en
+<b>4 mm/s</b>
+
+y activamos el guardado automático
+antes de calcular la ruta.
+
+</span>
+
+</div>
+
+</li>
+
+
+</ul>
+
+
+<div class="note-box success-note">
+
+<strong>
+Resultado:
+</strong>
+
+Mods CE genera el archivo de trayectoria
+que utilizaremos posteriormente en VPanel
+para realizar el fresado de la PCB
+con la MonoFab.
+
+</div>
+
+
+</div>
+
 
 </div>
 
