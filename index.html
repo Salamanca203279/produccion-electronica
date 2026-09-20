@@ -1,0 +1,2335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Producción Electrónica</title>
+
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --bg:#f4f7f5;
+  --bg-alt:#e7f1ec;
+  --surface:#ffffff;
+  --ink:#1c2620;
+  --ink-dim:#57685f;
+  --accent:#2f7d63;
+  --accent-deep:#1f5745;
+  --accent-dim:#dcece4;
+  --on-accent:#f2f8f5;
+  --border:#d9e6de;
+}
+
+*{box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'IBM Plex Sans',sans-serif;
+  line-height:1.65;
+  font-size:16px;
+}
+
+a{color:var(--accent);}
+
+.wrap{
+  max-width:920px;
+  margin:0 auto;
+  padding:0 24px;
+}
+
+/* NAV */
+
+header.topbar{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(31,87,69,.96);
+  backdrop-filter:blur(6px);
+}
+
+.nav-inner{
+  max-width:920px;
+  margin:0 auto;
+  padding:18px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.brand{
+  font-weight:600;
+  font-size:16px;
+  text-decoration:none;
+  color:var(--on-accent);
+}
+
+nav.links{
+  display:flex;
+  gap:26px;
+}
+
+nav.links a{
+  font-size:14px;
+  font-weight:500;
+  text-decoration:none;
+  color:#cfe4da;
+}
+
+nav.links a:hover{
+  color:#fff;
+}
+
+/* HERO */
+
+.hero{
+  padding:72px 0 68px;
+  text-align:center;
+  background:linear-gradient(
+    160deg,
+    var(--accent-deep),
+    var(--accent) 78%
+  );
+  color:var(--on-accent);
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(
+      rgba(255,255,255,.10) 1.5px,
+      transparent 1.5px
+    );
+  background-size:26px 26px;
+  pointer-events:none;
+}
+
+.hero .wrap{
+  position:relative;
+}
+
+.hero .kicker{
+  font-size:13.5px;
+  font-weight:600;
+  letter-spacing:.04em;
+  color:#bfe3d2;
+  margin-bottom:14px;
+}
+
+h1{
+  font-size:clamp(30px,4.2vw,42px);
+  font-weight:700;
+  line-height:1.2;
+  margin:0 0 18px;
+  color:var(--on-accent);
+}
+
+.hero p.lead{
+  max-width:56ch;
+  margin:0 auto 8px;
+  color:#d9ece3;
+  font-size:16.5px;
+}
+
+/* SECCIONES */
+
+section{
+  padding:56px 0;
+}
+
+section#materia{
+  background:var(--bg);
+}
+
+section#trabajos{
+  background:var(--bg-alt);
+}
+
+section#equipo{
+  background:var(--bg);
+}
+
+section#ubicacion{
+  background:var(--bg-alt);
+}
+
+.section-head{
+  margin-bottom:30px;
+}
+
+.section-head h2{
+  font-size:22px;
+  font-weight:700;
+  margin:0 0 8px;
+}
+
+.section-head p{
+  color:var(--ink-dim);
+  margin:0;
+  font-size:15px;
+  max-width:60ch;
+}
+
+/* MATERIA */
+
+ul.topics{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px 24px;
+}
+
+ul.topics li{
+  display:flex;
+  gap:10px;
+  font-size:15px;
+  align-items:flex-start;
+}
+
+ul.topics li::before{
+  content:"";
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  margin-top:8px;
+  background:var(--accent);
+  flex:none;
+}
+
+.tools-row{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:22px;
+}
+
+.tool-chip{
+  font-size:13px;
+  font-weight:500;
+  color:var(--accent-deep);
+  background:var(--accent-dim);
+  border-radius:20px;
+  padding:6px 14px;
+}
+
+/* PRÁCTICAS */
+
+.status-pill{
+  display:inline-block;
+  font-size:12px;
+  font-weight:600;
+  color:var(--accent);
+  background:var(--accent-dim);
+  border-radius:20px;
+  padding:4px 12px;
+  margin-bottom:12px;
+}
+
+.spec-list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px 18px;
+  font-size:13.5px;
+  color:var(--ink-dim);
+  padding:0;
+  margin:0 0 12px;
+  list-style:none;
+}
+
+.spec-list li strong{
+  color:var(--ink);
+  font-weight:600;
+}
+
+.process-intro{
+  margin:44px 0 28px;
+}
+
+.process-intro h3{
+  font-size:19px;
+  font-weight:700;
+  margin:0 0 8px;
+}
+
+.process-intro p{
+  color:var(--ink-dim);
+  font-size:14.5px;
+  margin:0;
+  max-width:64ch;
+}
+
+.stage{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:24px 26px;
+  margin-bottom:20px;
+  box-shadow:0 1px 2px rgba(31,87,69,.06);
+}
+
+.stage-head{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:18px;
+}
+
+.stage-num{
+  flex:none;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:var(--accent);
+  color:var(--on-accent);
+  font-weight:700;
+  font-size:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.stage-head h4{
+  font-size:16.5px;
+  font-weight:700;
+  margin:0;
+}
+
+.step-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.step-list li.photo{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+  align-items:start;
+  padding-bottom:18px;
+  border-bottom:1px solid var(--border);
+}
+
+.step-list li.photo:last-child{
+  padding-bottom:0;
+  border-bottom:0;
+}
+
+.step-thumb{
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
+  background:#f8faf9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.step-thumb img{
+  width:100%;
+  height:auto;
+  max-height:680px;
+  object-fit:contain;
+  display:block;
+  background:#f8faf9;
+}
+
+.step-thumb.portrait-shot img{
+  width:auto;
+  max-width:100%;
+  max-height:720px;
+}
+
+.step-thumb.compact-shot{
+  padding:18px;
+}
+
+.step-thumb.compact-shot img{
+  width:auto;
+  max-width:100%;
+  max-height:340px;
+}
+
+.step-text strong{
+  display:block;
+  font-size:14.5px;
+  font-weight:600;
+  margin-bottom:4px;
+}
+
+.step-text span{
+  font-size:13.5px;
+  color:var(--ink-dim);
+}
+
+.step-text b{
+  color:var(--ink);
+  font-weight:600;
+}
+
+.stage-intro{
+  margin:0 0 20px;
+  color:var(--ink-dim);
+  font-size:14.5px;
+}
+
+.practice-lead{
+  color:var(--ink-dim);
+  font-size:15px;
+  margin:0 0 18px;
+  line-height:1.7;
+}
+
+.practice-specs{
+  margin-bottom:10px;
+}
+
+.note-box{
+  margin-top:2px;
+  border-left:4px solid #b88729;
+  background:#fff8e8;
+  color:#5d4a24;
+  border-radius:8px;
+  padding:13px 15px;
+  font-size:13.5px;
+  line-height:1.55;
+}
+
+.note-box strong{
+  color:#4c3a17;
+}
+
+.success-note{
+  margin-top:22px;
+  border-left-color:var(--accent);
+  background:var(--accent-dim);
+  color:var(--accent-deep);
+}
+
+.success-note strong{
+  color:var(--accent-deep);
+}
+
+/* TUTORIAL MODS: LECCIONES */
+
+.toc{
+  background:var(--accent-dim);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:18px 22px;
+  margin:22px 0 40px;
+}
+
+.toc p{
+  margin:0 0 10px;
+  font-size:13px;
+  font-weight:600;
+  color:var(--accent-deep);
+  text-transform:uppercase;
+  letter-spacing:.02em;
+}
+
+.toc ol{
+  margin:0;
+  padding-left:20px;
+  columns:2;
+  column-gap:24px;
+  font-size:13.5px;
+}
+
+.toc li{
+  margin-bottom:6px;
+}
+
+.toc a{
+  color:var(--ink);
+  text-decoration:none;
+}
+
+.toc a:hover{
+  color:var(--accent-deep);
+  text-decoration:underline;
+}
+
+.lesson{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-top:4px solid var(--accent);
+  border-radius:14px;
+  padding:28px 28px 30px;
+  margin-bottom:38px;
+  box-shadow:0 1px 3px rgba(31,87,69,.08);
+  scroll-margin-top:90px;
+}
+
+.lesson-head{
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  margin-bottom:16px;
+}
+
+.lesson-num{
+  flex:none;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:var(--accent);
+  color:var(--on-accent);
+  font-weight:700;
+  font-size:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.lesson-head h3{
+  font-size:19px;
+  font-weight:700;
+  margin:2px 0 0;
+}
+
+.lesson-intro{
+  color:var(--ink-dim);
+  font-size:14.5px;
+  margin:0 0 18px;
+  max-width:70ch;
+}
+
+.lesson-img{
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
+  background:#fff;
+  margin-bottom:18px;
+  max-width:560px;
+}
+
+.lesson-img a{
+  display:block;
+  line-height:0;
+}
+
+.lesson-img img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+.lesson-img.narrow{
+  max-width:420px;
+}
+
+.lesson ul.detail{
+  margin:0 0 14px;
+  padding-left:20px;
+  font-size:14px;
+  color:var(--ink);
+}
+
+.lesson ul.detail li{
+  margin-bottom:7px;
+}
+
+.lesson ul.detail b{
+  color:var(--accent-deep);
+}
+
+.callout{
+  background:var(--accent-dim);
+  border-left:3px solid var(--accent);
+  border-radius:0 8px 8px 0;
+  padding:12px 16px;
+  font-size:13.5px;
+  color:var(--ink);
+  margin-top:14px;
+}
+
+.callout b{
+  color:var(--accent-deep);
+}
+
+.legend{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:12.5px;
+  color:var(--ink-dim);
+  margin:-6px 0 16px;
+}
+
+.legend .swatch{
+  width:14px;
+  height:14px;
+  border:2.5px solid #e14b3d;
+  border-radius:3px;
+  flex:none;
+}
+
+/* ACORDEÓN */
+
+.accordion{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-top:3px solid var(--accent);
+  border-radius:14px;
+  margin-bottom:18px;
+  box-shadow:0 1px 2px rgba(31,87,69,.06);
+  overflow:hidden;
+}
+
+.accordion summary{
+  list-style:none;
+  cursor:pointer;
+  padding:20px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.accordion summary::-webkit-details-marker{
+  display:none;
+}
+
+.accordion-title{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.accordion-title h3{
+  font-size:17px;
+  font-weight:600;
+  margin:0;
+}
+
+.accordion-chevron{
+  flex:none;
+  font-size:20px;
+  color:var(--accent);
+  transform:rotate(90deg);
+  transition:transform .18s ease;
+}
+
+.accordion[open] .accordion-chevron{
+  transform:rotate(-90deg);
+}
+
+.accordion-body{
+  padding:0 24px 26px;
+}
+
+/* EQUIPO */
+
+.team-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.person{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:22px;
+  text-align:center;
+  box-shadow:0 1px 2px rgba(31,87,69,.06);
+}
+
+.avatar{
+  width:92px;
+  height:92px;
+  border-radius:50%;
+  overflow:hidden;
+  background:var(--accent-dim);
+  border:3px solid var(--accent-dim);
+  margin:0 auto 14px;
+  box-shadow:0 2px 8px rgba(31,87,69,.12);
+}
+
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.person h3{
+  font-size:16px;
+  font-weight:600;
+  margin:0 0 6px;
+}
+
+.person a{
+  font-size:13.5px;
+  text-decoration:none;
+  color:var(--accent-deep);
+  font-weight:500;
+}
+
+/* UBICACIÓN */
+
+.map-frame{
+  border:1px solid var(--border);
+  border-top:3px solid var(--accent);
+  border-radius:14px;
+  overflow:hidden;
+}
+
+.map-frame iframe{
+  width:100%;
+  height:320px;
+  border:0;
+  display:block;
+}
+
+.loc-caption{
+  margin-top:12px;
+  font-size:13.5px;
+  color:var(--ink-dim);
+}
+
+footer{
+  padding:28px 0 36px;
+  text-align:center;
+  font-size:13px;
+  color:var(--on-accent);
+  background:var(--accent-deep);
+}
+
+@media(max-width:680px){
+
+  ul.topics{
+    grid-template-columns:1fr;
+  }
+
+  .team-grid{
+    grid-template-columns:1fr;
+  }
+
+  .spec-list{
+    grid-template-columns:1fr;
+  }
+
+  nav.links{
+    gap:16px;
+  }
+
+  .accordion-body{
+    padding:0 16px 20px;
+  }
+
+  .stage{
+    padding:20px 16px;
+  }
+
+  .step-thumb img{
+    max-height:520px;
+  }
+
+  .step-thumb.portrait-shot img{
+    max-height:580px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="nav-inner">
+
+    <a class="brand" href="#inicio">
+      Producción Electrónica
+    </a>
+
+    <nav class="links">
+      <a href="#materia">Materia</a>
+      <a href="#trabajos">Trabajos</a>
+      <a href="#equipo">Equipo</a>
+      <a href="#ubicacion">Ubicación</a>
+    </nav>
+
+  </div>
+</header>
+
+
+<section class="hero" id="inicio">
+  <div class="wrap">
+
+    <div class="kicker">
+      Ingeniería Mecatrónica · Universidad Iberoamericana Puebla
+    </div>
+
+    <h1>
+      Bitácora de Producción Electrónica
+    </h1>
+
+    <p class="lead">
+      Aquí vamos documentando el proceso de diseño y fabricación
+      de circuitos impresos que desarrollamos a lo largo del
+      semestre, desde la primera práctica hasta el proyecto final.
+    </p>
+
+  </div>
+</section>
+
+
+<section id="materia">
+  <div class="wrap">
+
+    <div class="section-head">
+      <h2>La materia</h2>
+
+      <p>
+        Producción Electrónica busca que aprendamos el proceso
+        completo detrás de un circuito impreso: del esquemático
+        a la placa terminada, pasando por el diseño de pistas,
+        la fabricación digital y el ensamble final.
+      </p>
+    </div>
+
+    <ul class="topics">
+      <li>Diseño de esquemáticos y validación de circuitos</li>
+      <li>Ruteo de pistas y planeación de placas en KiCad</li>
+      <li>Modelado y verificación de diseños en Altium</li>
+      <li>Fabricación digital de PCBs (fresado y grabado láser)</li>
+      <li>Soldadura y ensamble de componentes</li>
+    </ul>
+
+    <div class="tools-row">
+      <span class="tool-chip">KiCad</span>
+      <span class="tool-chip">Altium</span>
+      <span class="tool-chip">Fresadora CNC</span>
+      <span class="tool-chip">Grabado láser</span>
+      <span class="tool-chip">Cautín &amp; estaño</span>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="trabajos">
+
+<div class="wrap">
+
+<div class="section-head">
+
+<h2>Trabajos realizados</h2>
+
+<p>
+Cada práctica es un paso más hacia el proyecto final del curso.
+Toca el título para desplegar el detalle.
+</p>
+
+</div>
+
+
+<details class="accordion" open>
+
+<summary>
+
+<div class="accordion-title">
+
+<span class="status-pill">
+En desarrollo
+</span>
+
+<h3>
+Práctica 1 — Diseño de PCB en KiCad
+</h3>
+
+</div>
+
+<span class="accordion-chevron">›</span>
+
+</summary>
+
+
+<div class="accordion-body">
+
+<p class="practice-lead">
+
+En esta práctica documentamos el flujo completo que seguimos
+en KiCad: configuramos las librerías, construimos el esquemático,
+verificamos las huellas, pasamos el circuito al editor de PCB,
+definimos las reglas necesarias para fabricación y finalmente
+exportamos los archivos que utilizaremos en Mods.
+
+</p>
+
+
+<ul class="spec-list practice-specs">
+
+<li>
+<strong>Software:</strong>
+KiCad 10.0
+</li>
+
+<li>
+<strong>Librería principal:</strong>
+PCM_fab
+</li>
+
+<li>
+<strong>Etapas:</strong>
+Esquemático + PCB
+</li>
+
+<li>
+<strong>Salida:</strong>
+SVG y archivos de fabricación
+</li>
+
+</ul>
+
+
+<div class="process-intro">
+
+<h3>
+Proceso paso a paso
+</h3>
+
+<p>
+Estas son las etapas que seguimos desde que abrimos KiCad
+hasta dejar listos los archivos de salida para continuar
+con la fabricación.
+</p>
+
+</div>
+
+
+<!-- ETAPA 1 -->
+
+<div class="stage">
+
+<div class="stage-head">
+
+<span class="stage-num">
+1
+</span>
+
+<h4>
+Configuración inicial y creación del proyecto
+</h4>
+
+</div>
+
+
+<ul class="step-list">
+
+
+<li class="photo">
+
+<div class="step-thumb">
+
+<img
+src="kicad-01.png"
+alt="Pantalla principal de KiCad">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Primera pantalla de KiCad
+</strong>
+
+<span>
+
+Esto es lo primero que vemos al abrir KiCad.
+
+Desde esta pantalla principal podemos acceder
+a los editores, administrar el proyecto
+y comenzar a preparar el entorno de trabajo.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb">
+
+<img
+src="kicad-02.png"
+alt="Preferencias de KiCad">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Acceso a las librerías
+</strong>
+
+<span>
+
+Desde <b>Preferencias</b>
+entramos a la gestión de bibliotecas.
+
+Aquí agregamos o descargamos
+las librerías que necesitamos
+para construir nuestro circuito.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb">
+
+<img
+src="kicad-03.png"
+alt="Librerías de símbolos">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Librerías de símbolos que vamos a utilizar
+</strong>
+
+<span>
+
+Verificamos que estén habilitadas
+las bibliotecas necesarias.
+
+En nuestro caso trabajamos
+con las librerías de KiCad
+y con <b>PCM_fab</b>.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb">
+
+<img
+src="kicad-04.png"
+alt="Bibliotecas de huellas">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Bibliotecas de huellas
+</strong>
+
+<span>
+
+Repetimos el mismo proceso
+para las <b>huellas de los componentes</b>.
+
+Estas huellas representan
+la forma física de los componentes
+que posteriormente aparecerán en la PCB.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb">
+
+<img
+src="kicad-05.png"
+alt="Bibliotecas de diseño">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Bibliotecas de diseño
+</strong>
+
+<span>
+
+También revisamos
+las bibliotecas de bloques de diseño
+que utilizaremos dentro del proyecto.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb">
+
+<img
+src="kicad-06.png"
+alt="Nuevo proyecto en KiCad">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Crear un proyecto nuevo
+</strong>
+
+<span>
+
+Después vamos a
+
+<b>Archivo → Nuevo proyecto</b>
+
+para crear el archivo de trabajo
+en el que se guardarán
+el esquemático,
+la PCB
+y los demás archivos.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb compact-shot">
+
+<img
+src="kicad-07.png"
+alt="Archivo de esquemático">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Abrir el esquemático
+</strong>
+
+<span>
+
+Al crear el proyecto
+aparecen sus archivos principales.
+
+Para empezar a construir el circuito
+debemos abrir el archivo
+
+<b>.kicad_sch</b>.
+
+</span>
+
+</div>
+
+</li>
+
+
+</ul>
+
+</div>
+
+
+<!-- ETAPA 2 -->
+
+<div class="stage">
+
+<div class="stage-head">
+
+<span class="stage-num">
+2
+</span>
+
+<h4>
+Trabajo en el esquemático
+</h4>
+
+</div>
+
+
+<ul class="step-list">
+
+
+<li class="photo">
+
+<div class="step-thumb portrait-shot">
+
+<img
+src="kicad-checklist.jpeg"
+alt="Checklist de KiCad">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Checklist y navegación del esquemático
+</strong>
+
+<span>
+
+Esta zona forma parte
+de nuestras herramientas de trabajo.
+
+La <b>checklist</b>
+nos permite revisar el diseño.
+
+Nos muestra los <b>errores</b>
+que debemos corregir
+y también los <b>avisos</b>.
+
+Los avisos pueden ignorarse
+si después de revisarlos
+vemos que no afectan
+el funcionamiento
+o la fabricación.
+
+En esta misma barra
+tenemos el acceso
+para regresar al esquemático.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb portrait-shot">
+
+<img
+src="kicad-herramientas.jpeg"
+alt="Herramientas del esquemático">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Herramientas del editor de esquemáticos
+</strong>
+
+<span>
+
+En esta barra encontramos
+las herramientas necesarias
+para construir el circuito.
+
+Podemos agregar componentes electrónicos,
+colocar tierra y voltajes,
+unir componentes con cables,
+añadir texto y etiquetas
+y hacer contornos.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb portrait-shot">
+
+<img
+src="kicad-huella.png"
+alt="Huella de componente">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Revisar la huella del componente
+</strong>
+
+<span>
+
+La imagen inferior corresponde
+a la <b>huella o footprint</b>
+del componente.
+
+La huella representa
+la forma física que tendrá
+el componente sobre la placa.
+
+</span>
+
+</div>
+
+
+<div class="note-box">
+
+<strong>
+Nota importante:
+</strong>
+
+cuando agregamos un componente
+al esquemático debemos comprobar
+que tenga una huella asignada.
+
+Si el componente no tiene
+una huella compatible,
+no podremos utilizarlo correctamente
+al llevar el diseño a la PCB
+para su fabricación.
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb portrait-shot">
+
+<img
+src="kicad-esquematico-final.png"
+alt="Esquemático final">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Esquemático final
+</strong>
+
+<span>
+
+Este es nuestro esquemático terminado.
+
+Después de colocar
+y conectar los componentes,
+lo ordenamos utilizando
+<b>contornos y etiquetas</b>.
+
+De esta manera
+separamos visualmente
+las diferentes partes del circuito
+y facilitamos su lectura.
+
+</span>
+
+</div>
+
+</li>
+
+
+</ul>
+
+</div>
+
+
+<!-- ETAPA 3 -->
+
+<div class="stage">
+
+<div class="stage-head">
+
+<span class="stage-num">
+3
+</span>
+
+<h4>
+Diseño de la PCB
+</h4>
+
+</div>
+
+
+<ul class="step-list">
+
+
+<li class="photo">
+
+<div class="step-thumb">
+
+<img
+src="pcb-area.png"
+alt="Área de trabajo PCB">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Pasamos al editor de PCB
+</strong>
+
+<span>
+
+Una vez terminado
+el esquemático
+nos vamos al editor de PCB.
+
+Aquí observamos
+el área principal de trabajo.
+
+En la parte superior
+tenemos nuevamente
+las herramientas de revisión
+o checklist.
+
+En la barra lateral
+encontramos las opciones
+para trabajar con
+<b>etiquetas, pistas/cables y capas</b>.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb compact-shot">
+
+<img
+src="pcb-componentes.png"
+alt="Pasar componentes a PCB">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Pasar los componentes del esquemático a la PCB
+</strong>
+
+<span>
+
+Utilizamos este ícono
+para cargar en la placa
+los componentes provenientes
+del esquemático.
+
+Una vez importados,
+los separamos y acomodamos
+para comenzar a organizar
+la PCB.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb">
+
+<img
+src="pcb-reglas.png"
+alt="Reglas de diseño PCB">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Definir las reglas de diseño
+</strong>
+
+<span>
+
+Antes de rutear
+configuramos los requerimientos
+que debe cumplir la PCB
+para poder fabricarse.
+
+Aquí definimos parámetros
+como el
+
+<b>margen mínimo</b>
+
+y el
+
+<b>ancho mínimo de pista</b>,
+
+además de otras separaciones
+y dimensiones necesarias
+para la fabricación.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb compact-shot">
+
+<img
+src="pcb-svg.png"
+alt="Exportar SVG">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Exportar el diseño en SVG
+</strong>
+
+<span>
+
+Con el diseño preparado
+exportamos el archivo
+en formato
+
+<b>SVG</b>.
+
+Esta salida nos permite
+continuar con la preparación
+de los archivos
+para fabricación.
+
+</span>
+
+</div>
+
+</li>
+
+
+</ul>
+
+</div>
+
+
+<!-- ETAPA 4 -->
+
+<div class="stage">
+
+<div class="stage-head">
+
+<span class="stage-num">
+4
+</span>
+
+<h4>
+Exportación de archivos para fabricación
+</h4>
+
+</div>
+
+
+<p class="stage-intro">
+
+En esta etapa únicamente
+preparamos y exportamos
+los archivos de fabricación.
+
+Los archivos generados
+se guardan en la carpeta
+de nuestro proyecto
+en la computadora.
+
+Después utilizaremos
+estos archivos en <b>Mods</b>.
+
+</p>
+
+
+<ul class="step-list">
+
+
+<li class="photo">
+
+<div class="step-thumb">
+
+<img
+src="gerber-01.png"
+alt="Exportación de capas">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Seleccionar las capas y la carpeta de salida
+</strong>
+
+<span>
+
+Elegimos las capas
+que necesitamos
+y verificamos la carpeta
+donde se guardarán
+los archivos generados.
+
+Normalmente utilizamos
+la misma carpeta
+en donde tenemos
+guardado nuestro proyecto.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb">
+
+<img
+src="gerber-02.png"
+alt="Salidas de fabricación Gerber">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Entrar a Salidas de fabricación → Gerbers
+</strong>
+
+<span>
+
+Desde el menú
+entramos a
+
+<b>Salidas de fabricación</b>
+
+y seleccionamos
+
+<b>Gerbers</b>.
+
+Desde aquí
+generamos los archivos
+correspondientes
+a las capas de la PCB.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb">
+
+<img
+src="gerber-03.png"
+alt="Generación Gerber">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Generar los archivos Gerber
+</strong>
+
+<span>
+
+Seleccionamos las capas
+que queremos exportar
+y trazamos los archivos.
+
+KiCad los guarda
+en la carpeta de destino
+de nuestro proyecto.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb">
+
+<img
+src="gerber-04.png"
+alt="Archivos de salida">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Archivos listos para Mods
+</strong>
+
+<span>
+
+Al terminar la exportación
+ya tenemos los archivos
+guardados en nuestra computadora.
+
+Estos son los archivos
+que utilizaremos en
+
+<b>Mods</b>
+
+para preparar las rutas
+y continuar
+con la fabricación de la PCB.
+
+</span>
+
+</div>
+
+</li>
+
+
+</ul>
+
+
+<div class="note-box success-note">
+
+<strong>
+Resultado:
+</strong>
+
+al finalizar esta etapa
+tenemos el esquemático,
+el diseño de la PCB
+y los archivos de fabricación
+listos para continuar.
+
+</div>
+
+</div>
+
+
+<!-- ETAPA 5 MODS -->
+
+<div class="stage">
+
+<div class="stage-head">
+
+<span class="stage-num">
+5
+</span>
+
+<h4>
+Uso de Mods CE
+</h4>
+
+</div>
+
+
+<p class="stage-intro">
+
+Con los archivos
+ya exportados desde KiCad,
+pasamos a Mods CE
+para preparar las rutas
+de maquinado que utilizará
+la MonoFab SRM-20.
+
+</p>
+
+
+<ul class="step-list">
+
+
+<li class="photo">
+
+<div class="step-thumb">
+
+<img
+src="mods-programs.png"
+alt="Programas Mods CE">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Abrir el programa en Mods CE
+</strong>
+
+<span>
+
+Entramos a
+
+<b>modsproject.org</b>,
+
+abrimos el panel de
+
+<b>Programs</b>
+
+y buscamos
+
+<b>SRM-20 mill → mill 2D PCB</b>.
+
+Este es el flujo
+que utilizaremos
+para preparar los archivos
+que posteriormente
+se enviarán a la MonoFab.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb">
+
+<img
+src="mods-pistas.png"
+alt="Pistas en Mods CE">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Cargar el archivo de pistas
+</strong>
+
+<span>
+
+En el módulo
+
+<b>read SVG</b>
+
+cargamos
+
+<b>Pistas.svg</b>.
+
+Posteriormente
+lo invertimos
+en
+
+<b>Convert SVG</b>.
+
+En
+
+<b>set PCB defaults</b>
+
+seleccionamos
+la herramienta
+
+<b>0.40 mm flat</b>
+
+y configuramos
+una profundidad de corte
+de
+
+<b>0.1 mm</b>.
+
+Esta profundidad
+es suficiente
+para aislar el cobre
+sin atravesar completamente
+la placa.
+
+</span>
+
+</div>
+
+</li>
+
+
+<li class="photo">
+
+<div class="step-thumb">
+
+<img
+src="mods-contorno.png"
+alt="Contorno en Mods CE">
+
+</div>
+
+<div class="step-text">
+
+<strong>
+Configurar el contorno, la velocidad y el guardado
+</strong>
+
+<span>
+
+Repetimos el proceso
+con
+
+<b>Contornos.svg</b>
+
+para realizar
+el corte exterior
+de la placa.
+
+En este caso
+utilizamos una fresa
+de
+
+<b>1.9 mm</b>,
+
+capaz de atravesar
+todo el espesor.
+
+En
+
+<b>Roland SRM-20 milling machine</b>
+
+dejamos la velocidad
+en
+
+<b>4 mm/s</b>
+
+y activamos
+el guardado automático
+antes de calcular la ruta.
+
+</span>
+
+</div>
+
+</li>
+
+
+</ul>
+
+
+<div class="note-box success-note">
+
+<strong>
+Resultado:
+</strong>
+
+Mods CE genera
+el archivo de trayectoria
+que utilizaremos posteriormente
+en VPanel
+para realizar
+el fresado de la PCB
+con la MonoFab.
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</details>
+
+
+<details class="accordion">
+
+<summary>
+
+<div class="accordion-title">
+
+<span class="status-pill">
+En desarrollo
+</span>
+
+<h3>
+Fabricación — De KiCad a la MonoFab con Mods CE
+</h3>
+
+</div>
+
+<span class="accordion-chevron">›</span>
+
+</summary>
+
+
+<div class="accordion-body">
+
+<div class="process-intro">
+
+<h3>
+Tutorial: preparar los archivos de corte en Mods CE
+</h3>
+
+<p>
+KiCad exporta el diseño como imágenes SVG, pero la MonoFab no
+entiende un SVG directamente: necesita una ruta de herramienta
+(toolpath) calculada según el diámetro de la fresa y la
+profundidad de corte. Ese cálculo se hace en <b>Mods CE</b>, una
+herramienta web basada en módulos conectados que se van armando
+como un diagrama de flujo. Aquí documentamos, paso por paso y con
+todas las capturas del proceso, cómo se procesan los tres
+archivos que exportamos desde KiCad: contorno, huecos y pistas.
+</p>
+
+</div>
+
+
+<nav class="toc" aria-label="Índice de fabricación">
+<p>En este tutorial</p>
+<ol>
+<li><a href="#m1">Abrir Mods CE y elegir el programa</a></li>
+<li><a href="#m2">Cargar el contorno (Contornos.svg)</a></li>
+<li><a href="#m3">Calcular y guardar la ruta del contorno</a></li>
+<li><a href="#m4">Huecos.svg — las perforaciones</a></li>
+<li><a href="#m5">Pistas.svg — el circuito</a></li>
+<li><a href="#m6">Atajos: set PCB defaults, V-bit calculator y exportar el programa</a></li>
+</ol>
+</nav>
+
+<div class="legend"><span class="swatch"></span> Los recuadros rojos marcan el botón o el campo exacto que se está usando en cada pantalla.</div>
+
+<div class="lesson" id="m1">
+<div class="lesson-head"><span class="lesson-num">1</span><h3>Abrir Mods CE y elegir el programa</h3></div>
+<p class="lesson-intro">Entramos a <b>modsproject.org</b>, un lienzo en blanco donde se conectan "módulos" (cada rectángulo de color) para armar un flujo de procesamiento. No hace falta programar nada desde cero: ya existe un programa hecho para exactamente este trabajo, convertir un SVG en una ruta de corte para la Roland SRM-20 (la MonoFab).</p>
+<div class="lesson-img"><a href="mods-01-inicio.png" target="_blank"><img src="mods-01-inicio.png" alt="Pestaña de Mods CE recién abierta, lienzo vacío"></a></div>
+<ul class="detail">
+<li>Así se ve Mods CE al entrar por primera vez: un lienzo de cuadrícula totalmente vacío, con el mensaje "tap Programs/Modules to start" abajo a la izquierda.</li>
+<li>Arriba están los controles del lienzo (Light/Dark, Fit, Gitlab) y el menú <b>Programs</b>, que es donde viven todos los flujos ya armados.</li>
+</ul>
+<div class="lesson-img narrow"><a href="mods-02-elegir-programa.png" target="_blank"><img src="mods-02-elegir-programa.png" alt="Panel Programs filtrado con 'sr', seleccionando mill 2D PCB"></a></div>
+<ul class="detail">
+<li>Abrimos el panel <b>Programs</b> (esquina superior izquierda) y escribimos <code>sr</code> en el buscador para filtrar por SRM-20.</li>
+<li>Dentro del grupo <b>SRM-20 mill</b> aparecen varias opciones: <code>mill 2.5D stl</code>, <code>mill 2D</code>, <code>mill 2D PCB</code> y <code>mill 3D stl</code>. Elegimos <b>mill 2D PCB</b> — es el flujo ya armado específicamente para fresar placas de circuito, no el genérico "mill 2D" que sirve para corte en general.</li>
+<li>Más abajo también existe un grupo "xdesign connect" con accesos directos (Roland SRM20 PCB, Roland SRM20 mill 2.5D stl), pero para este tutorial usamos el programa base de SRM-20 mill.</li>
+</ul>
+</div>
+
+<div class="lesson" id="m2">
+<div class="lesson-head"><span class="lesson-num">2</span><h3>Cargar el contorno (Contornos.svg)</h3></div>
+<p class="lesson-intro">Con el programa "mill 2D PCB" abierto, el lienzo se llena con la cadena completa de módulos: leer el SVG, convertirlo a imagen, aplicarle un umbral (threshold), calcular la ruta de fresado y enviarla a la máquina. Todavía no hay ningún archivo cargado.</p>
+<div class="lesson-img"><a href="mods-03-programa-cargado.png" target="_blank"><img src="mods-03-programa-cargado.png" alt="Programa Roland Monofab PCB cargado, sin ningún SVG seleccionado"></a></div>
+<ul class="detail">
+<li>El bloque rosa <b>read SVG</b> es el punto de partida: tiene un recuadro blanco que dice "drop file here" y un botón <b>select SVG file</b> debajo.</li>
+<li>De ahí salen líneas azules hacia los siguientes módulos (<b>convert SVG image</b>, <b>image threshold</b>...) — todavía en blanco porque no han recibido ningún dato.</li>
+<li>La nota amarilla "=== START HERE === Select a PNG image or a SVG vector image" nos recuerda justamente por dónde hay que empezar.</li>
+</ul>
+<div class="lesson-img narrow"><a href="mods-04-explorador.png" target="_blank"><img src="mods-04-explorador.png" alt="Ventana de explorador mostrando los archivos Contornos, etiquetas, huecos y pistas"></a></div>
+<ul class="detail">
+<li>Al dar clic en <b>select SVG file</b> se abre el explorador de archivos normal de Windows, apuntando a la carpeta del proyecto de KiCad.</li>
+<li>Ahí están los cuatro SVG que exportamos: <code>Contornos</code>, <code>etiquetas</code>, <code>huecos</code> y <code>pistas</code> — cada uno corresponde a una capa distinta del diseño.</li>
+</ul>
+<div class="lesson-img narrow"><a href="mods-05-seleccionar-contornos.png" target="_blank"><img src="mods-05-seleccionar-contornos.png" alt="Seleccionando específicamente el archivo Contornos en el explorador"></a></div>
+<ul class="detail">
+<li>Para esta primera pasada elegimos específicamente <code>Contornos</code> — es el archivo que define la silueta final de la placa, el último corte que la separa por completo de la lámina de cobre.</li>
+</ul>
+<div class="lesson-img"><a href="mods-06-contorno-cargado.png" target="_blank"><img src="mods-06-contorno-cargado.png" alt="Contornos.svg cargado en el lienzo, mostrando la silueta y las dimensiones"></a></div>
+<ul class="detail">
+<li>Ya cargado, el módulo <b>read SVG</b> muestra la silueta de la placa (con forma de campana en este diseño) y sus datos: <code>file: Contornos.svg</code>, <b>44.9834 × 44.9834 mm</b>, 25.4 unidades por pulgada.</li>
+<li>De ahí la imagen pasa a <b>convert SVG image</b>, que la convierte a un mapa de píxeles (1771 × 1771 px a 1000 dpi) para que los siguientes módulos puedan procesarla.</li>
+</ul>
+</div>
+
+<div class="lesson" id="m3">
+<div class="lesson-head"><span class="lesson-num">3</span><h3>Calcular y guardar la ruta del contorno</h3></div>
+<p class="lesson-intro">Con la silueta ya cargada, el siguiente paso es decirle a Mods qué fresa vamos a usar y desde qué punto de la placa debe empezar a cortar. Esto se hace en dos bloques: <b>mill raster 2D</b> (calcula la ruta) y <b>Roland SRM-20 milling machine</b> (fija el origen y guarda el archivo final).</p>
+<div class="lesson-img narrow"><a href="mods-07-preset-cutout.png" target="_blank"><img src="mods-07-preset-cutout.png" alt="Panel set PCB defaults, preset 1.59mm cutout resaltado"></a></div>
+<ul class="detail">
+<li>Como atajo, el módulo <b>set PCB defaults</b> trae presets ya cargados con valores típicos de fresas y brocas. Para el corte exterior el preset más cercano es <b>1.59mm cutout</b>, así que probamos con ese primero.</li>
+</ul>
+<div class="lesson-img"><a href="mods-08-mill-raster-contorno.png" target="_blank"><img src="mods-08-mill-raster-contorno.png" alt="mill raster 2D con el diámetro corregido a 1.9mm y el botón calculate"></a></div>
+<ul class="detail">
+<li>Pero la fresa física que realmente íbamos a usar es de <b>2 mm</b>, no de 1.59 mm. En <b>mill raster 2D</b> corregimos a mano el campo "tool diameter" y lo dejamos en <b>1.9 mm</b> — más cercano al diámetro real de la herramienta que el preset por defecto, aunque no sea un valor exacto de catálogo.</li>
+<li>El resto de los parámetros se dejan en su valor típico para un corte de contorno: <b>cut depth 0.254 mm</b>, <b>offset number: 1</b> (una sola pasada alrededor del trazo, ya que solo queremos cortar la línea del borde) y dirección <b>climb</b>.</li>
+<li>Al presionar <b>calculate</b>, Mods dibuja en la parte inferior la vista previa de la ruta que va a seguir la fresa (la silueta de la placa con la trayectoria de corte marcada).</li>
+</ul>
+<div class="callout"><b>Por qué importa:</b> si el valor en Mods no coincide con la fresa real, la ruta calculada asume un grosor de corte distinto al que la máquina va a hacer físicamente — el contorno puede salir de más o de menos. Siempre conviene ajustar el diámetro al de la herramienta que de verdad se va a montar, aunque no sea uno de los presets de la lista.</div>
+<div class="lesson-img"><a href="mods-09-origen-antes.png" target="_blank"><img src="mods-09-origen-antes.png" alt="Roland SRM-20 milling machine, origen todavía en X:10 Y:10 Z:10"></a></div>
+<ul class="detail">
+<li>El bloque <b>Roland SRM-20 milling machine</b> recibe la ruta calculada y define desde dónde empieza a cortar la máquina. Por defecto trae un origen de ejemplo (<b>X:10, Y:10, Z:10 mm</b>) que no nos sirve — necesitamos que las tres pasadas (contorno, huecos y pistas) partan exactamente del mismo punto.</li>
+</ul>
+<div class="lesson-img"><a href="mods-10-origen-cero.png" target="_blank"><img src="mods-10-origen-cero.png" alt="Origen movido a X:0 Y:0 Z:0 con el botón move to origin resaltado"></a></div>
+<ul class="detail">
+<li>Cambiamos los tres campos a <b>X:0, Y:0, Z:0</b> y presionamos <b>move to origin</b> — este es el punto físico donde se fijó la placa en la máquina, y usar siempre el mismo origen es lo que hace que las tres pasadas coincidan sobre el mismo material.</li>
+<li>Abajo del bloque, Mods muestra el <b>tiempo estimado</b> de la pasada, útil para calcular cuánto va a tardar el fresado completo.</li>
+</ul>
+<div class="lesson-img"><a href="mods-11-guardar-contorno.png" target="_blank"><img src="mods-11-guardar-contorno.png" alt="Panel WebUSB y save file, listo para guardar el .rml del contorno"></a></div>
+<ul class="detail">
+<li>A la derecha aparecen dos formas de mandar la ruta a la máquina: el bloque <b>WebUSB</b> (para enviarla directo desde el navegador si la MonoFab está conectada por USB) y el bloque <b>save file</b>, que genera y descarga el archivo <code>.rml</code> — el formato que entiende la MonoFab.</li>
+<li>Usamos <b>save file</b>: el nombre queda como <code>SVG image.rml</code> y el estado pasa a "ready" en cuanto el archivo está listo para guardarse. Ese <code>.rml</code> es justo el que después se carga en VPanel para fresar el contorno.</li>
+</ul>
+</div>
+
+<div class="lesson" id="m4">
+<div class="lesson-head"><span class="lesson-num">4</span><h3>Huecos.svg — las perforaciones</h3></div>
+<p class="lesson-intro">Este archivo marca únicamente los puntos donde van los orificios de montaje (como los de los conectores J1 y J2) — una pasada aparte, con una broca redonda en vez de una fresa plana. Recargamos Mods y volvemos a abrir "mill 2D PCB" desde cero antes de empezar esta pasada, para no arrastrar valores de la pasada anterior.</p>
+<div class="lesson-img narrow"><a href="mods-12-seleccionar-huecos.png" target="_blank"><img src="mods-12-seleccionar-huecos.png" alt="Seleccionando el archivo huecos en el explorador"></a></div>
+<ul class="detail">
+<li>En "select SVG file" elegimos ahora <code>huecos</code>.</li>
+</ul>
+<div class="lesson-img"><a href="mods-13-huecos-cargado.png" target="_blank"><img src="mods-13-huecos-cargado.png" alt="huecos.svg cargado en el módulo read SVG, se ven como puntos"></a></div>
+<ul class="detail">
+<li>Cargado, se ve como puntos sueltos, no líneas — cada uno marca dónde debe bajar la broca para hacer el agujero. El archivo pesa lo mismo en dimensiones que el contorno (44.98 × 44.98 mm) porque comparte el mismo lienzo de diseño.</li>
+</ul>
+<div class="lesson-img narrow"><a href="mods-14-preset-drill.png" target="_blank"><img src="mods-14-preset-drill.png" alt="Panel set PCB defaults, preset 0.79mm drill resaltado"></a></div>
+<ul class="detail">
+<li>En <b>set PCB defaults</b> elegimos el preset <b>0.79mm drill</b> — el tamaño estándar para las patas de los conectores THT que lleva esta placa, y esta vez sí coincide con la broca real que usamos, así que no hace falta corregirlo a mano como en el contorno.</li>
+</ul>
+<div class="lesson-img"><a href="mods-15-mill-raster-huecos.png" target="_blank"><img src="mods-15-mill-raster-huecos.png" alt="mill raster 2D con diámetro 0.79mm para los huecos"></a></div>
+<ul class="detail">
+<li>En <b>mill raster 2D</b> el diámetro ya viene cargado en <b>0.79248 mm (0.0312 in)</b> desde el preset. Dejamos <b>offset number: 1</b>, porque cada punto solo necesita una pasada de la broca para perforar.</li>
+<li>Le damos <b>calculate</b> y Mods genera la ruta: una serie de puntos de bajada, uno por cada orificio detectado en la imagen.</li>
+</ul>
+<div class="lesson-img"><a href="mods-16-origen-huecos.png" target="_blank"><img src="mods-16-origen-huecos.png" alt="Roland SRM-20 machine para huecos, velocidad 0.3mm/s y origen en 0,0,0"></a></div>
+<ul class="detail">
+<li>Bajamos la velocidad a <b>0.3 mm/s</b> — perforar es más delicado que fresar una pista o un contorno; ir más lento evita que la broca se desvíe o se rompa al entrar en el cobre.</li>
+<li>El origen se deja otra vez en <b>X:0, Y:0, Z:0</b>, exactamente igual que en el contorno, y presionamos <b>move to origin</b> — así los agujeros caen en el lugar correcto sobre la misma placa. Igual que antes, terminamos guardando este segundo <code>.rml</code> con <b>save file</b>.</li>
+</ul>
+</div>
+
+<div class="lesson" id="m5">
+<div class="lesson-head"><span class="lesson-num">5</span><h3>Pistas.svg — el circuito</h3></div>
+<p class="lesson-intro">El archivo más delicado: aquí se define qué cobre se queda y cuál se elimina para formar las pistas del circuito. Otra vez, empezamos con la página de Mods recién recargada y el programa "mill 2D PCB" abierto desde cero.</p>
+<div class="lesson-img narrow"><a href="mods-17-seleccionar-pistas.png" target="_blank"><img src="mods-17-seleccionar-pistas.png" alt="Seleccionando el archivo pistas en el explorador"></a></div>
+<ul class="detail">
+<li>En "select SVG file" elegimos <code>pistas</code> — el archivo con el trazado completo del circuito.</li>
+</ul>
+<div class="lesson-img"><a href="mods-18-pistas-invertir.png" target="_blank"><img src="mods-18-pistas-invertir.png" alt="pistas.svg cargado, presionando el botón invert"></a></div>
+<ul class="detail">
+<li>Al cargarlo, Mods lo interpreta a su manera por defecto: lo negro es lo que se conserva. Pero nosotros necesitamos justo lo contrario — que la fresa <b>quite</b> el cobre entre pistas, no las pistas mismas.</li>
+<li>Por eso presionamos <b>invert</b>: ahora el negro representa exactamente el cobre que sí queremos cortar/eliminar, y las pistas quedan protegidas (se ve claramente el circuito completo, con todas sus conexiones, resaltado en la imagen).</li>
+</ul>
+<div class="lesson-img"><a href="mods-19-pistas-invertido.png" target="_blank"><img src="mods-19-pistas-invertido.png" alt="Vista completa del pipeline con la imagen de pistas ya invertida"></a></div>
+<ul class="detail">
+<li>Con la imagen ya invertida, seguimos el mismo flujo que con los otros dos archivos: <b>convert SVG image</b> primero y después <b>image threshold</b>, que deja la imagen en blanco y negro puro antes de pasarla al cálculo de la ruta.</li>
+</ul>
+<div class="lesson-img narrow"><a href="mods-20-offset-4.png" target="_blank"><img src="mods-20-offset-4.png" alt="mill raster 2D para pistas, offset number en 4"></a></div>
+<ul class="detail">
+<li>En <b>mill raster 2D</b> el diámetro queda en <b>0.39624 mm (0.0156 in)</b>: la fresa más fina de las tres, porque aquí la precisión entre pistas vecinas es la que más importa. Probamos primero con <b>offset number: 4</b> — cuatro pasadas de la fresa alrededor de cada pista para vaciar bien el cobre sobrante.</li>
+</ul>
+<div class="lesson-img narrow"><a href="mods-21-offset-2.png" target="_blank"><img src="mods-21-offset-2.png" alt="Corrigiendo el offset number a 2"></a></div>
+<ul class="detail">
+<li>Con 4 pasadas la ruta tardaba demasiado y no aportaba mejor aislamiento, así que corregimos el <b>offset number a 2</b>: con dos pasadas el aislamiento entre pistas ya sale limpio, sin dejar cobre residual, y el tiempo de fresado baja bastante.</li>
+</ul>
+<div class="lesson-img"><a href="mods-22-guardar-pistas.png" target="_blank"><img src="mods-22-guardar-pistas.png" alt="Roland SRM-20 machine listo para guardar el .rml de las pistas"></a></div>
+<ul class="detail">
+<li>Igual que con el contorno y los huecos, en <b>Roland SRM-20 milling machine</b> dejamos el origen en <b>0,0,0</b> — la tercera y última pasada sobre el mismo punto de referencia.</li>
+<li>Con el tiempo estimado ya calculado (alrededor de <b>00:09:08</b> para esta pasada, la más lenta de las tres por la cantidad de pistas), guardamos el archivo <code>.rml</code> de pistas desde el panel <b>save file</b>. Con los tres <code>.rml</code> listos (contorno, huecos y pistas), ya se puede pasar a VPanel para fresar la placa completa en la MonoFab.</li>
+</ul>
+</div>
+
+<div class="lesson" id="m6" style="margin-bottom:0;">
+<div class="lesson-head"><span class="lesson-num">6</span><h3>Atajos: set PCB defaults, V-bit calculator y exportar el programa</h3></div>
+<p class="lesson-intro">Mods CE trae un par de módulos pensados justo para no tener que calcular todo a mano cada vez, y también permite guardar el programa armado para reutilizarlo después. Aquí quedan documentados con más detalle.</p>
+<div class="lesson-img narrow"><a href="mods-23-otro-diametro.png" target="_blank"><img src="mods-23-otro-diametro.png" alt="mill raster 2D probando un diámetro de fresa distinto, 1.5875mm"></a></div>
+<ul class="detail">
+<li>El campo "tool diameter" de <b>mill raster 2D</b> acepta cualquier valor, no solo los presets: aquí se probó con una fresa de <b>1.5875 mm</b> (1/16 de pulgada) para comparar cómo cambia la vista previa de la ruta del contorno frente a la de 1.9 mm que terminamos usando.</li>
+<li>Es una buena forma de anticipar, antes de fresar, si una fresa distinta a la que tenemos a la mano dejaría un corte aceptable.</li>
+</ul>
+<div class="lesson-img"><a href="mods-24-set-pcb-defaults.png" target="_blank"><img src="mods-24-set-pcb-defaults.png" alt="Panel completo de set PCB defaults y V-bit calculator"></a></div>
+<ul class="detail">
+<li>El módulo <b>set PCB defaults</b> agrupa los presets más comunes en tres categorías: <b>Traces</b> (0.40 mm flat, 0.25 mm flat, 60° #501 V-bit, 40° #502 V-bit), <b>Drill</b> (0.79 mm drill) y <b>Cutout</b> (0.79 mm cutout, 1.59 mm cutout). Con un clic manda el diámetro y la profundidad típicos de esa herramienta directo a <b>mill raster 2D</b>.</li>
+<li>Al lado, el módulo <b>V-bit calculator</b> sirve para cuando se usa una fresa en forma de V en vez de una plana: a partir del diámetro de la punta y el ángulo de la V calcula automáticamente el ancho y la profundidad de corte reales, y los manda con el botón <b>send calculated settings</b>. El diagrama de la derecha (ángulo, diámetro de punta, stepover, ancho y profundidad de corte) resume visualmente esa relación.</li>
+</ul>
+<div class="lesson-img"><a href="mods-25-preset-drill-detalle.png" target="_blank"><img src="mods-25-preset-drill-detalle.png" alt="Set PCB defaults con el preset de broca resaltado y el V-bit calculator al detalle"></a></div>
+<ul class="detail">
+<li>Aquí se ve el mismo panel con el preset de la broca de <b>0.79 mm</b> seleccionado — el mismo que usamos para los huecos — junto con los parámetros que trae cargados el <b>V-bit calculator</b> por defecto: punta de <b>0.0039 in</b>, ángulo de <b>30°</b>, 4 offsets, stepover 0.5 y velocidad de 4 mm/s.</li>
+</ul>
+<div class="lesson-img"><a href="mods-26-exportar-programa.png" target="_blank"><img src="mods-26-exportar-programa.png" alt="Panel lateral Programs con las opciones para guardar y exportar el flujo"></a></div>
+<ul class="detail">
+<li>Por último, el panel lateral <b>Programs</b> también sirve para administrar el propio flujo de trabajo: <b>Add from file</b> para importar un programa guardado, <b>Save program</b> para descargar el que armamos, <b>Update all modules</b> para refrescar la versión de cada módulo y <b>Export as HTML</b> para exportar todo el lienzo como una página independiente.</li>
+<li>Guardar el programa una vez armado (con los presets y valores ya ajustados a nuestra fresadora) evita tener que repetir toda esta configuración cada vez que se hace una placa nueva.</li>
+</ul>
+</div>
+
+</div>
+
+</details>
+
+
+<details class="accordion">
+
+<summary>
+
+<div class="accordion-title">
+
+<span
+class="status-pill"
+style="color:var(--ink-dim);background:#f0efe9;">
+
+Pendiente
+
+</span>
+
+<h3>
+Próxima práctica
+</h3>
+
+</div>
+
+<span class="accordion-chevron">
+›
+</span>
+
+</summary>
+
+<div class="accordion-body">
+
+<p>
+
+Este espacio se irá llenando
+con cada práctica del curso
+hasta llegar al proyecto final.
+
+</p>
+
+</div>
+
+</details>
+
+
+</div>
+
+</section>
+
+
+<section id="equipo">
+
+<div class="wrap">
+
+<div class="section-head">
+
+<h2>
+Equipo
+</h2>
+
+</div>
+
+
+<div class="team-grid">
+
+
+<div class="person">
+
+<div class="avatar">
+
+<img
+src="eduardo.jpeg"
+alt="Foto de Eduardo Salamanca Esquivel">
+
+</div>
+
+<h3>
+Eduardo Salamanca Esquivel
+</h3>
+
+<a href="mailto:203279@iberopuebla.mx">
+203279@iberopuebla.mx
+</a>
+
+</div>
+
+
+<div class="person">
+
+<div class="avatar">
+
+<img
+src="mia.jpeg"
+alt="Foto de Mia Noriel Castillo Hermosillo">
+
+</div>
+
+<h3>
+Mia Noriel Castillo Hermosillo
+</h3>
+
+<a href="mailto:200670@iberopuebla.mx">
+200670@iberopuebla.mx
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="ubicacion">
+
+<div class="wrap">
+
+<div class="section-head">
+
+<h2>
+Ubicación
+</h2>
+
+</div>
+
+
+<div class="map-frame">
+
+<iframe
+src="https://www.google.com/maps?q=Universidad+Iberoamericana+Puebla&amp;output=embed"
+loading="lazy"
+referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
+</div>
+
+
+<p class="loc-caption">
+Universidad Iberoamericana Puebla
+</p>
+
+</div>
+
+</section>
+
+
+<footer>
+
+Producción Electrónica — semestre en curso,
+actualizado conforme avanza el curso.
+
+</footer>
+
+
+</body>
+</html>
