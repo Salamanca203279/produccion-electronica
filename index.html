@@ -1366,178 +1366,177 @@ y facilitamos su lectura.
 <div class="stage">
 
 <div class="stage-head">
-
-<span class="stage-num">
-3
-</span>
-
-<h4>
-Diseño de la PCB
-</h4>
-
+<span class="stage-num">3</span>
+<h4>Diseño completo de la PCB en KiCad</h4>
 </div>
 
+<p class="stage-intro">
+Con el esquemático terminado y las huellas correctamente asignadas, comenzamos el diseño físico de la tarjeta. En esta etapa pasamos los componentes al editor de PCB, definimos la forma de la placa, configuramos las reglas de fabricación, acomodamos los componentes, ruteamos las pistas y finalmente revisamos que no existan errores antes de exportar.
+</p>
 
-<ul class="step-list">
+<div class="note-box">
+<strong>Antes de empezar:</strong> guarda el esquemático y confirma que cada componente que irá físicamente en la tarjeta tenga una huella o <i>footprint</i> asignada. Si modificas el esquemático después, tendrás que volver a actualizar la PCB.
+</div>
 
+<ul class="step-list" style="margin-top:20px;">
 
 <li class="photo">
-
-<div class="step-thumb">
-
-<img
-src="pcb-area.png"
-alt="Área de trabajo PCB">
-
-</div>
-
+<div class="step-thumb"><img src="kicad-pcb-01-editor.png" alt="Abrir el editor de PCB de KiCad"></div>
 <div class="step-text">
-
-<strong>
-Pasamos al editor de PCB
-</strong>
-
-<span>
-
-Una vez terminado
-el esquemático
-nos vamos al editor de PCB.
-
-Aquí observamos
-el área principal de trabajo.
-
-En la parte superior
-tenemos nuevamente
-las herramientas de revisión
-o checklist.
-
-En la barra lateral
-encontramos las opciones
-para trabajar con
-<b>etiquetas, pistas/cables y capas</b>.
-
-</span>
-
+<strong>Paso 1 — Abrir el Editor de PCB</strong>
+<span>Desde el administrador del proyecto abrimos el archivo <b>.kicad_pcb</b> o presionamos el botón <b>PCB Editor</b>. Se abrirá el espacio donde vamos a definir la tarjeta física. Al principio la placa puede aparecer vacía porque todavía no hemos transferido los componentes del esquemático.</span>
 </div>
-
 </li>
-
 
 <li class="photo">
-
-<div class="step-thumb compact-shot">
-
-<img
-src="pcb-componentes.png"
-alt="Pasar componentes a PCB">
-
-</div>
-
+<div class="step-thumb"><img src="kicad-pcb-02-actualizar.png" alt="Actualizar PCB desde el esquemático en KiCad"></div>
 <div class="step-text">
-
-<strong>
-Pasar los componentes del esquemático a la PCB
-</strong>
-
-<span>
-
-Utilizamos este ícono
-para cargar en la placa
-los componentes provenientes
-del esquemático.
-
-Una vez importados,
-los separamos y acomodamos
-para comenzar a organizar
-la PCB.
-
-</span>
-
+<strong>Paso 2 — Actualizar la PCB desde el esquemático</strong>
+<span>En el editor de PCB seleccionamos <b>Herramientas → Actualizar PCB desde el esquemático</b> o utilizamos el atajo <b>F8</b>. KiCad compara el esquemático con la tarjeta y prepara todos los componentes, huellas y conexiones eléctricas que todavía no existen en la PCB. Presionamos <b>Actualizar PCB</b> y después cerramos la ventana.</span>
 </div>
-
 </li>
-
 
 <li class="photo">
-
-<div class="step-thumb">
-
-<img
-src="pcb-reglas.png"
-alt="Reglas de diseño PCB">
-
-</div>
-
+<div class="step-thumb"><img src="kicad-pcb-03-componentes.png" alt="Componentes importados desde el esquemático a la PCB"></div>
 <div class="step-text">
-
-<strong>
-Definir las reglas de diseño
-</strong>
-
-<span>
-
-Antes de rutear
-configuramos los requerimientos
-que debe cumplir la PCB
-para poder fabricarse.
-
-Aquí definimos parámetros
-como el
-
-<b>margen mínimo</b>
-
-y el
-
-<b>ancho mínimo de pista</b>,
-
-además de otras separaciones
-y dimensiones necesarias
-para la fabricación.
-
-</span>
-
+<strong>Paso 3 — Colocar el grupo inicial de componentes</strong>
+<span>Después de actualizar, los <i>footprints</i> aparecen agrupados y unidos por líneas finas llamadas <b>ratsnest</b>. Hacemos clic para colocar temporalmente el grupo dentro del área de trabajo. Todavía no buscamos la posición final: primero conviene separar los componentes para identificar con claridad qué es cada uno.</span>
 </div>
-
 </li>
-
 
 <li class="photo">
-
-<div class="step-thumb compact-shot">
-
-<img
-src="pcb-svg.png"
-alt="Exportar SVG">
-
-</div>
-
+<div class="step-thumb"><img src="kicad-pcb-04-separar.png" alt="Separar y reconocer componentes en KiCad PCB Editor"></div>
 <div class="step-text">
-
-<strong>
-Exportar el diseño en SVG
-</strong>
-
-<span>
-
-Con el diseño preparado
-exportamos el archivo
-en formato
-
-<b>SVG</b>.
-
-Esta salida nos permite
-continuar con la preparación
-de los archivos
-para fabricación.
-
-</span>
-
+<strong>Paso 4 — Separar e identificar las huellas</strong>
+<span>Movemos las huellas con la tecla <b>M</b> para dejar espacio entre ellas y reconocer resistencias, capacitores, conectores, circuitos integrados y demás componentes. En este momento también revisamos que el tamaño y la forma de cada huella coincidan con el componente físico que vamos a soldar.</span>
 </div>
-
 </li>
 
+<li class="photo">
+<div class="step-thumb"><img src="kicad-pcb-05-edgecuts.png" alt="Seleccionar la capa Edge.Cuts en KiCad"></div>
+<div class="step-text">
+<strong>Paso 5 — Seleccionar la capa Edge.Cuts</strong>
+<span>En el panel de capas elegimos <b>Edge.Cuts</b>. Todo lo que dibujemos en esta capa definirá el contorno real de la tarjeta. Es importante no dibujar el borde en una capa de cobre, serigrafía o documentación, porque la máquina necesita identificar con claridad cuál es la silueta final de la PCB.</span>
+</div>
+</li>
+
+<li class="photo">
+<div class="step-thumb"><img src="kicad-pcb-06-contorno.png" alt="Dibujar el contorno cerrado de la PCB en Edge.Cuts"></div>
+<div class="step-text">
+<strong>Paso 6 — Dibujar el contorno de la tarjeta</strong>
+<span>Con las herramientas de línea y arco dibujamos la forma de la PCB. El contorno debe quedar <b>completamente cerrado</b>, sin pequeños huecos entre segmentos. Si la tarjeta tiene una forma especial, construimos la geometría con líneas, arcos y círculos hasta obtener la silueta requerida.</span>
+</div>
+</li>
+
+<li class="photo">
+<div class="step-thumb"><img src="kicad-pcb-07-board-setup.png" alt="Abrir Board Setup o configuración de la placa en KiCad"></div>
+<div class="step-text">
+<strong>Paso 7 — Abrir la configuración de la placa</strong>
+<span>Entramos a <b>Archivo → Configuración de la placa</b> (<b>Board Setup</b>). Aquí se encuentran las restricciones que controlan cómo puede construirse la PCB: separaciones mínimas, anchos de pista, tamaños de vía, clases de red y otras reglas. Estos valores deben corresponder al proceso de fabricación que realmente vamos a utilizar.</span>
+</div>
+</li>
+
+<li class="photo">
+<div class="step-thumb"><img src="kicad-pcb-08-reglas.png" alt="Configurar restricciones y anchos mínimos de pista en KiCad"></div>
+<div class="step-text">
+<strong>Paso 8 — Configurar las reglas de fabricación</strong>
+<span>En <b>Design Rules / Constraints</b> configuramos el <b>clearance mínimo</b>, el <b>ancho mínimo de pista</b> y, si aplica, los diámetros mínimos de vías y perforaciones. No conviene copiar valores al azar: utilizamos los parámetros indicados para la fresa, broca y proceso de fabricación del laboratorio. Así KiCad puede advertirnos desde el diseño cuando una separación sería imposible de fabricar.</span>
+</div>
+</li>
+
+<li class="photo">
+<div class="step-thumb"><img src="kicad-pcb-09-netclasses.png" alt="Configurar clases de red y ancho de pistas en KiCad"></div>
+<div class="step-text">
+<strong>Paso 9 — Revisar las clases de red</strong>
+<span>Dentro de <b>Net Classes</b> comprobamos el ancho de pista que utilizarán las conexiones. Si todo el circuito usa el mismo ancho podemos trabajar con la clase predeterminada. Si alguna línea requiere un ancho distinto, por ejemplo alimentación, podemos crear una clase diferente y asignarla únicamente a esas redes.</span>
+</div>
+</li>
+
+<li class="photo">
+<div class="step-thumb"><img src="kicad-pcb-10-colocacion.png" alt="Acomodar los componentes dentro del contorno de la PCB"></div>
+<div class="step-text">
+<strong>Paso 10 — Acomodar los componentes dentro del contorno</strong>
+<span>Movemos cada huella dentro de la tarjeta buscando recorridos cortos y ordenados. Colocamos primero los componentes que tienen una posición obligatoria —por ejemplo conectores, botones o elementos que deben quedar cerca del borde— y después acomodamos el resto alrededor de ellos. Para girar un componente usamos <b>R</b>.</span>
+</div>
+</li>
+
+<li class="photo">
+<div class="step-thumb"><img src="kicad-pcb-11-ratsnest.png" alt="Revisar ratsnest y conexiones pendientes antes de rutear"></div>
+<div class="step-text">
+<strong>Paso 11 — Utilizar el ratsnest para mejorar la colocación</strong>
+<span>Las líneas del <b>ratsnest</b> muestran qué pads todavía deben conectarse. Antes de dibujar pistas observamos esas líneas y seguimos moviendo o girando componentes hasta reducir cruces y trayectos innecesariamente largos. Una buena colocación hace que el ruteo sea mucho más sencillo.</span>
+</div>
+</li>
+
+<li class="photo">
+<div class="step-thumb"><img src="kicad-pcb-12-capa-cobre.png" alt="Seleccionar la capa de cobre que se utilizará para rutear la PCB"></div>
+<div class="step-text">
+<strong>Paso 12 — Elegir la capa de cobre para el ruteo</strong>
+<span>Seleccionamos la capa de cobre que corresponda a nuestro proceso de fabricación, por ejemplo <b>F.Cu</b> o <b>B.Cu</b>. Para una PCB fresada de una sola cara mantenemos las pistas en una sola capa, salvo que el proceso del laboratorio indique expresamente otra configuración. Esto evita diseñar conexiones que físicamente no podremos fabricar.</span>
+</div>
+</li>
+
+<li class="photo">
+<div class="step-thumb"><img src="kicad-pcb-13-ruteo-inicio.png" alt="Iniciar el ruteo interactivo de una pista en KiCad"></div>
+<div class="step-text">
+<strong>Paso 13 — Comenzar a rutear las pistas</strong>
+<span>Colocamos el cursor sobre un pad y presionamos <b>X</b> para iniciar el <b>Interactive Router</b>. Seguimos la conexión indicada por el ratsnest hasta el pad correspondiente. KiCad utiliza las reglas configuradas para mantener la separación mínima respecto a otras pistas y pads.</span>
+</div>
+</li>
+
+<li class="photo">
+<div class="step-thumb"><img src="kicad-pcb-14-ruteo.png" alt="Ruteo de pistas terminado parcialmente en KiCad"></div>
+<div class="step-text">
+<strong>Paso 14 — Completar el ruteo de manera ordenada</strong>
+<span>Repetimos el proceso conexión por conexión. Procuramos utilizar recorridos directos, evitar curvas o zigzags innecesarios y dejar suficiente separación entre pistas. Cuando una pista dificulta demasiado otra conexión, es mejor reajustar la colocación de algún componente antes de forzar un recorrido complicado.</span>
+</div>
+</li>
+
+<li class="photo">
+<div class="step-thumb"><img src="kicad-pcb-15-ajustes.png" alt="Ajustar pistas y componentes después del ruteo en KiCad"></div>
+<div class="step-text">
+<strong>Paso 15 — Ajustar pistas y posiciones finales</strong>
+<span>Una vez conectadas las redes revisamos visualmente la tarjeta completa. Podemos mover segmentos de pista, cambiar ligeramente la posición de componentes y corregir zonas demasiado apretadas. El objetivo es que el diseño sea fácil de fabricar y también fácil de soldar, no solamente que todas las conexiones existan.</span>
+</div>
+</li>
+
+<li class="photo">
+<div class="step-thumb"><img src="kicad-pcb-16-drc.png" alt="Abrir el Design Rules Checker de KiCad"></div>
+<div class="step-text">
+<strong>Paso 16 — Ejecutar el DRC o checklist de la PCB</strong>
+<span>Abrimos el <b>Design Rules Checker (DRC)</b> y ejecutamos la inspección completa. Esta herramienta detecta pistas demasiado cercanas, conexiones sin terminar, pads sin conectar, errores de contorno y otras violaciones a las reglas definidas para la placa.</span>
+</div>
+</li>
+
+<li class="photo">
+<div class="step-thumb"><img src="kicad-pcb-17-errores.png" alt="Errores y avisos mostrados por el DRC de KiCad"></div>
+<div class="step-text">
+<strong>Paso 17 — Corregir errores y revisar avisos</strong>
+<span>Los <b>errores</b> deben corregirse antes de fabricar. Los <b>avisos</b> se revisan uno por uno: algunos pueden ser aceptables dependiendo del diseño, pero no deben ignorarse automáticamente. Después de cada corrección volvemos a ejecutar el DRC hasta comprobar que la placa se encuentra lista.</span>
+</div>
+</li>
+
+<li class="photo">
+<div class="step-thumb"><img src="kicad-pcb-18-3d.png" alt="Vista 3D de la PCB terminada en KiCad"></div>
+<div class="step-text">
+<strong>Paso 18 — Revisar la placa en el visor 3D</strong>
+<span>Abrimos el <b>3D Viewer</b> para revisar de forma visual la orientación y posición de los componentes. Esta vista es útil para detectar huellas giradas, conectores colocados hacia el lado incorrecto o componentes demasiado cercanos entre sí. No sustituye al DRC, pero funciona como una revisión adicional antes de fabricar.</span>
+</div>
+</li>
+
+<li class="photo">
+<div class="step-thumb"><img src="kicad-pcb-19-final.png" alt="Diseño final de la PCB terminado en KiCad"></div>
+<div class="step-text">
+<strong>Paso 19 — Guardar la versión final de la PCB</strong>
+<span>Cuando el contorno, la colocación, las pistas y la revisión están terminados, guardamos el archivo <b>.kicad_pcb</b>. Esta es la versión que utilizaremos para generar los archivos de fabricación. Antes de exportar conviene no mover ningún componente ni modificar el contorno para mantener todos los archivos perfectamente alineados.</span>
+</div>
+</li>
 
 </ul>
+
+<div class="note-box success-note">
+<strong>Resultado de esta etapa:</strong> tenemos una PCB completamente diseñada en KiCad, con el contorno definido, componentes acomodados, pistas ruteadas y el DRC revisado. A partir de aquí solamente falta generar las salidas necesarias para Mods y la fabricación.
+</div>
 
 </div>
 
@@ -1547,199 +1546,76 @@ para fabricación.
 <div class="stage">
 
 <div class="stage-head">
-
-<span class="stage-num">
-4
-</span>
-
-<h4>
-Exportación de archivos para fabricación
-</h4>
-
+<span class="stage-num">4</span>
+<h4>Exportación desde KiCad para Mods CE</h4>
 </div>
 
-
 <p class="stage-intro">
-
-En esta etapa únicamente
-preparamos y exportamos
-los archivos de fabricación.
-
-Los archivos generados
-se guardan en la carpeta
-de nuestro proyecto
-en la computadora.
-
-Después utilizaremos
-estos archivos en <b>Mods</b>.
-
+Para nuestro flujo de fabricación necesitamos separar la información de la PCB en archivos SVG. Exportamos por separado las pistas, el contorno, los huecos y, cuando se necesiten, las etiquetas. Al conservar el mismo origen y las mismas dimensiones, Mods puede procesar cada archivo sin perder la alineación entre las diferentes operaciones.
 </p>
-
 
 <ul class="step-list">
 
-
 <li class="photo">
-
-<div class="step-thumb">
-
-<img
-src="gerber-01.png"
-alt="Exportación de capas">
-
-</div>
-
+<div class="step-thumb"><img src="kicad-export-01-menu.png" alt="Abrir la opción de exportar SVG desde KiCad"></div>
 <div class="step-text">
-
-<strong>
-Seleccionar las capas y la carpeta de salida
-</strong>
-
-<span>
-
-Elegimos las capas
-que necesitamos
-y verificamos la carpeta
-donde se guardarán
-los archivos generados.
-
-Normalmente utilizamos
-la misma carpeta
-en donde tenemos
-guardado nuestro proyecto.
-
-</span>
-
+<strong>Paso 20 — Abrir la exportación SVG</strong>
+<span>Desde el editor de PCB entramos al menú de exportación y seleccionamos la opción para generar un <b>SVG</b>. Antes de guardar verificamos que la placa final siga exactamente en la misma posición y que el contorno se encuentre cerrado.</span>
 </div>
-
 </li>
 
-
 <li class="photo">
-
-<div class="step-thumb">
-
-<img
-src="gerber-02.png"
-alt="Salidas de fabricación Gerber">
-
-</div>
-
+<div class="step-thumb"><img src="kicad-export-02-pistas.png" alt="Seleccionar únicamente la capa de pistas para exportar Pistas.svg"></div>
 <div class="step-text">
-
-<strong>
-Entrar a Salidas de fabricación → Gerbers
-</strong>
-
-<span>
-
-Desde el menú
-entramos a
-
-<b>Salidas de fabricación</b>
-
-y seleccionamos
-
-<b>Gerbers</b>.
-
-Desde aquí
-generamos los archivos
-correspondientes
-a las capas de la PCB.
-
-</span>
-
+<strong>Paso 21 — Exportar Pistas.svg</strong>
+<span>Seleccionamos únicamente la capa de cobre donde se encuentran las pistas y exportamos el archivo como <b>Pistas.svg</b>. Este archivo será el que Mods utilice para calcular el aislamiento alrededor de las conexiones eléctricas.</span>
 </div>
-
 </li>
 
-
 <li class="photo">
-
-<div class="step-thumb">
-
-<img
-src="gerber-03.png"
-alt="Generación Gerber">
-
-</div>
-
+<div class="step-thumb"><img src="kicad-export-03-contornos.png" alt="Seleccionar Edge.Cuts para exportar Contornos.svg"></div>
 <div class="step-text">
-
-<strong>
-Generar los archivos Gerber
-</strong>
-
-<span>
-
-Seleccionamos las capas
-que queremos exportar
-y trazamos los archivos.
-
-KiCad los guarda
-en la carpeta de destino
-de nuestro proyecto.
-
-</span>
-
+<strong>Paso 22 — Exportar Contornos.svg</strong>
+<span>Repetimos la exportación seleccionando la capa <b>Edge.Cuts</b> y guardamos el resultado como <b>Contornos.svg</b>. Este archivo representa la silueta exterior de la tarjeta y se utilizará para realizar el corte final de la PCB.</span>
 </div>
-
 </li>
 
-
 <li class="photo">
-
-<div class="step-thumb">
-
-<img
-src="gerber-04.png"
-alt="Archivos de salida">
-
-</div>
-
+<div class="step-thumb"><img src="kicad-export-04-huecos.png" alt="Exportar los huecos o perforaciones de la PCB desde KiCad"></div>
 <div class="step-text">
-
-<strong>
-Archivos listos para Mods
-</strong>
-
-<span>
-
-Al terminar la exportación
-ya tenemos los archivos
-guardados en nuestra computadora.
-
-Estos son los archivos
-que utilizaremos en
-
-<b>Mods</b>
-
-para preparar las rutas
-y continuar
-con la fabricación de la PCB.
-
-</span>
-
+<strong>Paso 23 — Exportar Huecos.svg</strong>
+<span>Generamos un archivo separado para las perforaciones necesarias. Debe contener únicamente la información que utilizaremos para ubicar los huecos o taladros de la placa. Lo guardamos como <b>Huecos.svg</b> para identificarlo fácilmente cuando lo carguemos en Mods.</span>
 </div>
-
 </li>
 
+<li class="photo">
+<div class="step-thumb"><img src="kicad-export-05-etiquetas.png" alt="Exportar etiquetas de la PCB desde KiCad"></div>
+<div class="step-text">
+<strong>Paso 24 — Exportar Etiquetas.svg, si se utilizarán</strong>
+<span>Si la práctica incluye texto, nombres de conectores o marcas que también se vayan a grabar, exportamos esa información en un archivo independiente llamado <b>Etiquetas.svg</b>. Si las etiquetas solamente son de referencia y no se van a maquinar, este archivo puede omitirse.</span>
+</div>
+</li>
+
+<li class="photo">
+<div class="step-thumb"><img src="kicad-export-06-carpeta.png" alt="Carpeta con Pistas.svg Contornos.svg Huecos.svg y Etiquetas.svg"></div>
+<div class="step-text">
+<strong>Paso 25 — Verificar la carpeta de salida</strong>
+<span>Comprobamos que los SVG estén guardados dentro de la carpeta del proyecto y que los nombres sean claros: <b>Pistas.svg</b>, <b>Contornos.svg</b>, <b>Huecos.svg</b> y, cuando aplique, <b>Etiquetas.svg</b>. Es importante no redimensionar ni editar individualmente estos archivos después de exportarlos, porque deben conservar exactamente la misma escala y alineación.</span>
+</div>
+</li>
+
+<li class="photo">
+<div class="step-thumb"><img src="kicad-export-07-revision.png" alt="Revisión final de los SVG exportados desde KiCad"></div>
+<div class="step-text">
+<strong>Paso 26 — Hacer una revisión final antes de Mods</strong>
+<span>Abrimos o previsualizamos cada SVG y confirmamos que contiene solamente la información que le corresponde. Las pistas deben mostrar el circuito, el contorno debe mostrar únicamente la silueta y los huecos deben coincidir con las perforaciones. Con esta revisión evitamos descubrir un error cuando ya estemos configurando la ruta de fresado.</span>
+</div>
+</li>
 
 </ul>
 
-
 <div class="note-box success-note">
-
-<strong>
-Resultado:
-</strong>
-
-al finalizar esta etapa
-tenemos el esquemático,
-el diseño de la PCB
-y los archivos de fabricación
-listos para continuar.
-
+<strong>Resultado:</strong> KiCad queda terminado y ya tenemos los archivos separados que utilizaremos en la siguiente etapa. A partir de aquí comienza el procesamiento en <b>Mods CE</b>, donde convertimos los SVG en rutas de herramienta para la MonoFab SRM-20.
 </div>
 
 </div>
