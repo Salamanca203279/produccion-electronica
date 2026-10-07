@@ -1056,6 +1056,192 @@ footer{padding:36px 0;background:linear-gradient(135deg,#143f32,#1a5945);}
   .component-section-head{display:block;}
 }
 
+
+/* =========================================================
+   NAVEGACIÓN TIPO MULTIPÁGINA — UN SOLO ARCHIVO HTML
+   No modifica rutas de imágenes ni videos.
+   ========================================================= */
+
+/* Cada apartado se comporta como una página independiente */
+body.page-router-ready .hero,
+body.page-router-ready #materia,
+body.page-router-ready #trabajos,
+body.page-router-ready #equipo,
+body.page-router-ready #ubicacion{
+  display:none;
+}
+
+/* Inicio */
+body[data-page="inicio"] .hero{display:block;}
+
+/* Materia */
+body[data-page="materia"] #materia{display:block;}
+
+/* Equipo */
+body[data-page="equipo"] #equipo{display:block;}
+
+/* Ubicación */
+body[data-page="ubicacion"] #ubicacion{display:block;}
+
+/* Práctica y tutoriales usan el contenedor original de trabajos */
+body[data-page="practica1"] #trabajos,
+body[data-page="kicad"] #trabajos,
+body[data-page="mods"] #trabajos,
+body[data-page="monofab"] #trabajos{
+  display:block;
+}
+
+/* Ocultar el encabezado general "Trabajos realizados" para que se sienta como página */
+body[data-page="practica1"] #trabajos > .wrap > .section-head,
+body[data-page="kicad"] #trabajos > .wrap > .section-head,
+body[data-page="mods"] #trabajos > .wrap > .section-head,
+body[data-page="monofab"] #trabajos > .wrap > .section-head{
+  display:none;
+}
+
+/* La siguiente práctica no forma parte de estas páginas */
+body[data-page="practica1"] #trabajos > .wrap > details.accordion:nth-of-type(n+2),
+body[data-page="kicad"] #trabajos > .wrap > details.accordion:nth-of-type(n+2),
+body[data-page="mods"] #trabajos > .wrap > details.accordion:nth-of-type(n+2),
+body[data-page="monofab"] #trabajos > .wrap > details.accordion:nth-of-type(n+2){
+  display:none;
+}
+
+/* Quitar apariencia de acordeón a Práctica 1 */
+body[data-page="practica1"] #trabajos > .wrap > details.accordion:first-of-type,
+body[data-page="kicad"] #trabajos > .wrap > details.accordion:first-of-type,
+body[data-page="mods"] #trabajos > .wrap > details.accordion:first-of-type,
+body[data-page="monofab"] #trabajos > .wrap > details.accordion:first-of-type{
+  border:0;
+  background:transparent;
+  box-shadow:none;
+  overflow:visible;
+}
+body[data-page="practica1"] #trabajos > .wrap > details.accordion:first-of-type > summary,
+body[data-page="kicad"] #trabajos > .wrap > details.accordion:first-of-type > summary,
+body[data-page="mods"] #trabajos > .wrap > details.accordion:first-of-type > summary,
+body[data-page="monofab"] #trabajos > .wrap > details.accordion:first-of-type > summary{
+  display:none;
+}
+body[data-page="practica1"] .accordion-body,
+body[data-page="kicad"] .accordion-body,
+body[data-page="mods"] .accordion-body,
+body[data-page="monofab"] .accordion-body{
+  padding:0;
+}
+
+/* Práctica 1 = portada/hub; no muestra los tutoriales debajo */
+body[data-page="practica1"] .tab-panel{display:none!important;}
+
+/* Las antiguas pestañas ahora son tres tarjetas grandes */
+body[data-page="practica1"] .tabs{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  border:0;
+  margin:32px 0 12px;
+  overflow:visible;
+}
+body[data-page="practica1"] .tab-btn{
+  min-height:150px;
+  margin:0;
+  padding:24px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:#fff;
+  box-shadow:var(--shadow-soft);
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  font-size:20px;
+  color:var(--accent-deep);
+  text-decoration:none;
+}
+body[data-page="practica1"] .tab-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--shadow);
+  background:#f8fcfa;
+}
+body[data-page="practica1"] .tab-btn-num{
+  width:36px;height:36px;font-size:14px;
+}
+
+/* En las páginas KiCad / Mods / MonoFab se oculta la portada de práctica */
+body[data-page="kicad"] .practice-hero,
+body[data-page="kicad"] .flow-strip,
+body[data-page="kicad"] .tabs,
+body[data-page="mods"] .practice-hero,
+body[data-page="mods"] .flow-strip,
+body[data-page="mods"] .tabs,
+body[data-page="monofab"] .practice-hero,
+body[data-page="monofab"] .flow-strip,
+body[data-page="monofab"] .tabs{
+  display:none!important;
+}
+
+/* Mostrar únicamente el tutorial elegido */
+body[data-page="kicad"] .tab-panel,
+body[data-page="mods"] .tab-panel,
+body[data-page="monofab"] .tab-panel{
+  display:none!important;
+}
+body[data-page="kicad"] #tab-kicad,
+body[data-page="mods"] #tab-mods,
+body[data-page="monofab"] #tab-monofab{
+  display:block!important;
+}
+
+/* Barra para moverse entre las tres páginas */
+.tutorial-page-nav{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:0 0 28px;
+  padding:10px;
+  border-radius:14px;
+  background:var(--accent-deep);
+}
+.tutorial-page-nav a{
+  color:#e4f4ed;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:700;
+  padding:9px 12px;
+  border-radius:999px;
+}
+.tutorial-page-nav a:hover,
+.tutorial-page-nav a.current{
+  color:#fff;
+  background:rgba(255,255,255,.13);
+}
+
+/* MODS: imágenes más grandes, sin cambiar ningún archivo */
+body[data-page="mods"] .lesson-img,
+body[data-page="mods"] .lesson-img.narrow{
+  width:100%;
+  max-width:100%;
+}
+body[data-page="mods"] .lesson-img img{
+  width:100%;
+  height:auto;
+  max-height:none;
+  object-fit:contain;
+}
+
+/* Resaltar página actual en menú superior */
+nav.links a.router-active{
+  color:#fff;
+  background:rgba(255,255,255,.13);
+}
+
+/* Evitar que un hash interno antiguo deje contenido escondido */
+.tab-panel{scroll-margin-top:90px;}
+
+@media(max-width:760px){
+  body[data-page="practica1"] .tabs{grid-template-columns:1fr;}
+  body[data-page="practica1"] .tab-btn{min-height:105px;}
+}
+
 </style>
 </head>
 
@@ -1073,7 +1259,7 @@ footer{padding:36px 0;background:linear-gradient(135deg,#143f32,#1a5945);}
     <nav class="links">
       <a href="#inicio">Inicio</a>
       <a href="#materia">Materia</a>
-      <a href="#trabajos">Práctica 1</a>
+      <a href="#practica1">Práctica 1</a>
       <a href="#equipo">Equipo</a>
       <a href="#ubicacion">Ubicación</a>
     </nav>
@@ -1090,7 +1276,7 @@ footer{padding:36px 0;background:linear-gradient(135deg,#143f32,#1a5945);}
         <h1>Bitácora de Producción Electrónica</h1>
         <p class="lead">Documentamos el proceso completo de una PCB: desde el esquemático y la elección de componentes hasta el ruteo, la validación, la exportación y la preparación de archivos para fabricación.</p>
         <div class="hero-actions">
-          <a class="hero-btn primary" href="#trabajos">Ver Práctica 1 ↓</a>
+          <a class="hero-btn primary" href="#practica1">Ver Práctica 1 ↓</a>
           <a class="hero-btn secondary" href="#equipo">Conocer al equipo</a>
         </div>
       </div>
@@ -1192,13 +1378,13 @@ Práctica 1 — Diseñar y fabricar una PCB (KiCad · Mods CE · MonoFab)
 </div>
 
 <div class="tabs" aria-label="Partes de la Práctica 1">
-  <a class="tab-btn active" href="#tab-kicad" data-tab="kicad">
+  <a class="tab-btn active" href="#kicad" data-tab="kicad">
     <span class="tab-btn-num">1</span> KiCad
   </a>
-  <a class="tab-btn" href="#tab-mods" data-tab="mods">
+  <a class="tab-btn" href="#mods" data-tab="mods">
     <span class="tab-btn-num">2</span> Mods CE
   </a>
-  <a class="tab-btn" href="#tab-monofab" data-tab="monofab">
+  <a class="tab-btn" href="#monofab" data-tab="monofab">
     <span class="tab-btn-num">3</span> MonoFab
   </a>
 </div>
@@ -2520,6 +2706,87 @@ actualizado conforme avanza el curso.
     links.forEach((l,i)=>l.classList.toggle('active',i===cur));
   }
   window.addEventListener('scroll',spy,{passive:true}); spy();
+})();
+</script>
+
+
+<script>
+/* =========================================================
+   ROUTER — hace que un solo HTML se comporte como varias páginas
+   ========================================================= */
+(function(){
+  const validPages = ['inicio','materia','practica1','equipo','ubicacion','kicad','mods','monofab'];
+
+  function normalizePage(){
+    let page = (location.hash || '#inicio').slice(1).toLowerCase();
+
+    // Compatibilidad con enlaces antiguos.
+    if(page === 'trabajos') page = 'practica1';
+    if(page === 'tab-kicad') page = 'kicad';
+    if(page === 'tab-mods') page = 'mods';
+    if(page === 'tab-monofab') page = 'monofab';
+
+    return validPages.includes(page) ? page : 'inicio';
+  }
+
+  function ensureTutorialNav(){
+    ['kicad','mods','monofab'].forEach(function(page){
+      const panel = document.getElementById('tab-' + page);
+      if(!panel || panel.querySelector('.tutorial-page-nav')) return;
+
+      const nav = document.createElement('nav');
+      nav.className = 'tutorial-page-nav';
+      nav.setAttribute('aria-label','Navegación de Práctica 1');
+      nav.innerHTML =
+        '<a href="#practica1">← Práctica 1</a>' +
+        '<a href="#kicad" data-tutorial="kicad">KiCad</a>' +
+        '<a href="#mods" data-tutorial="mods">Mods CE</a>' +
+        '<a href="#monofab" data-tutorial="monofab">MonoFab</a>';
+      panel.insertBefore(nav, panel.firstChild);
+    });
+  }
+
+  function render(){
+    const page = normalizePage();
+    document.body.classList.add('page-router-ready');
+    document.body.dataset.page = page;
+
+    // Mantener abierto el details original que contiene la práctica.
+    const practice = document.querySelector('#trabajos details.accordion:first-of-type');
+    if(practice) practice.open = true;
+
+    // Estado activo del menú principal.
+    document.querySelectorAll('nav.links a').forEach(function(a){
+      let target = (a.getAttribute('href') || '').replace('#','');
+      if(target === 'trabajos') target = 'practica1';
+      a.classList.toggle('router-active', target === page ||
+        (target === 'practica1' && ['kicad','mods','monofab'].includes(page)));
+    });
+
+    // Estado activo del submenú.
+    document.querySelectorAll('.tutorial-page-nav a[data-tutorial]').forEach(function(a){
+      a.classList.toggle('current', a.dataset.tutorial === page);
+    });
+
+    // Título del navegador.
+    const titles = {
+      inicio:'Inicio',
+      materia:'Materia',
+      practica1:'Práctica 1',
+      equipo:'Equipo',
+      ubicacion:'Ubicación',
+      kicad:'KiCad',
+      mods:'Mods CE',
+      monofab:'MonoFab'
+    };
+    document.title = titles[page] + ' · Producción Electrónica';
+
+    window.scrollTo(0,0);
+  }
+
+  ensureTutorialNav();
+  window.addEventListener('hashchange', render);
+  render();
 })();
 </script>
 
