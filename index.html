@@ -2381,6 +2381,60 @@ Con los tres archivos <code>.rml</code> ya generados en Mods CE (contorno, hueco
 
 <div class="legend"><span class="swatch"></span> Los recuadros rojos marcan el botón o el campo exacto que se está usando en cada pantalla.</div>
 
+<!-- INICIO: Correcciones solicitadas por el profesor (solo contenido nuevo) -->
+<div class="lesson" id="monofab-drivers">
+  <div class="lesson-head"><span class="lesson-num">+</span><h3>Descarga de drivers y programas de la MonoFab SRM-20</h3></div>
+  <p class="lesson-intro">Para comunicar la computadora con la fresadora se necesita el controlador (driver) de la SRM-20. Además, Roland ofrece programas para controlar la máquina y preparar trabajos de fresado.</p>
+  <ul class="detail">
+    <li><b>Driver de SRM-20:</b> se obtiene desde el <a href="https://downloadcenter.rolanddg.com/SRM-20" target="_blank" rel="noopener noreferrer">centro de descargas oficial de Roland DG</a>. Seleccionar el controlador compatible con la versión de Windows instalada.</li>
+    <li><b>VPanel for SRM-20:</b> se descarga desde el mismo centro de descargas; permite mover los ejes, establecer los orígenes y ejecutar archivos de fresado.</li>
+    <li><b>MODELA Player 4:</b> software CAM de Roland para configurar trabajos de mecanizado y generar trayectorias de herramienta; su disponibilidad y compatibilidad se consultan en el centro de descargas oficial.</li>
+  </ul>
+  <div class="callout"><b>Fuente:</b> <a href="https://downloadcenter.rolanddg.com/SRM-20" target="_blank" rel="noopener noreferrer">Roland DG — Descargas SRM-20</a>. El driver y VPanel no son lo mismo: el primero habilita la comunicación USB y el segundo permite controlar la fresadora.</div>
+</div>
+<div class="lesson" id="monofab-instalacion">
+  <div class="lesson-head"><span class="lesson-num">+</span><h3>Cómo instalar el driver y el software</h3></div>
+  <ol class="detail">
+    <li>Verificar la versión de Windows y descargar el driver SRM-20 y VPanel compatibles desde la página oficial.</li>
+    <li>Descomprimir los archivos descargados cuando corresponda y ejecutar el instalador siguiendo las instrucciones de Roland.</li>
+    <li>Conectar la SRM-20 a la corriente y mediante USB cuando el instalador o la guía oficial lo indiquen; encenderla.</li>
+    <li>Finalizar la instalación y comprobar que Windows reconozca el equipo.</li>
+    <li>Abrir <b>VPanel for SRM-20</b>, verificar la comunicación y revisar los controles antes de mover los ejes.</li>
+    <li>Si se utilizará <b>MODELA Player 4</b>, instalarlo por separado y comprobar que la máquina y el flujo de trabajo sean compatibles.</li>
+  </ol>
+  <div class="callout"><b>Guía de referencia:</b> <a href="https://startup.rolanddg.com/monoFab/SRM-20/SRM-20_EN/sp_welcome_on_en.html" target="_blank" rel="noopener noreferrer">Configuración inicial oficial de la SRM-20</a>. El orden exacto de conexión puede variar según el paquete de instalación.</div>
+</div>
+<div class="lesson" id="monofab-partes">
+  <div class="lesson-head"><span class="lesson-num">+</span><h3>Partes principales de la MonoFab SRM-20</h3></div>
+  <div class="info-grid">
+    <article class="info-card"><div class="icon">▣</div><h5>Cubierta de seguridad</h5><p>Protege la zona de trabajo y ayuda a evitar el contacto con piezas en movimiento.</p></article>
+    <article class="info-card"><div class="icon">↕</div><h5>Cabezal y eje Z</h5><p>Desplazan verticalmente la herramienta para ajustar su altura de corte.</p></article>
+    <article class="info-card"><div class="icon">⟳</div><h5>Husillo (spindle)</h5><p>Hace girar la fresa durante el mecanizado.</p></article>
+    <article class="info-card"><div class="icon">⌄</div><h5>Fresa y portaherramienta</h5><p>La fresa remueve material y el portaherramienta la sujeta.</p></article>
+    <article class="info-card"><div class="icon">▤</div><h5>Mesa de trabajo</h5><p>Superficie donde se fija la placa o el material que se va a fresar.</p></article>
+    <article class="info-card"><div class="icon">↔</div><h5>Ejes X e Y</h5><p>Permiten el desplazamiento horizontal relativo entre la herramienta y la pieza.</p></article>
+    <article class="info-card"><div class="icon">⏻</div><h5>Controles y conexiones</h5><p>Incluyen alimentación, conexión USB y mandos de operación del equipo.</p></article>
+  </div>
+  <p class="source-note">Para identificar la ubicación exacta de cada componente, consultar el manual de uso de la SRM-20 en el centro de descargas de Roland DG.</p>
+</div>
+<div class="lesson" id="monofab-iconos">
+  <div class="lesson-head"><span class="lesson-num">+</span><h3>Íconos de los programas utilizados</h3></div>
+  <p class="lesson-intro">Estas representaciones visuales permiten distinguir los dos programas. Son íconos ilustrativos, no reproducciones de los logotipos oficiales.</p>
+  <div class="info-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+    <article class="info-card" style="text-align:center">
+      <div style="width:90px;height:90px;margin:0 auto 15px;border-radius:20px;background:#174e3d;display:grid;place-items:center;color:white" aria-label="Ícono ilustrativo de VPanel">
+        <svg viewBox="0 0 64 64" width="58" height="58" role="img" aria-label="Panel con ejes X Y Z"><rect x="7" y="9" width="50" height="46" rx="7" fill="none" stroke="white" stroke-width="3"/><path d="M15 21h34M18 36h28" stroke="#a8ebce" stroke-width="3"/><circle cx="24" cy="44" r="4" fill="#a8ebce"/><circle cx="40" cy="44" r="4" fill="#a8ebce"/></svg>
+      </div><h5>VPanel for SRM-20</h5><p>Panel de control para desplazar los ejes, establecer los orígenes y enviar trabajos de fresado a la máquina.</p>
+    </article>
+    <article class="info-card" style="text-align:center">
+      <div style="width:90px;height:90px;margin:0 auto 15px;border-radius:20px;background:#26785f;display:grid;place-items:center;color:white" aria-label="Ícono ilustrativo de MODELA Player 4">
+        <svg viewBox="0 0 64 64" width="58" height="58" role="img" aria-label="Herramienta de fresado y trayectoria"><path d="M13 48h38M20 40l12-25 12 25z" fill="none" stroke="white" stroke-width="3" stroke-linejoin="round"/><path d="M32 24v23M17 52h30" stroke="#a8ebce" stroke-width="3" stroke-dasharray="5 4"/></svg>
+      </div><h5>MODELA Player 4</h5><p>Programa CAM para definir parámetros de mecanizado y preparar trayectorias de herramienta en trabajos compatibles.</p>
+    </article>
+  </div>
+</div>
+<!-- FIN: Correcciones solicitadas por el profesor -->
+
 <div class="lesson" id="n1">
 <div class="lesson-head"><span class="lesson-num">1</span><h3>Abrir VPanel y fijar el origen en X, Y y Z</h3></div>
 <p class="lesson-intro">VPanel es el panel de control de la Roland SRM-20: desde ahí se mueve el cabezal manualmente, se define el punto de origen físico sobre la placa (el mismo que usamos en Mods CE) y finalmente se manda a cortar cada archivo <code>.rml</code>.</p>
