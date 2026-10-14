@@ -1491,6 +1491,66 @@ footer{background:linear-gradient(110deg,#2b235f,#5740ab,#754cc0);color:#f5edff;
   *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
 }
 
+
+/* ========================= MULTISIM ======================== */
+body[data-page="multisim"] #trabajos{display:block;}
+body[data-page="multisim"] #trabajos > .wrap > .section-head,
+body[data-page="multisim"] #trabajos > .wrap > details.accordion:nth-of-type(n+2),
+body[data-page="multisim"] #trabajos > .wrap > details.accordion:first-of-type > summary,
+body[data-page="multisim"] .practice-hero,
+body[data-page="multisim"] .flow-strip,
+body[data-page="multisim"] .tabs{display:none!important;}
+body[data-page="multisim"] #trabajos > .wrap > details.accordion:first-of-type{
+  border:0;background:transparent;box-shadow:none;overflow:visible;
+}
+body[data-page="multisim"] .accordion-body{padding:0;}
+body[data-page="multisim"] .tab-panel{display:none!important;}
+body[data-page="multisim"] #tab-multisim{display:block!important;}
+body[data-page="practica1"] .tabs{grid-template-columns:repeat(4,minmax(0,1fr));}
+body[data-page="practica1"] .tab-btn{min-width:0;}
+body[data-page="practica1"] .flow-strip{grid-template-columns:repeat(7,minmax(0,1fr));}
+/* Cuarta tarjeta en los tonos pastel y la tipografía originales */
+body[data-page="practica1"] .tab-btn:nth-child(4){background:linear-gradient(135deg,#e3ecff,#f5ecff 66%,#fff);border-color:#dcd6ff;}
+body[data-page="practica1"] .tab-btn:nth-child(4)::after{content:'⚡';}
+body[data-page="practica1"] .tab-btn:nth-child(4) .tab-btn-num{background:#608eee;color:#fff;}
+
+.ms-intro{margin:24px 0 18px;}
+.ms-intro h3{font-size:clamp(23px,3vw,30px);line-height:1.25;margin:8px 0 12px;}
+.ms-intro p{max-width:none;line-height:1.8;font-size:15px;}
+.ms-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:22px 0 30px;}
+.ms-facts div{border:1px solid var(--border);background:linear-gradient(135deg,#fff,#f5f0ff);border-radius:17px;padding:17px 14px;box-shadow:var(--shadow-soft);}
+.ms-facts strong{display:block;color:var(--accent-deep);font-size:23px;line-height:1.25;}
+.ms-facts span{display:block;color:var(--ink-dim);font-size:12px;margin-top:5px;}
+.ms-toc{margin:10px 0 32px;}
+.ms-subsection{padding:0;margin:0 0 38px;scroll-margin-top:90px;}
+.ms-subsection>h3{font-size:23px;line-height:1.35;margin:0 0 12px;}
+.ms-muted{color:var(--ink-dim);font-size:14.5px;margin:0 0 22px;}
+.ms-guides{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:22px;}
+.ms-guide-card{background:linear-gradient(135deg,#fff,#f9f6ff);border:1px solid var(--border);border-radius:17px;padding:19px 21px;box-shadow:var(--shadow-soft);}
+.ms-guide-card h4{font-size:15px;color:var(--accent-deep);margin:0 0 7px;}
+.ms-guide-card:nth-child(3n+2){background:linear-gradient(135deg,#fff,#edfffb);}
+.ms-guide-card:nth-child(3n){background:linear-gradient(135deg,#fff,#fff2f7);}
+.ms-guide-card p{font-size:13.8px;line-height:1.75;margin:0;color:var(--ink-dim);}
+.ms-lesson{padding:23px 24px 19px;margin:0 0 20px;}
+.ms-lesson .lesson-head{margin-bottom:13px;}
+.ms-lesson .lesson-head h3{font-size:18px;}
+.ms-lesson .lesson-intro{max-width:none;line-height:1.8;}
+.ms-figure{margin:0;border:1px solid var(--border);border-radius:11px;background:#fff;overflow:hidden;}
+.ms-figure>a{display:block;line-height:0;}
+.ms-figure img{display:block;width:100%;height:auto;max-height:850px;object-fit:contain;background:#fff;}
+.ms-shot-small img{width:auto;max-width:100%;max-height:530px;margin:0 auto;}
+.ms-figure figcaption{font-size:12px;padding:10px 13px;color:var(--ink-dim);background:var(--accent-dim);border-top:1px solid var(--border);}
+.ms-result{margin:20px 0 14px;}
+@media (max-width:940px){body[data-page="practica1"] .tabs{grid-template-columns:repeat(2,minmax(0,1fr));} body[data-page="practica1"] .flow-strip{grid-template-columns:repeat(4,minmax(0,1fr));}}
+@media (max-width:680px){
+  body[data-page="practica1"] .tabs{grid-template-columns:1fr;}
+  body[data-page="practica1"] .flow-strip{grid-template-columns:1fr;}
+  .ms-facts,.ms-guides{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .ms-lesson{padding:18px 14px;}
+}
+@media (max-width:450px){.ms-facts,.ms-guides{grid-template-columns:1fr;}}
+/* ====================== /MULTISIM ========================= */
+
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
 </head>
@@ -1652,7 +1712,7 @@ Cada práctica es un paso más hacia el proyecto final del curso. Aquí reunimos
 <div class="accordion-title">
 
 <h3>
-Práctica 1 — Diseñar y fabricar una PCB (KiCad · Mods CE · MonoFab)
+Práctica 1 — Diseño, simulación y fabricación de una PCB (KiCad · Mods CE · MonoFab · Multisim)
 </h3>
 
 </div>
@@ -1667,7 +1727,7 @@ Práctica 1 — Diseñar y fabricar una PCB (KiCad · Mods CE · MonoFab)
 <div class="practice-hero">
   <div>
     <span class="content-eyebrow">Práctica 1</span>
-    <p>Esta práctica cubre el proceso completo de una PCB de principio a fin: diseñamos el circuito y el ruteo en <b>KiCad</b>, convertimos los SVG exportados en rutas de fresado con <b>Mods CE</b> y finalmente fabricamos la placa físicamente en la <b>MonoFab SRM-20</b>. Usa las pestañas de abajo para ver el desglose completo de cada una de las tres partes.</p>
+    <p>Esta práctica cubre el proceso completo de una PCB de principio a fin: diseñamos el circuito y el ruteo en <b>KiCad</b>, convertimos los SVG exportados en rutas de fresado con <b>Mods CE</b> y finalmente fabricamos la placa físicamente en la <b>MonoFab SRM-20</b>. También simulamos los botones e indicadores LED en <b>Multisim</b>. Usa las tarjetas de abajo para explorar las cuatro herramientas.</p>
   </div>
   <div class="practice-mini-stats">
     <div class="mini-stat"><strong>KiCad 10.0</strong><span>Diseño del circuito</span></div>
@@ -1680,6 +1740,7 @@ Práctica 1 — Diseñar y fabricar una PCB (KiCad · Mods CE · MonoFab)
 <div class="flow-strip" aria-label="Resumen del flujo">
   <div class="flow-step">Librerías</div>
   <div class="flow-step">Esquemático</div>
+  <div class="flow-step">Multisim</div>
   <div class="flow-step">PCB</div>
   <div class="flow-step">SVG</div>
   <div class="flow-step">Mods CE</div>
@@ -1695,6 +1756,9 @@ Práctica 1 — Diseñar y fabricar una PCB (KiCad · Mods CE · MonoFab)
   </a>
   <a class="tab-btn" href="#monofab" data-tab="monofab">
     <span class="tab-btn-num">3</span> MonoFab
+  </a>
+  <a class="tab-btn" href="#multisim" data-tab="multisim">
+    <span class="tab-btn-num">4</span> Multisim
   </a>
 </div>
 
@@ -2998,6 +3062,143 @@ Con los tres archivos <code>.rml</code> ya generados en Mods CE (contorno, hueco
 </div>
 <!-- /tab-monofab -->
 
+<!-- Nueva sección: tutorial Multisim -->
+<div class="tab-panel" id="tab-multisim" data-title="4 · Multisim">
+  <div class="process-intro ms-intro">
+    <span class="content-eyebrow">Práctica de simulación electrónica</span>
+    <h3>Multisim: diseño y comprobación de un circuito con cuatro botones y LEDs</h3>
+    <p><b>Multisim</b> es un programa para dibujar y simular circuitos electrónicos antes de construirlos físicamente. Permite colocar componentes, conectar cables, aplicar una fuente de alimentación y observar qué ocurre al activar interruptores. En esta práctica usamos una fuente de <b>3.3 V</b>, cuatro botones, cuatro LEDs y resistencias para comprobar el comportamiento del circuito que diseñamos.</p>
+  </div>
+  <div class="ms-facts" aria-label="Resumen del circuito">
+    <div><strong>3.3 V</strong><span>Fuente de corriente continua</span></div>
+    <div><strong>4</strong><span>Botones S1–S4</span></div>
+    <div><strong>4</strong><span>LEDs indicadores</span></div>
+    <div><strong>8</strong><span>Resistencias</span></div>
+  </div>
+  <nav class="toc ms-toc" aria-label="Índice del tutorial Multisim">
+    <p>Contenido de esta sección</p>
+    <ol>
+      <li><a href="#ms-barras">Barras y área de trabajo</a></li>
+      <li><a href="#ms1">Abrir el área de trabajo</a></li>
+      <li><a href="#ms2">Agregar componentes</a></li>
+      <li><a href="#ms7">Organizar el circuito</a></li>
+      <li><a href="#ms8">Configurar botones</a></li>
+      <li><a href="#ms9">Cableado</a></li>
+      <li><a href="#ms10">Correr la simulación</a></li>
+      <li><a href="#ms-tips">Tips y resultados</a></li>
+    </ol>
+  </nav>
+  <section class="ms-subsection" id="ms-barras" aria-labelledby="ms-barras-titulo">
+    <h3 id="ms-barras-titulo">¿Para qué sirven las barras de trabajo de Multisim?</h3>
+    <p class="ms-muted">Antes de empezar, conviene identificar estas partes de la pantalla. Son las que usamos a lo largo de la práctica:</p>
+    <div class="ms-guides"><article class="ms-guide-card"><h4>Barra de menús</h4><p>En la parte superior: <b>File, Edit, View, Place, Simulate, Tools</b>, etc. Permite crear, guardar, insertar piezas y acceder a los controles del programa.</p></article>
+<article class="ms-guide-card"><h4>Barra de herramientas</h4><p>Debajo del menú aparecen íconos para <b>nuevo, abrir, guardar, zoom y otras acciones rápidas</b> sin entrar a cada menú.</p></article>
+<article class="ms-guide-card"><h4>Herramientas de colocación</h4><p>Se usan para insertar <b>componentes, cables, puntos de unión, sondas y textos</b>. La ruta <b>Place → Component</b> abre el catálogo de piezas.</p></article>
+<article class="ms-guide-card"><h4>Controles de simulación</h4><p>Los botones <b>Run ▶, Pause y Stop ■</b> sirven para ejecutar, detener temporalmente y finalizar una prueba. El modo <b>Interactive</b> permite accionar interruptores.</p></article>
+<article class="ms-guide-card"><h4>Panel Design Toolbox</h4><p>En el lado izquierdo vemos el nombre del proyecto y su circuito. Sirve para <b>ubicar y administrar el diseño</b> cuando hay más de una hoja.</p></article>
+<article class="ms-guide-card"><h4>Área de trabajo</h4><p>Es la <b>cuadrícula central</b> en la que ponemos componentes, los giramos, conectamos y organizamos el esquema.</p></article>
+<article class="ms-guide-card"><h4>Panel inferior</h4><p>Las pestañas <b>Results, Nets, Components y Simulation</b> ayudan a consultar mensajes, redes, componentes y datos de la simulación.</p></article></div>
+  </section>
+  <section class="ms-subsection" id="ms-pasos" aria-labelledby="ms-pasos-titulo">
+    <h3 id="ms-pasos-titulo">Procedimiento paso a paso</h3>
+    <p class="ms-muted">Las capturas aparecen en el mismo orden en el que realizamos la actividad, desde la pantalla inicial hasta la prueba final. Puedes dar clic en cada imagen para verla más grande.</p>
+    <article class="lesson ms-lesson" id="ms1">
+  <div class="lesson-head"><span class="lesson-num">1</span><h3>Conocer el área de trabajo</h3></div>
+  <p class="lesson-intro">Al abrir Multisim aparece el área de trabajo, una hoja cuadriculada donde organizamos el circuito. Arriba encontramos los menús y las barras de herramientas; a la izquierda, el panel del proyecto, y en la parte inferior, las ventanas de resultados.</p>
+  <figure class="ms-figure">
+    <a href="multisim-01-area-trabajo.png" target="_blank" rel="noopener" aria-label="Ver captura 1 ampliada: Conocer el área de trabajo"><img src="multisim-01-area-trabajo.png" loading="lazy" alt="Paso 1: Conocer el área de trabajo en Multisim"></a>
+    <figcaption>Captura 1 de 11 · Conocer el área de trabajo</figcaption>
+  </figure>
+</article><article class="lesson ms-lesson" id="ms2">
+  <div class="lesson-head"><span class="lesson-num">2</span><h3>Abrir el menú para agregar componentes</h3></div>
+  <p class="lesson-intro">Para insertar un componente vamos a <b>Place → Component</b>. También podemos usar el atajo <b>Ctrl + W</b>. Desde esta ventana se eligen resistencias, LEDs, interruptores, fuentes y demás piezas.</p>
+  <figure class="ms-figure ms-shot-small">
+    <a href="multisim-02-menu-place-component.png" target="_blank" rel="noopener" aria-label="Ver captura 2 ampliada: Abrir el menú para agregar componentes"><img src="multisim-02-menu-place-component.png" loading="lazy" alt="Paso 2: Abrir el menú para agregar componentes en Multisim"></a>
+    <figcaption>Captura 2 de 11 · Abrir el menú para agregar componentes</figcaption>
+  </figure>
+</article><article class="lesson ms-lesson" id="ms3">
+  <div class="lesson-head"><span class="lesson-num">3</span><h3>Seleccionar resistencias</h3></div>
+  <p class="lesson-intro">En <b>Group: Basic</b> elegimos <b>Family: RESISTOR</b>. Agregamos las resistencias necesarias y configuramos sus valores: <b>R1 y R2 de 220 Ω</b>; <b>R3 a R8 de 1 kΩ</b> en el esquema original.</p>
+  <figure class="ms-figure ms-shot-small">
+    <a href="multisim-03-seleccionar-resistencias.png" target="_blank" rel="noopener" aria-label="Ver captura 3 ampliada: Seleccionar resistencias"><img src="multisim-03-seleccionar-resistencias.png" loading="lazy" alt="Paso 3: Seleccionar resistencias en Multisim"></a>
+    <figcaption>Captura 3 de 11 · Seleccionar resistencias</figcaption>
+  </figure>
+</article><article class="lesson ms-lesson" id="ms4">
+  <div class="lesson-head"><span class="lesson-num">4</span><h3>Agregar los LEDs</h3></div>
+  <p class="lesson-intro">Para los indicadores vamos al grupo <b>Diodes</b>, seleccionamos la familia <b>LED</b> y elegimos <b>LED_red</b>. Colocamos cuatro LEDs, cuidando su orientación: el cátodo, marcado por la barra del símbolo, debe conectarse a tierra en este diseño.</p>
+  <figure class="ms-figure ms-shot-small">
+    <a href="multisim-04-seleccionar-leds.png" target="_blank" rel="noopener" aria-label="Ver captura 4 ampliada: Agregar los LEDs"><img src="multisim-04-seleccionar-leds.png" loading="lazy" alt="Paso 4: Agregar los LEDs en Multisim"></a>
+    <figcaption>Captura 4 de 11 · Agregar los LEDs</figcaption>
+  </figure>
+</article><article class="lesson ms-lesson" id="ms5">
+  <div class="lesson-head"><span class="lesson-num">5</span><h3>Colocar los botones</h3></div>
+  <p class="lesson-intro">Para colocar los cuatro botones entramos a <b>Electro_Mechanical → SUPPLEMENTARY_SWITCHES → PB_NO</b>. Estos son interruptores normalmente abiertos; los usamos como S1, S2, S3 y S4.</p>
+  <figure class="ms-figure ms-shot-small">
+    <a href="multisim-05-seleccionar-switches.png" target="_blank" rel="noopener" aria-label="Ver captura 5 ampliada: Colocar los botones"><img src="multisim-05-seleccionar-switches.png" loading="lazy" alt="Paso 5: Colocar los botones en Multisim"></a>
+    <figcaption>Captura 5 de 11 · Colocar los botones</figcaption>
+  </figure>
+</article><article class="lesson ms-lesson" id="ms6">
+  <div class="lesson-head"><span class="lesson-num">6</span><h3>Agregar la alimentación y las tierras</h3></div>
+  <p class="lesson-intro">Para la alimentación entramos a <b>Sources → POWER_SOURCES</b>, elegimos <b>DC_POWER</b> y ajustamos la fuente a <b>3.3 V</b>. Desde el mismo grupo también elegimos <b>GROUND</b> para colocar la referencia común de 0 V.</p>
+  <figure class="ms-figure ms-shot-small">
+    <a href="multisim-06-fuente-y-tierra.png" target="_blank" rel="noopener" aria-label="Ver captura 6 ampliada: Agregar la alimentación y las tierras"><img src="multisim-06-fuente-y-tierra.png" loading="lazy" alt="Paso 6: Agregar la alimentación y las tierras en Multisim"></a>
+    <figcaption>Captura 6 de 11 · Agregar la alimentación y las tierras</figcaption>
+  </figure>
+</article><article class="lesson ms-lesson" id="ms7">
+  <div class="lesson-head"><span class="lesson-num">7</span><h3>Organizar los componentes</h3></div>
+  <p class="lesson-intro">Antes de conectar los cables acomodamos las ocho resistencias, cuatro LEDs, cuatro botones y la fuente en el área de trabajo. Esto facilita distinguir las cuatro ramas del circuito y evita conexiones cruzadas.</p>
+  <figure class="ms-figure">
+    <a href="multisim-07-componentes-colocados.png" target="_blank" rel="noopener" aria-label="Ver captura 7 ampliada: Organizar los componentes"><img src="multisim-07-componentes-colocados.png" loading="lazy" alt="Paso 7: Organizar los componentes en Multisim"></a>
+    <figcaption>Captura 7 de 11 · Organizar los componentes</figcaption>
+  </figure>
+</article><article class="lesson ms-lesson" id="ms8">
+  <div class="lesson-head"><span class="lesson-num">8</span><h3>Asignar una tecla a cada botón</h3></div>
+  <p class="lesson-intro">Hacemos doble clic sobre cada switch y, en la pestaña <b>Value</b>, usamos <b>Key for toggle</b> para asignar una tecla distinta: <b>A para S1, B para S2, C para S3 y D para S4</b>. Así podemos probar cada botón por separado.</p>
+  <figure class="ms-figure ms-shot-small">
+    <a href="multisim-08-configurar-teclas.png" target="_blank" rel="noopener" aria-label="Ver captura 8 ampliada: Asignar una tecla a cada botón"><img src="multisim-08-configurar-teclas.png" loading="lazy" alt="Paso 8: Asignar una tecla a cada botón en Multisim"></a>
+    <figcaption>Captura 8 de 11 · Asignar una tecla a cada botón</figcaption>
+  </figure>
+</article><article class="lesson ms-lesson" id="ms9">
+  <div class="lesson-head"><span class="lesson-num">9</span><h3>Conectar el circuito completo</h3></div>
+  <p class="lesson-intro">Conectamos la salida positiva de 3.3 V a S1, S2 y a las resistencias superiores de S3 y S4. Unimos los LEDs y las resistencias como en el esquemático y conectamos los retornos a GND. Los botones S1 y S2 usan configuración <i>pull-down</i>; S3 y S4 usan <i>pull-up</i>.</p>
+  <figure class="ms-figure">
+    <a href="multisim-09-circuito-conectado.png" target="_blank" rel="noopener" aria-label="Ver captura 9 ampliada: Conectar el circuito completo"><img src="multisim-09-circuito-conectado.png" loading="lazy" alt="Paso 9: Conectar el circuito completo en Multisim"></a>
+    <figcaption>Captura 9 de 11 · Conectar el circuito completo</figcaption>
+  </figure>
+</article><article class="lesson ms-lesson" id="ms10">
+  <div class="lesson-head"><span class="lesson-num">10</span><h3>Ejecutar la simulación</h3></div>
+  <p class="lesson-intro">Cuando terminamos de cablear, iniciamos la simulación con el botón verde <b>Run (▶)</b> en la barra superior, o con <b>F5</b>. Antes de iniciar revisamos que todos los cables lleguen a sus terminales.</p>
+  <figure class="ms-figure ms-shot-small">
+    <a href="multisim-10-iniciar-simulacion.png" target="_blank" rel="noopener" aria-label="Ver captura 10 ampliada: Ejecutar la simulación"><img src="multisim-10-iniciar-simulacion.png" loading="lazy" alt="Paso 10: Ejecutar la simulación en Multisim"></a>
+    <figcaption>Captura 10 de 11 · Ejecutar la simulación</figcaption>
+  </figure>
+</article><article class="lesson ms-lesson" id="ms11">
+  <div class="lesson-head"><span class="lesson-num">11</span><h3>Comprobar el funcionamiento</h3></div>
+  <p class="lesson-intro">Con la simulación activa probamos las teclas <b>A, B, C y D</b>. Los botones S1 y S2 encienden sus LEDs al activarse; S3 y S4 apagan sus LEDs al cerrarse. En la captura final se observan LED3 y LED4 encendidos, como corresponde a sus botones abiertos.</p>
+  <figure class="ms-figure">
+    <a href="multisim-11-resultado-simulacion.png" target="_blank" rel="noopener" aria-label="Ver captura 11 ampliada: Comprobar el funcionamiento"><img src="multisim-11-resultado-simulacion.png" loading="lazy" alt="Paso 11: Comprobar el funcionamiento en Multisim"></a>
+    <figcaption>Captura 11 de 11 · Comprobar el funcionamiento</figcaption>
+  </figure>
+</article>
+  </section>
+  <section class="ms-subsection" id="ms-tips" aria-labelledby="ms-tips-titulo">
+    <h3 id="ms-tips-titulo">Tips para trabajar mejor en Multisim</h3>
+    <div class="ms-guides">
+      <article class="ms-guide-card"><h4>Guarda tus avances</h4><p>Utiliza <b>Ctrl + S</b> frecuentemente y asigna un nombre descriptivo a tu archivo antes de comenzar a cablear.</p></article>
+      <article class="ms-guide-card"><h4>Gira y acomoda las piezas</h4><p>Usa <b>Ctrl + R</b> sobre un componente seleccionado para girarlo. Deja espacio entre las ramas para distinguir las conexiones.</p></article>
+      <article class="ms-guide-card"><h4>Comprueba los puntos de unión</h4><p>Los cables deben terminar realmente en los terminales. Si se cruzan, verifica que exista la <b>unión eléctrica</b> cuando quieras conectarlos.</p></article>
+      <article class="ms-guide-card"><h4>No uses cuatro tierras distintas</h4><p>Todos los símbolos <b>GROUND</b> representan la misma referencia de <b>0 V</b>. Conecta también el negativo de la fuente a esa tierra común.</p></article>
+      <article class="ms-guide-card"><h4>Asigna teclas diferentes</h4><p>Configura <b>A, B, C y D</b> para no activar los cuatro interruptores al mismo tiempo. En Multisim, <b>Key for toggle</b> cambia su estado cada vez que pulsas la tecla.</p></article>
+      <article class="ms-guide-card"><h4>Si un LED no se ilumina</h4><p>Primero revisa <b>polaridad, cableado, alimentación y corriente</b>. Una <i>Current Probe</i> puede confirmar si circula corriente aunque el indicador visual esté apagado.</p></article>
+    </div>
+    <div class="note-box success-note ms-result">
+      <strong>Resultado de la práctica:</strong> comprobamos el comportamiento de las cuatro ramas del circuito de botones. Al cerrar <b>S1</b> o <b>S2</b> deben encenderse LED1 o LED2; al cerrar <b>S3</b> o <b>S4</b> deben apagarse LED3 o LED4, respectivamente. La simulación permite identificar este comportamiento antes de construir el circuito físicamente.
+    </div>
+    <div class="callout"><b>Observación:</b> en la rama de LED3 medimos aproximadamente <b>820 µA</b>; si el LED conduce corriente pero no se ve iluminado, conviene revisar el umbral de iluminación visual del modelo, sin alterar los valores originales del esquemático.</div>
+  </section>
+</div>
+<!-- /tab-multisim -->
+
 </div>
 <!-- /accordion-body Práctica 1 -->
 
@@ -3193,7 +3394,7 @@ actualizado conforme avanza el curso.
    ROUTER — hace que un solo HTML se comporte como varias páginas
    ========================================================= */
 (function(){
-  const validPages = ['inicio','materia','practica1','equipo','ubicacion','kicad','mods','monofab'];
+  const validPages = ['inicio','materia','practica1','equipo','ubicacion','kicad','mods','monofab','multisim'];
 
   function normalizePage(){
     let page = (location.hash || '#inicio').slice(1).toLowerCase();
@@ -3203,12 +3404,13 @@ actualizado conforme avanza el curso.
     if(page === 'tab-kicad') page = 'kicad';
     if(page === 'tab-mods') page = 'mods';
     if(page === 'tab-monofab') page = 'monofab';
+    if(page === 'tab-multisim') page = 'multisim';
 
     return validPages.includes(page) ? page : 'inicio';
   }
 
   function ensureTutorialNav(){
-    ['kicad','mods','monofab'].forEach(function(page){
+    ['kicad','mods','monofab','multisim'].forEach(function(page){
       const panel = document.getElementById('tab-' + page);
       if(!panel || panel.querySelector('.tutorial-page-nav')) return;
 
@@ -3219,7 +3421,8 @@ actualizado conforme avanza el curso.
         '<a href="#practica1">← Práctica 1</a>' +
         '<a href="#kicad" data-tutorial="kicad">KiCad</a>' +
         '<a href="#mods" data-tutorial="mods">Mods CE</a>' +
-        '<a href="#monofab" data-tutorial="monofab">MonoFab</a>';
+        '<a href="#monofab" data-tutorial="monofab">MonoFab</a>' +
+        '<a href="#multisim" data-tutorial="multisim">Multisim</a>';
       panel.insertBefore(nav, panel.firstChild);
     });
   }
@@ -3238,7 +3441,7 @@ actualizado conforme avanza el curso.
       let target = (a.getAttribute('href') || '').replace('#','');
       if(target === 'trabajos') target = 'practica1';
       a.classList.toggle('router-active', target === page ||
-        (target === 'practica1' && ['kicad','mods','monofab'].includes(page)));
+        (target === 'practica1' && ['kicad','mods','monofab','multisim'].includes(page)));
     });
 
     // Estado activo del submenú.
@@ -3255,11 +3458,18 @@ actualizado conforme avanza el curso.
       ubicacion:'Ubicación',
       kicad:'KiCad',
       mods:'Mods CE',
-      monofab:'MonoFab'
+      monofab:'MonoFab',
+      multisim:'Multisim'
     };
     document.title = titles[page] + ' · Producción Electrónica';
 
-    window.scrollTo(0,0);
+    const anchorId = (location.hash || '').slice(1);
+    if(/^ms(\d+|-(barras|pasos|tips))$/.test(anchorId)){
+      const anchor = document.getElementById(anchorId);
+      if(anchor) requestAnimationFrame(() => anchor.scrollIntoView({block:'start'}));
+    } else {
+      window.scrollTo(0,0);
+    }
   }
 
   ensureTutorialNav();
