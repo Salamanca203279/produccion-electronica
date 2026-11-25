@@ -1653,7 +1653,7 @@ body[data-page="practica1"] .tab-btn:nth-child(6) .tab-btn-num{background:#f2719
     <nav class="links">
       <a href="#inicio">Inicio</a>
       <a href="#materia">Materia</a>
-      <a href="#practica1">Práctica 1</a>
+      <a href="#practica1">Práctica</a>
       <a href="#proyecto">Proyecto</a>
       <a href="#equipo">Equipo</a>
       <a href="#ubicacion">Ubicación</a>
@@ -1671,7 +1671,7 @@ body[data-page="practica1"] .tab-btn:nth-child(6) .tab-btn-num{background:#f2719
         <h1>Bitácora de Producción Electrónica</h1>
         <p class="lead">Documentamos el proceso completo de una PCB: desde el esquemático y la elección de componentes hasta el ruteo, la validación, la exportación y la preparación de archivos para fabricación.</p>
         <div class="hero-actions">
-          <a class="hero-btn primary" href="#practica1">Ver Práctica 1 ↓</a>
+          <a class="hero-btn primary" href="#practica1">Ver Práctica ↓</a>
           <a class="hero-btn secondary" href="#equipo">Conocer al equipo</a>
         </div>
       </div>
@@ -1797,7 +1797,7 @@ Cada práctica es un paso más hacia el proyecto final del curso. Aquí reunimos
 <div class="accordion-title">
 
 <h3>
-Práctica 1 — Diseño, simulación y fabricación de una PCB (KiCad · Mods CE · MonoFab · Multisim)
+Práctica — Diseño, simulación y fabricación de una PCB (KiCad · Mods CE · MonoFab · Multisim)
 </h3>
 
 </div>
@@ -1811,7 +1811,7 @@ Práctica 1 — Diseño, simulación y fabricación de una PCB (KiCad · Mods CE
 
 <div class="practice-hero">
   <div>
-    <span class="content-eyebrow">Práctica 1</span>
+    <span class="content-eyebrow">Práctica</span>
     <p>Esta práctica cubre el proceso completo de una PCB de principio a fin: diseñamos el circuito y el ruteo en <b>KiCad</b>, convertimos los SVG exportados en rutas de fresado con <b>Mods CE</b> y finalmente fabricamos la placa físicamente en la <b>MonoFab SRM-20</b>. También simulamos los botones e indicadores LED en <b>Multisim</b>. Usa las tarjetas de abajo para explorar las cuatro herramientas.</p>
   </div>
   <div class="practice-mini-stats">
@@ -1832,7 +1832,7 @@ Práctica 1 — Diseño, simulación y fabricación de una PCB (KiCad · Mods CE
   <div class="flow-step">MonoFab</div>
 </div>
 
-<div class="tabs" aria-label="Partes de la Práctica 1">
+<div class="tabs" aria-label="Partes de la Práctica">
   <a class="tab-btn active" href="#kicad" data-tab="kicad">
     <span class="tab-btn-num">1</span> KiCad
   </a>
@@ -3282,6 +3282,45 @@ Con los tres archivos <code>.rml</code> ya generados en Mods CE (contorno, hueco
     </div>
     <div class="callout"><b>Observación:</b> en la rama de LED3 medimos aproximadamente <b>820 µA</b>; si el LED conduce corriente pero no se ve iluminado, conviene revisar el umbral de iluminación visual del modelo, sin alterar los valores originales del esquemático.</div>
   </section>
+  <!-- Guía visual adicional de Multisim -->
+  <section class="ms-subsection" id="ms-guia-visual" aria-labelledby="ms-guia-visual-titulo">
+    <h3 id="ms-guia-visual-titulo">Guía visual de las herramientas de Multisim</h3>
+    <p class="ms-muted">Las marcas rojas de las capturas identifican los elementos que se explican a continuación. Las imágenes de 12 V y del proyecto de la bomba son ejemplos adicionales de simulación, distintos de la práctica de cuatro botones.</p>
+    <article class="lesson ms-lesson"><div class="lesson-head"><span class="lesson-num">1</span><h3>Multisim</h3></div><p class="lesson-intro">Programa de diseño y simulación electrónica. Permite probar circuitos virtuales antes de fabricar una PCB.</p><figure class="ms-figure ms-shot-small"><a href="imgs/multisim-guia/01.png" target="_blank" rel="noopener"><img src="imgs/multisim-guia/01.png" alt="Multisim" loading="lazy"></a><figcaption>Guía visual · Multisim</figcaption></figure></article>
+    <article class="lesson ms-lesson"><div class="lesson-head"><span class="lesson-num">2</span><h3>Entorno de trabajo</h3></div><p class="lesson-intro">1. Menús y herramientas: abrir archivos, agregar componentes y simular. 2. Design Toolbox: organiza los diseños. 3. Hoja cuadriculada: coloca y conecta símbolos. 4. Instrumentos: agrega equipos de medición. 5. Spreadsheet View: consulta componentes, redes y resultados.</p><figure class="ms-figure"><a href="imgs/multisim-guia/02.png" target="_blank" rel="noopener"><img src="imgs/multisim-guia/02.png" alt="Entorno de trabajo" loading="lazy"></a><figcaption>Guía visual · Entorno de trabajo</figcaption></figure></article>
+    <article class="lesson ms-lesson"><div class="lesson-head"><span class="lesson-num">3</span><h3>Barra de componentes</h3></div><p class="lesson-intro">1. Fuentes y elementos básicos: alimentación, resistencias y capacitores. 2. Familias de semiconductores y circuitos integrados. 3. Otros grupos de componentes y herramientas de conexión. Coloca el puntero sobre cada icono para consultar su nombre; Ctrl+W abre el selector general.</p><figure class="ms-figure ms-shot-small"><a href="imgs/multisim-guia/03.png" target="_blank" rel="noopener"><img src="imgs/multisim-guia/03.png" alt="Barra de componentes" loading="lazy"></a><figcaption>Guía visual · Barra de componentes</figcaption></figure></article>
+    <article class="lesson ms-lesson"><div class="lesson-head"><span class="lesson-num">4</span><h3>Selector de componentes</h3></div><p class="lesson-intro">1. Database, Group y Family filtran la biblioteca. 2. Component permite buscar por nombre o valor. 3. Symbol muestra el símbolo eléctrico. 4. Package muestra el encapsulado disponible. Selecciona el elemento, presiona OK y haz clic en la hoja.</p><figure class="ms-figure"><a href="imgs/multisim-guia/04.png" target="_blank" rel="noopener"><img src="imgs/multisim-guia/04.png" alt="Selector de componentes" loading="lazy"></a><figcaption>Guía visual · Selector de componentes</figcaption></figure></article>
+    <article class="lesson ms-lesson"><div class="lesson-head"><span class="lesson-num">5</span><h3>Resistencia de 1 kΩ</h3></div><p class="lesson-intro">1. Basic → RESISTOR. 2. Escribe 1k y selecciona el valor. 3. Revisa el encapsulado: la captura muestra una resistencia virtual sin paquete asignado. Para una PCB física se debe elegir una huella adecuada, por ejemplo 1206 si así lo pide el diseño.</p><figure class="ms-figure"><a href="imgs/multisim-guia/05.png" target="_blank" rel="noopener"><img src="imgs/multisim-guia/05.png" alt="Resistencia de 1 kΩ" loading="lazy"></a><figcaption>Guía visual · Resistencia de 1 kΩ</figcaption></figure></article>
+    <article class="lesson ms-lesson"><div class="lesson-head"><span class="lesson-num">6</span><h3>Conexión entre LED y resistencia</h3></div><p class="lesson-intro">1. El cable rojo une los terminales; el número 1 identifica la red. 2. LED1 tiene polaridad: la barra del símbolo señala el cátodo. 3. R1 limita la corriente. Para cablear, haz clic en los terminales o usa Ctrl+Q; completa el circuito y agrega tierra.</p><figure class="ms-figure ms-shot-small"><a href="imgs/multisim-guia/06.png" target="_blank" rel="noopener"><img src="imgs/multisim-guia/06.png" alt="Conexión entre LED y resistencia" loading="lazy"></a><figcaption>Guía visual · Conexión entre LED y resistencia</figcaption></figure></article>
+    <article class="lesson ms-lesson"><div class="lesson-head"><span class="lesson-num">7</span><h3>Fuente de voltaje DC</h3></div><p class="lesson-intro">1. V1 identifica la fuente. 2. 12 V es su valor en esta captura. El terminal asociado a la placa larga es positivo. Busca DC_POWER en Sources y ajusta el valor con doble clic. Este ejemplo es virtual.</p><figure class="ms-figure ms-shot-small"><a href="imgs/multisim-guia/07.png" target="_blank" rel="noopener"><img src="imgs/multisim-guia/07.png" alt="Fuente de voltaje DC" loading="lazy"></a><figcaption>Guía visual · Fuente de voltaje DC</figcaption></figure></article>
+    <article class="lesson ms-lesson"><div class="lesson-head"><span class="lesson-num">8</span><h3>Seleccionar una conexión</h3></div><p class="lesson-intro">1 y 2. Los cuadrados azules indican puntos de selección de la conexión. Haz clic sobre el cable para seleccionarlo; con doble clic puedes abrir sus propiedades.</p><figure class="ms-figure ms-shot-small"><a href="imgs/multisim-guia/08.png" target="_blank" rel="noopener"><img src="imgs/multisim-guia/08.png" alt="Seleccionar una conexión" loading="lazy"></a><figcaption>Guía visual · Seleccionar una conexión</figcaption></figure></article>
+    <article class="lesson ms-lesson"><div class="lesson-head"><span class="lesson-num">9</span><h3>Propiedades de una red</h3></div><p class="lesson-intro">1. Net name identifica la conexión. 2. Preferred net name permite nombrarla. 3. Show net name muestra el nombre cuando está habilitado. 4. Net color cambia su aspecto visual; no modifica su funcionamiento eléctrico. Confirma con OK.</p><figure class="ms-figure"><a href="imgs/multisim-guia/09.png" target="_blank" rel="noopener"><img src="imgs/multisim-guia/09.png" alt="Propiedades de una red" loading="lazy"></a><figcaption>Guía visual · Propiedades de una red</figcaption></figure></article>
+    <article class="lesson ms-lesson"><div class="lesson-head"><span class="lesson-num">10</span><h3>Análisis y simulación</h3></div><p class="lesson-intro">1. El panel izquierdo permite seleccionar el tipo de análisis: interactivo, punto DC, barrido AC o transitorio. 2. Analysis parameters configura el tiempo y pasos. 3. Output selecciona variables. 4. Run inicia el análisis. Para formas de onda en el tiempo, selecciona Transient.</p><figure class="ms-figure"><a href="imgs/multisim-guia/10.png" target="_blank" rel="noopener"><img src="imgs/multisim-guia/10.png" alt="Análisis y simulación" loading="lazy"></a><figcaption>Guía visual · Análisis y simulación</figcaption></figure></article>
+    <article class="lesson ms-lesson"><div class="lesson-head"><span class="lesson-num">11</span><h3>Menú principal</h3></div><p class="lesson-intro">1. File y Edit administran archivos y cambios. 2. View y Place muestran herramientas y agregan elementos. 3. Simulate controla análisis; Transfer y Tools ofrecen opciones adicionales. 4. Reports, Options, Window y Help permiten consultar informes, preferencias y ayuda.</p><figure class="ms-figure ms-shot-small"><a href="imgs/multisim-guia/11.png" target="_blank" rel="noopener"><img src="imgs/multisim-guia/11.png" alt="Menú principal" loading="lazy"></a><figcaption>Guía visual · Menú principal</figcaption></figure></article>
+    <article class="lesson ms-lesson"><div class="lesson-head"><span class="lesson-num">12</span><h3>Sonda de voltaje</h3></div><p class="lesson-intro">1. PR1 mide el potencial del nodo respecto a la referencia. 2. El cuadro muestra mediciones de tensión y frecuencia. Coloca una Voltage Probe sobre el cable, añade GROUND y ejecuta la simulación. La captura muestra −4.42 V; sin confirmar la referencia y el estado del circuito no debe interpretarse como caída del LED.</p><figure class="ms-figure ms-shot-small"><a href="imgs/multisim-guia/12.png" target="_blank" rel="noopener"><img src="imgs/multisim-guia/12.png" alt="Sonda de voltaje" loading="lazy"></a><figcaption>Guía visual · Sonda de voltaje</figcaption></figure></article>
+    <article class="lesson ms-lesson"><div class="lesson-head"><span class="lesson-num">13</span><h3>Gráfica transitoria de la bomba</h3></div><p class="lesson-intro">1. Área de la gráfica: rojo V(3), verde V(5) y azul I(L1), correspondientes a las tensiones de los nodos y la corriente de la carga. 2. Leyenda: identifica las variables y permite distinguir las curvas. El eje horizontal es el tiempo. Para obtener esta gráfica, selecciona las variables en Output del análisis transitorio.</p><figure class="ms-figure"><a href="imgs/multisim-guia/13.png" target="_blank" rel="noopener"><img src="imgs/multisim-guia/13.png" alt="Gráfica transitoria de la bomba" loading="lazy"></a><figcaption>Guía visual · Gráfica transitoria de la bomba</figcaption></figure></article>
+    <article class="lesson ms-lesson"><div class="lesson-head"><span class="lesson-num">14</span><h3>Cursores de medición</h3></div><p class="lesson-intro">1. Las líneas verticales fijan dos instantes. 2. La tabla Cursor muestra x1, x2, y1, y2 y diferencias. Activa los cursores desde el menú Cursor de Grapher y desplázalos sobre la señal. En la captura la corriente alcanza aproximadamente 0.549 A en el segundo cursor.</p><figure class="ms-figure"><a href="imgs/multisim-guia/14.png" target="_blank" rel="noopener"><img src="imgs/multisim-guia/14.png" alt="Cursores de medición" loading="lazy"></a><figcaption>Guía visual · Cursores de medición</figcaption></figure></article>
+    <article class="lesson ms-lesson"><div class="lesson-head"><span class="lesson-num">15</span><h3>Picos de tensión</h3></div><p class="lesson-intro">1. Los picos de la curva roja aparecen al interrumpir la corriente inductiva. 2. El panel Cursor permite medir su magnitud. En el proyecto se comparó la respuesta con y sin diodo de protección; esta captura muestra picos cercanos a 55 V en simulación.</p><figure class="ms-figure"><a href="imgs/multisim-guia/15.png" target="_blank" rel="noopener"><img src="imgs/multisim-guia/15.png" alt="Picos de tensión" loading="lazy"></a><figcaption>Guía visual · Picos de tensión</figcaption></figure></article>
+    <article class="lesson ms-lesson"><div class="lesson-head"><span class="lesson-num">16</span><h3>Barra de instrumentos virtuales</h3></div><p class="lesson-intro">Desde aquí se seleccionan equipos de medición. Entre ellos hay multímetros, generadores y osciloscopios. Pasa el puntero sobre cada icono para identificarlo; selecciona el instrumento y colócalo en el esquema.</p><figure class="ms-figure ms-shot-small"><a href="imgs/multisim-guia/16.png" target="_blank" rel="noopener"><img src="imgs/multisim-guia/16.png" alt="Barra de instrumentos virtuales" loading="lazy"></a><figcaption>Guía visual · Barra de instrumentos virtuales</figcaption></figure></article>
+    <article class="lesson ms-lesson"><div class="lesson-head"><span class="lesson-num">17</span><h3>Generador de funciones XFG1</h3></div><p class="lesson-intro">1. XFG1 es la referencia del generador de funciones. 2. En el instrumento se encuentran los símbolos de señal y los terminales +, COM y −. Abre el generador con doble clic para configurar forma de onda, frecuencia, amplitud y offset. En simulación, COM es la referencia de salida.</p><figure class="ms-figure ms-shot-small"><a href="imgs/multisim-guia/17.png" target="_blank" rel="noopener"><img src="imgs/multisim-guia/17.png" alt="Generador de funciones XFG1" loading="lazy"></a><figcaption>Guía visual · Generador de funciones XFG1</figcaption></figure></article>
+    <article class="lesson ms-lesson"><div class="lesson-head"><span class="lesson-num">18</span><h3>Osciloscopio virtual</h3></div><p class="lesson-intro">1. Pantalla: visualiza señales. 2. CH1–CH4: entradas y escalas verticales (VOLTS/DIV). 3. SEC/DIV: escala de tiempo. 4. Trigger: estabiliza la forma de onda. Conecta un canal a la señal, usa la referencia adecuada y ejecuta la simulación; ajusta las escalas para observarla.</p><figure class="ms-figure"><a href="imgs/multisim-guia/18.png" target="_blank" rel="noopener"><img src="imgs/multisim-guia/18.png" alt="Osciloscopio virtual" loading="lazy"></a><figcaption>Guía visual · Osciloscopio virtual</figcaption></figure></article>
+  </section>
+  <section class="ms-subsection" id="ms-atajos" aria-labelledby="ms-atajos-titulo"><h3 id="ms-atajos-titulo">Comandos y atajos de teclado</h3><div class="ms-guides">
+    <article class="ms-guide-card"><h4>Ctrl+W</h4><p>Agregar componente</p></article>
+    <article class="ms-guide-card"><h4>Ctrl+Q</h4><p>Dibujar cable</p></article>
+    <article class="ms-guide-card"><h4>Ctrl+J</h4><p>Colocar unión</p></article>
+    <article class="ms-guide-card"><h4>Ctrl+R</h4><p>Girar 90°</p></article>
+    <article class="ms-guide-card"><h4>Ctrl+Shift+R</h4><p>Girar en sentido contrario</p></article>
+    <article class="ms-guide-card"><h4>Ctrl+S</h4><p>Guardar</p></article>
+    <article class="ms-guide-card"><h4>Ctrl+Z</h4><p>Deshacer</p></article>
+    <article class="ms-guide-card"><h4>Ctrl+C / Ctrl+V</h4><p>Copiar / pegar</p></article>
+    <article class="ms-guide-card"><h4>F5</h4><p>Ejecutar o reanudar</p></article>
+    <article class="ms-guide-card"><h4>F6</h4><p>Pausar</p></article>
+    <article class="ms-guide-card"><h4>F7</h4><p>Ajustar a página</p></article>
+    <article class="ms-guide-card"><h4>F8 / F9</h4><p>Acercar / alejar</p></article>
+    <article class="ms-guide-card"><h4>Esc</h4><p>Cancelar</p></article>
+    </div><p class="ms-muted">Los atajos se pueden personalizar en Options → Customize User Interface → Keyboard. <a href="https://www.ni.com/en/support/documentation/supplemental/18/multisim-default-keyboard-shortcuts.html" target="_blank" rel="noopener">Referencia oficial de NI</a>.</p></section>
+  <!-- Fin de la guía visual adicional -->
 </div>
 <!-- /tab-multisim -->
 <!-- NUEVO: Altium y Proyecto de la materia -->
@@ -3610,9 +3649,9 @@ actualizado conforme avanza el curso.
 
       const nav = document.createElement('nav');
       nav.className = 'tutorial-page-nav';
-      nav.setAttribute('aria-label','Navegación de Práctica 1');
+      nav.setAttribute('aria-label','Navegación de Práctica');
       nav.innerHTML =
-        '<a href="#practica1">← Práctica 1</a>' +
+        '<a href="#practica1">← Práctica</a>' +
         '<a href="#kicad" data-tutorial="kicad">KiCad</a>' +
         '<a href="#mods" data-tutorial="mods">Mods CE</a>' +
         '<a href="#monofab" data-tutorial="monofab">MonoFab</a>' +
@@ -3648,7 +3687,7 @@ actualizado conforme avanza el curso.
     const titles = {
       inicio:'Inicio',
       materia:'Materia',
-      practica1:'Práctica 1',
+      practica1:'Práctica',
       equipo:'Equipo',
       ubicacion:'Ubicación',
       kicad:'KiCad',
